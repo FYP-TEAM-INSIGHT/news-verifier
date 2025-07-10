@@ -1,0 +1,44 @@
+# --- Data ---
+# Specify the FULL path to your combined training file
+# IMPORTANT: Replace /path/to/your/data/ with the actual path!
+trainFile = G:/FIT/FIT_FYP/ner/data/sinhala/sinhala-ner-train.tsv
+
+# Specify where to save the trained model file and its name
+# IMPORTANT: Replace /path/to/your/output/ with a suitable directory!
+serializeTo = G:/FIT/FIT_FYP/ner/sinhala-ner-model.ser.gz
+
+# Define input file structure: column 0 = word, column 1 = NER tag
+map = word=0,answer=1
+
+# --- Features (Good starting set) ---
+useClassFeature = true
+useWord = true
+useNGrams = true
+noMidNGrams = true
+maxNGramLeng = 6     
+usePrev = true
+useNext = true
+useSequences = true
+usePrevSequences = true
+maxLeft = 1
+useTypeSeqs = true
+useTypeSeqs2 = true
+useTypeySequences = true
+useWordShapes = true
+useDisjunctive = true
+disjunctionWidth = 4
+
+# --- Encoding ---
+# Ensure correct encoding for Sinhala characters
+encoding = UTF-8
+readerAndWriter = edu.stanford.nlp.sequences.ColumnDocumentReaderAndWriter
+
+# --- Optional: Add gazetteers later if you have lists of names/locations ---
+# gazette = /path/to/sinhala_gazetteer.txt
+
+# --- Training Parameters (Defaults are usually fine to start) ---
+# You might tune these later if needed
+# sigma=1.0
+# useQN=true
+# QNsize=15
+# tolerance=1e-4
