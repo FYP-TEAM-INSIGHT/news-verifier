@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
+from pydantic import BaseModel
 import uvicorn
 import logging
 
@@ -15,6 +16,13 @@ from modules.dynamic_ontology.populator import (
     populate_article_from_json,
     populate_bulk_articles,
 )
+
+
+class VerifyNewsRequest(BaseModel):
+    """Request model for verifying news articles"""
+
+    text: str
+
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -158,8 +166,41 @@ async def populate_bulk_articles_endpoint(request: BulkPopulateRequest):
         )
 
 
+@app.post("/news/verify")
+async def verify_news(request: VerifyNewsRequest):
+    """Endpoint to verify a news article"""
+    if not ontology_manager:
+        raise HTTPException(status_code=503, detail="Ontology manager not initialized")
+
+    try:
+        # Convert Pydantic model to dict
+        article_data = request.text
+
+        # Here you would implement the logic to verify the news article
+
+        # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
+
+        # STEP 02: Verify whether the news is a news or not.
+
+        # STEP 03: Do classification , sub-categorization, etc.
+
+        # STEP 04: Extract named entities using NER service
+
+        # STEP 05: Do the similarity checking with ontology.
+
+        # For now, we will just return the article data as a placeholder
+        return {"success": True, "article": article_data}
+
+    except Exception as e:
+        logger.error(f"Error verifying news article: {e}")
+        raise HTTPException(
+            status_code=500, detail=f"Error verifying news article: {str(e)}"
+        )
+
+
 if __name__ == "__main__":
+    # WHEN RUNNING ON DOCKER
     # uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, log_level="info")
 
-    # LOCAL DEVELOPMENT ON 127.0.0.1
+    # LOCAL DEVELOPMENT ON 127.0.0.1 (SPECIALLY ON WINDOWS)
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="info")
