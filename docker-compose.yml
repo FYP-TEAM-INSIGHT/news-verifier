@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: backend_service
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: ["python", "main.py"]
