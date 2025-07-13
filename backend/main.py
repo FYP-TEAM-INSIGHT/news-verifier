@@ -5,6 +5,7 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.simulations.simulations import simulate_news_verification
 from modules.dynamic_ontology.manager import OntologyManager
 from modules.dynamic_ontology.models import (
     NewsArticleCreate,
@@ -33,6 +34,7 @@ app = FastAPI(
     title="News Verifier Backend API",
     description="Backend API for News Verification System with Dynamic Ontology Management",
     version="1.0.0",
+    root_path="/api",
 )
 
 # Global ontology manager instance
@@ -196,6 +198,13 @@ async def verify_news(request: VerifyNewsRequest):
         raise HTTPException(
             status_code=500, detail=f"Error verifying news article: {str(e)}"
         )
+
+
+@app.post("/news/verify/simulate")
+async def simulate_verify_news(request: VerifyNewsRequest):
+    """Simulate news verification for testing purposes"""
+
+    return simulate_news_verification(request.text)
 
 
 if __name__ == "__main__":
