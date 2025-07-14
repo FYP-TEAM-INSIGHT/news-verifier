@@ -200,6 +200,7 @@ async def verify_news(request: VerifyNewsRequest):
         print(entities)
 
         # STEP 05: Do the similarity checking with ontology.
+        # result = check_news({content: article_data, category: "news", subcategory: "general"}, ontology_manager, debug=True)
 
         # For now, we will just return the article data as a placeholder
         return {"success": True, "article": article_data, "entities": entities}
