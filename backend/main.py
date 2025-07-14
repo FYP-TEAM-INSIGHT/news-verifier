@@ -5,6 +5,8 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.pre_processing.ner import extract_named_entities
+from modules.pre_processing import sinhala_preprocessor
 from modules.simulations.simulations import simulate_news_verification
 from modules.dynamic_ontology.manager import OntologyManager
 from modules.dynamic_ontology.models import (
@@ -44,11 +46,17 @@ ontology_manager = None
 @app.on_event("startup")
 async def startup_event():
     """Initialize the ontology manager on startup"""
-    global ontology_manager
+    global ontology_manager, sinhala_preprocessor
     try:
         logger.info("Initializing ontology manager...")
         ontology_manager = OntologyManager()
+
         logger.info("Ontology manager initialized successfully")
+
+        logger.info("Initializing Sinhala preprocessor...")
+        sinhala_preprocessor = sinhala_preprocessor.SinhalaPreprocessor()
+
+        logger.info("Sinhala preprocessor initialized successfully")
     except Exception as e:
         logger.error(f"Failed to initialize ontology manager: {e}")
         raise
@@ -181,17 +189,20 @@ async def verify_news(request: VerifyNewsRequest):
         # Here you would implement the logic to verify the news article
 
         # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
+        article_data = sinhala_preprocessor.preprocess_text(article_data)
 
         # STEP 02: Verify whether the news is a news or not.
 
         # STEP 03: Do classification , sub-categorization, etc.
 
         # STEP 04: Extract named entities using NER service
+        entities = extract_named_entities(article_data)
+        print(entities)
 
         # STEP 05: Do the similarity checking with ontology.
 
         # For now, we will just return the article data as a placeholder
-        return {"success": True, "article": article_data}
+        return {"success": True, "article": article_data, "entities": entities}
 
     except Exception as e:
         logger.error(f"Error verifying news article: {e}")

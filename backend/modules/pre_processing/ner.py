@@ -11,7 +11,7 @@ class NERServiceOutput(BaseModel):
 
 
 def extract_named_entities(
-    text: str, api_url="https://ner-server-v2.onrender.com"
+    text: str, api_url="https://ner-server-v2.onrender.com/ner"
 ) -> NERServiceOutput:
     """
     Extract named entities from the given text using an external NER service.
