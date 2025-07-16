@@ -16,6 +16,76 @@ The main objectives of this system are:
 - **Fact Verification Support**: Provide structured data for automated fact-checking systems
 - **Knowledge Graph Generation**: Create a queryable knowledge base of Sinhala news content
 
+
+## 📂 Project Structure
+
+```
+backend/
+frontend/
+```
+
+## 🛠️ Installation
+
+To set up the backend environment for the Sinhala News Ontology System, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+2. Navigate to the news-verifier directory:
+
+```bash
+cd news-verifier
+```
+
+3. Docker compose up 
+```bash
+docker compose up -d
+```
+
+### How to run the backend only
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+2. Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+3. Activate the virtual environment:
+```bash
+source .venv/Scripts/activate  # On Windows
+source .venv/bin/activate  # On macOS/Linux
+```
+
+4. Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Run the backend server:
+
+```bash
+python main.py
+```
+
+Note: Ensure you have Python 3.8+ installed and the necessary permissions to run the server. Also you need to change the running host because, it is used 0.0.0.0, but in windows it is not working, so you need to change it to 127.0.0.1
+```py
+    # WHEN RUNNING ON DOCKER
+    # uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, log_level="info")
+
+    # LOCAL DEVELOPMENT ON 127.0.0.1 (SPECIALLY ON WINDOWS)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="info")
+```
+
 ## 🏗️ System Architecture
 
 ### Core Components
