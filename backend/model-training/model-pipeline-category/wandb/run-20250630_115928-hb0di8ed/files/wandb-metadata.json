@@ -1,0 +1,40 @@
+{
+  "os": "Linux-6.1.123+-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.13",
+  "startedAt": "2025-06-30T11:59:29.324837Z",
+  "program": "model_creation.ipynb",
+  "codePath": "model_creation.ipynb",
+  "email": "fyp.teaminsight@gmail.com",
+  "root": "/content/drive/MyDrive/fnd-sample-1/classification_news_model/model-pipeline",
+  "host": "0328584b5233",
+  "executable": "/usr/bin/python3",
+  "codePathLocal": "model_creation.ipynb",
+  "colab": "https://colab.research.google.com/notebook#fileId=19rfQNc0sHQmlJd3GVN07XT_zYl5IDHPv",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "253055008768",
+      "used": "42857508864"
+    }
+  },
+  "memory": {
+    "total": "89631739904"
+  },
+  "cpu": {
+    "count": 6,
+    "countLogical": 12
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM4-40GB",
+      "memoryTotal": "42949672960",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-c8890181-8e42-715d-5574-d6c63501d2be"
+    }
+  ],
+  "cudaVersion": "12.4"
+}
