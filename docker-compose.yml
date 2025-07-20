@@ -1,28 +1,32 @@
+version: '3.8'
+
 services:
   backend:
     build: ./backend
     container_name: backend_service
-    working_dir: /app
-    volumes:
-      - ./backend:/app
     ports:
       - "8000:8000"
-    networks:
-      - internal-network
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Add if you need to wait for database
+    # depends_on:
+    #   - db
+
   frontend:
     build: ./frontend
     container_name: frontend_service
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
     ports:
       - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # Prevent node_modules from being overwritten
+      - /app/.next         # Prevent .next from being overwritten
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
     depends_on:
       - backend
-    networks:
-      - internal-network
-  
-  networks:
-  internal-network:
-    driver: bridge
 
