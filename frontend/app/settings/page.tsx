@@ -17,7 +17,12 @@ export default function Page() {
         <Switch
           id="animations"
           checked={isEnabled}
-          onCheckedChange={toggleSimulation}
+          onCheckedChange={
+            (checked) => {
+              toggleSimulation();
+              console.log("Simulation toggled:", checked);
+            }
+          }
         />
         <Label htmlFor="animations" className=" font-medium">
           Enable Simulations for API

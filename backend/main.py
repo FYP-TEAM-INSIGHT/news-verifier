@@ -1,3 +1,4 @@
+from math import sin
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -5,6 +6,7 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.similarity_matching.similarity_engine import get_semantic_similarity_score
 from modules.similarity_matching.checker import check_news
 from modules.pre_processing.news_classification import get_category_subcategory
 from modules.pre_processing.news_detection import get_news_or_not
@@ -28,6 +30,13 @@ class VerifyNewsRequest(BaseModel):
     """Request model for verifying news articles"""
 
     text: str
+
+
+class SimilarityCheckRequest(BaseModel):
+    """Request model for checking similarity of news content"""
+
+    news_text: str
+    trusted_text: str
 
 
 class CheckNewsModel(BaseModel):
@@ -100,7 +109,7 @@ async def health_check():
         )
 
 
-@app.get("/ontology/stats")
+@app.get("/ontology/stats", tags=["Ontology"])
 async def get_ontology_stats():
     """Get ontology statistics"""
     if not ontology_manager:
@@ -116,7 +125,9 @@ async def get_ontology_stats():
         )
 
 
-@app.post("/ontology/populate-article", response_model=NewsArticleResponse)
+@app.post(
+    "/ontology/populate-article", response_model=NewsArticleResponse, tags=["Ontology"]
+)
 async def populate_single_article(article: NewsArticleCreate):
     """Populate a single news article into the ontology"""
     if not ontology_manager:
@@ -152,7 +163,9 @@ async def populate_single_article(article: NewsArticleCreate):
         )
 
 
-@app.post("/ontology/populate-bulk", response_model=BulkPopulateResponse)
+@app.post(
+    "/ontology/populate-bulk", response_model=BulkPopulateResponse, tags=["Ontology"]
+)
 async def populate_bulk_articles_endpoint(request: BulkPopulateRequest):
     """Populate multiple news articles into the ontology"""
     if not ontology_manager:
@@ -191,7 +204,7 @@ async def populate_bulk_articles_endpoint(request: BulkPopulateRequest):
         )
 
 
-@app.post("/news/verify")
+@app.post("/news/verify", tags=["News Verification"])
 async def verify_news(request: VerifyNewsRequest):
     """Endpoint to verify a news article"""
     if not ontology_manager:
@@ -254,18 +267,97 @@ async def verify_news(request: VerifyNewsRequest):
         )
 
 
-@app.post("/news/verify/simulate")
+@app.post("/news/verify/simulate", tags=["News Verification"])
 async def simulate_verify_news(request: VerifyNewsRequest):
     """Simulate news verification for testing purposes"""
 
-    # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
-    cleaned_text = sinhala_preprocessor.preprocess_text(request.text)
-    logger.info(f"cleaned_text: {cleaned_text}")
+    flow = []
 
-    entities = extract_named_entities(cleaned_text)
-    logger.info(f"Extracted entities: {entities}")
+    cleaned = sinhala_preprocessor.preprocess_text(request.text)
+    flow.append({"step": "Pre-processing", "result": cleaned})
 
-    return simulate_news_verification(cleaned_text)
+    return simulate_news_verification(cleaned)
+
+
+@app.post("/similarity/check", tags=["Similarity Matching"])
+async def check_similarity(request: SimilarityCheckRequest):
+    """Endpoint to check similarity of news content"""
+
+    try:
+        # Convert Pydantic model to dict
+        news_data = request.dict()
+
+        # Perform similarity check
+        result = get_semantic_similarity_score(
+            news_text=news_data["news_text"],
+            trusted_texts=[news_data["trusted_text"]],
+        )
+
+        return result
+
+    except Exception as e:
+        logger.error(f"Error checking similarity: {e}")
+        raise HTTPException(
+            status_code=500, detail=f"Error checking similarity: {str(e)}"
+        )
+
+
+@app.post("/pre-processing/preprocess", tags=["Pre-processing"])
+async def preprocess_text(request: VerifyNewsRequest):
+    """Endpoint to preprocess text"""
+
+    try:
+        # Call the preprocessing function
+        result = sinhala_preprocessor.preprocess_text(request.text)
+        return {"preprocessed_text": result}
+
+    except Exception as e:
+        logger.error(f"Error preprocessing text: {e}")
+        raise HTTPException(status_code=500, detail="Error preprocessing text")
+
+
+@app.post("/pre-processing/detect-news", tags=["Pre-processing"])
+async def detect_news(request: VerifyNewsRequest):
+    """Endpoint to detect news"""
+    try:
+        # Call the news detection function
+        result = get_news_or_not(request.text)
+        return {"is_news": result}
+
+    except Exception as e:
+        logger.error(f"Error detecting news: {e}")
+        raise HTTPException(status_code=500, detail="Error detecting news")
+
+
+@app.post("/pre-processing/classify", tags=["Pre-processing"])
+async def classify_news(request: VerifyNewsRequest):
+    """Endpoint to classify news"""
+    try:
+        # Call the classification function
+        category, subcategory = get_category_subcategory(request.text)
+        return {"category": category, "subcategory": subcategory}
+
+    except Exception as e:
+        logger.error(f"Error classifying news: {e}")
+        raise HTTPException(status_code=500, detail="Error classifying news")
+
+
+@app.post("/pre-processing/ner", tags=["Pre-processing"])
+async def extract_entities(request: VerifyNewsRequest):
+    """Endpoint to extract named entities from news text"""
+    try:
+        # Call the NER extraction function
+        persons, locations, events, organizations = extract_named_entities(request.text)
+        return {
+            "persons": persons,
+            "locations": locations,
+            "events": events,
+            "organizations": organizations,
+        }
+
+    except Exception as e:
+        logger.error(f"Error extracting named entities: {e}")
+        raise HTTPException(status_code=500, detail="Error extracting named entities")
 
 
 if __name__ == "__main__":

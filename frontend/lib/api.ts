@@ -11,9 +11,10 @@ export class APIError extends Error {
 export interface VerificationResponse {
   final_score: number;
   result: string;
-  relevant_news: Array<{
+  semantic_ranking: Array<{
+    title: string;
     score: number;
-    link: string;
+    url: string;
   }>;
   breakdown: {
     entity_similarity: number;

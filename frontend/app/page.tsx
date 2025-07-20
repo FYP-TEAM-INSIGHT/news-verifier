@@ -495,18 +495,18 @@ export default function NewsVerifier() {
             </CardContent>
           </Card>
 
-          {/* Relevant News */}
-          {result.relevant_news && result.relevant_news.length > 0 && (
+          {/* Semantic Ranking */}
+          {result.semantic_ranking && result.semantic_ranking.length > 0 && (
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle>Related News Sources</CardTitle>
+                <CardTitle>Related News Sources - Semantic Ranking</CardTitle>
                 <CardDescription>
-                  Similar news articles found for cross-reference
+                  Similar news articles found for cross-reference 
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  {result.relevant_news.map((news, index) => (
+                  {result.semantic_ranking.map((news, index) => (
                     <div
                       key={index}
                       className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
@@ -516,12 +516,14 @@ export default function NewsVerifier() {
                           {Math.round(news.score * 100)}% match
                         </Badge>
                         <span className="text-sm text-gray-600">
-                          Related source
+                          {news.title.length > 70
+                            ? `${news.title.substring(0, 70)}...`
+                            : news.title}{" "}
                         </span>
                       </div>
                       <Button variant="ghost" size="sm" asChild>
                         <a
-                          href={news.link}
+                          href={news.url}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
