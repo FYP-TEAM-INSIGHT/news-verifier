@@ -64,7 +64,7 @@ def get_semantic_similarity_score(
 ):
     payload = {"news_text": news_text, "trusted_texts": trusted_texts}
     try:
-        response = requests.post(api_url, json=payload, timeout=30)
+        response = requests.post(api_url, json=payload, timeout=90)
         response.raise_for_status()
         result = response.json()
         return float(result.get("max_similarity", 0.0))

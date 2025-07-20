@@ -6,7 +6,7 @@ def get_news_or_not(
 ):
     payload = {"text": news_text}
     try:
-        response = requests.post(api_url, json=payload, timeout=30)
+        response = requests.post(api_url, json=payload, timeout=90)
         response.raise_for_status()
         result = response.json()
         return result.get("checking", "")

@@ -13,7 +13,7 @@ class NERServiceOutput(BaseModel):
 def extract_named_entities(news_text, api_url="https://ner-server-v2.onrender.com/ner"):
     payload = {"text": news_text}
     try:
-        response = requests.post(api_url, json=payload, timeout=30)
+        response = requests.post(api_url, json=payload, timeout=90)
         response.raise_for_status()
         result = response.json()
         return (
