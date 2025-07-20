@@ -5,6 +5,7 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.similarity_matching.checker import check_news
 from modules.pre_processing.news_classification import get_category_subcategory
 from modules.pre_processing.news_detection import get_news_or_not
 from modules.pre_processing.ner import extract_named_entities
@@ -27,6 +28,18 @@ class VerifyNewsRequest(BaseModel):
     """Request model for verifying news articles"""
 
     text: str
+
+
+class CheckNewsModel(BaseModel):
+    """Model for checking news articles"""
+
+    content: str
+    category: str
+    subcategory: str
+    persons: list[str] = []
+    locations: list[str] = []
+    events: list[str] = []
+    organizations: list[str] = []
 
 
 # Setup logging
@@ -188,8 +201,6 @@ async def verify_news(request: VerifyNewsRequest):
         # Convert Pydantic model to dict
         article_data = request.text
 
-        # Here you would implement the logic to verify the news article
-
         # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
         article_data = sinhala_preprocessor.preprocess_text(article_data)
 
@@ -206,20 +217,35 @@ async def verify_news(request: VerifyNewsRequest):
         # STEP 03: Do classification , sub-categorization, etc.
         classification_result = get_category_subcategory(article_data)
         print(f"[DEBUG] Classification result: {classification_result}")
+
+        # Check if category and subcategory are valid
         if classification_result[0] == "" or classification_result[1] == "":
             raise HTTPException(
                 status_code=400, detail="Could not determine category or subcategory."
             )
 
         # STEP 04: Extract named entities using NER service
-        entities = extract_named_entities(article_data)
-        print(entities)
+        persons, locations, events, organizations = extract_named_entities(article_data)
+        print(
+            f"[DEBUG] Extracted entities: {'persons': persons, 'locations': locations, 'events': events, 'organizations': organizations}"
+        )
+
+        formatted_article_data = CheckNewsModel(
+            content=article_data,
+            category=classification_result[0],
+            subcategory=classification_result[1],
+            persons=persons,
+            locations=locations,
+            events=events,
+            organizations=organizations,
+        )
 
         # STEP 05: Do the similarity checking with ontology.
-        # result = check_news({content: article_data, category: "news", subcategory: "general"}, ontology_manager, debug=True)
-
-        # For now, we will just return the article data as a placeholder
-        return {"success": True, "article": article_data, "entities": entities}
+        return check_news(
+            news_json=formatted_article_data.dict(),
+            ontology_manager=ontology_manager,
+            debug=True,
+        )
 
     except Exception as e:
         logger.error(f"Error verifying news article: {e}")

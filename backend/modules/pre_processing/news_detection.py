@@ -1,3 +1,6 @@
+import requests
+
+
 def get_news_or_not(
     news_text, api_url="https://relaxing-morally-wallaby.ngrok-free.app/check_news"
 ):
