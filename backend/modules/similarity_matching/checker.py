@@ -2,8 +2,8 @@
 Main entry point for fake news similarity checking logic.
 """
 
-from calendar import c
-from typing import Dict, Any, TypedDict
+from typing import Dict, Any
+from pydantic import BaseModel
 from .similarity_engine import (
     get_verified_values,
     get_trusted_publishers,
@@ -53,14 +53,34 @@ def check_fake(
             print(f"  {etype}: {score:.3f} (count={counts[etype]})")
         print(f"  Overall entity similarity score: {entity_similarity_score:.3f}")
 
-    # --- Semantic Similarity ---
-    trusted_texts = get_trusted_contents_by_category(subcat)
+    # --- Semantic Similarity Ranking ---
+    trusted_cont = get_trusted_contents_by_category(subcat)
     content = news_json.get("content", "")
-    semantic_similarity_score = get_semantic_similarity_score(content, trusted_texts)
-    if debug:
-        print(f"\n[Semantic Similarity] Content: {content!r}")
-        print(f"  Trusted texts: {trusted_texts[:3]}... (total {len(trusted_texts)})")
-        print(f"  Semantic similarity score: {semantic_similarity_score:.3f}")
+    similarity_results = []
+    for t in trusted_cont:
+        score = get_semantic_similarity_score(
+            content, [t.trustSementics]
+        )  # Send [t], not t!
+        similarity_results.append(
+            {
+                "title": t.title,
+                "url": t.url,
+                "trustSementics": t.trustSementics,
+                "score": score,
+            }
+        )
+    similarity_results.sort(key=lambda x: x["score"], reverse=True)
+    for idx, item in enumerate(similarity_results, 1):
+        item["rank"] = idx
+
+    max_semantic_similarity_score = (
+        similarity_results[0]["score"] if similarity_results else 0.0
+    )
+    semantic_similarity_score = (
+        sum(x["score"] for x in similarity_results) / len(similarity_results)
+        if similarity_results
+        else 0.0
+    )
 
     # --- Source Credibility ---
     trusted_publishers = get_trusted_publishers()
@@ -77,7 +97,7 @@ def check_fake(
     # --- Composite Score (weights can be tuned, e.g. 0.4/0.3/0.3) ---
     final_score = (
         0.4 * entity_similarity_score
-        + 0.3 * semantic_similarity_score
+        + 0.3 * max_semantic_similarity_score
         + 0.3 * source_credibility_score
     )
 
@@ -94,22 +114,28 @@ def check_fake(
         "result": result,
         "breakdown": {
             "entity_similarity": entity_similarity_score,
-            "semantic_similarity": semantic_similarity_score,
+            "semantic_similarity": max_semantic_similarity_score,
             "source_credibility": source_credibility_score,
             "per_entity": avg_scores,
         },
+        "semantic_ranking": similarity_results,
     }
 
 
-class NewsJson(TypedDict):
+class CheckNewsModel(BaseModel):
+    """Model for checking news articles"""
+
     content: str
     category: str
     subcategory: str
-    entity_types: Dict[str, list[str]]
+    persons: list[str] = []
+    locations: list[str] = []
+    events: list[str] = []
+    organizations: list[str] = []
 
 
 def check_news(
-    news_json: NewsJson, ontology_manager, debug: bool = False
+    news_json: CheckNewsModel, ontology_manager, debug: bool = False
 ) -> Dict[str, Any]:
     """
     Checks if a news article is fake by comparing entities, content, and source credibility.
@@ -146,14 +172,35 @@ def check_news(
             print(f"  {etype}: {score:.3f} (count={counts[etype]})")
         print(f"  Overall entity similarity score: {entity_similarity_score:.3f}")
 
-    # --- Semantic Similarity ---
-    trusted_texts = get_trusted_contents_by_category(subcat)
+    # --- Semantic Similarity Ranking ---
+    trusted_cont = get_trusted_contents_by_category(subcat)
     content = news_json.get("content", "")
-    semantic_similarity_score = get_semantic_similarity_score(content, trusted_texts)
-    if debug:
-        print(f"\n[Semantic Similarity] Content: {content!r}")
-        print(f"  Trusted texts: {trusted_texts[:3]}... (total {len(trusted_texts)})")
-        print(f"  Semantic similarity score: {semantic_similarity_score:.3f}")
+    similarity_results = []
+    for t in trusted_cont:
+        score = get_semantic_similarity_score(
+            content, [t.trustSementics]
+        )  # Send [t], not t!
+        similarity_results.append(
+            {
+                "title": t.title,
+                "url": t.url,
+                "trustSementics": t.trustSementics,
+                "score": score,
+            }
+        )
+    similarity_results.sort(key=lambda x: x["score"], reverse=True)
+    for idx, item in enumerate(similarity_results, 1):
+        item["rank"] = idx
+
+    max_semantic_similarity_score = (
+        similarity_results[0]["score"] if similarity_results else 0.0
+    )
+
+    semantic_similarity_score = (
+        sum(x["score"] for x in similarity_results) / len(similarity_results)
+        if similarity_results
+        else 0.0
+    )
 
     # --- Source Credibility ---
     trusted_publishers = get_trusted_publishers()
@@ -170,7 +217,7 @@ def check_news(
     # --- Composite Score (weights can be tuned, e.g. 0.4/0.3/0.3) ---
     final_score = (
         0.4 * entity_similarity_score
-        + 0.3 * semantic_similarity_score
+        + 0.3 * max_semantic_similarity_score
         + 0.3 * source_credibility_score
     )
 
@@ -187,8 +234,9 @@ def check_news(
         "result": result,
         "breakdown": {
             "entity_similarity": entity_similarity_score,
-            "semantic_similarity": semantic_similarity_score,
+            "semantic_similarity": max_semantic_similarity_score,
             "source_credibility": source_credibility_score,
             "per_entity": avg_scores,
         },
+        "semantic_ranking": similarity_results,
     }

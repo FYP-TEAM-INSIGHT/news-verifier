@@ -1,4 +1,3 @@
-from html import entities
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -6,6 +5,8 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.pre_processing.news_classification import get_category_subcategory
+from modules.pre_processing.news_detection import get_news_or_not
 from modules.pre_processing.ner import extract_named_entities
 from modules.pre_processing import sinhala_preprocessor
 from modules.simulations.simulations import simulate_news_verification
@@ -193,8 +194,22 @@ async def verify_news(request: VerifyNewsRequest):
         article_data = sinhala_preprocessor.preprocess_text(article_data)
 
         # STEP 02: Verify whether the news is a news or not.
+        checked_news = get_news_or_not(article_data)
+        print(f"[DEBUG] is_news: {checked_news}")
+        if checked_news != "news":
+            raise HTTPException(
+                status_code=400,
+                detail="The provided content is not recognized as news. It is categorized as: "
+                + checked_news,
+            )
 
         # STEP 03: Do classification , sub-categorization, etc.
+        classification_result = get_category_subcategory(article_data)
+        print(f"[DEBUG] Classification result: {classification_result}")
+        if classification_result[0] == "" or classification_result[1] == "":
+            raise HTTPException(
+                status_code=400, detail="Could not determine category or subcategory."
+            )
 
         # STEP 04: Extract named entities using NER service
         entities = extract_named_entities(article_data)

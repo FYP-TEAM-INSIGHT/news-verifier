@@ -1,4 +1,4 @@
-from requests import post
+import requests
 from requests.exceptions import RequestException
 from pydantic import BaseModel
 
@@ -10,23 +10,18 @@ class NERServiceOutput(BaseModel):
     events: list[str]
 
 
-def extract_named_entities(
-    text: str, api_url="https://ner-server-v2.onrender.com/ner"
-) -> NERServiceOutput:
-    """
-    Extract named entities from the given text using an external NER service.
-
-    Args:
-        text (str): The input text from which to extract named entities.
-        api_url (str): The URL of the NER service.
-
-    Returns:
-        NERServiceOutput: The extracted named entities as a Pydantic model.
-    """
-    payload = {"text": text}
+def extract_named_entities(news_text, api_url="https://ner-server-v2.onrender.com/ner"):
+    payload = {"text": news_text}
     try:
-        response = post(api_url, json=payload, timeout=90)
+        response = requests.post(api_url, json=payload, timeout=30)
         response.raise_for_status()
-        return NERServiceOutput(**response.json())
-    except RequestException as e:
-        raise Exception(f"Failed to extract named entities: {e}")
+        result = response.json()
+        return (
+            result.get("persons", []),
+            result.get("locations", []),
+            result.get("events", []),
+            result.get("organizations", []),
+        )
+    except Exception as e:
+        print(f"[Error] Could not get entities from API: {e}")
+        return [], [], [], []

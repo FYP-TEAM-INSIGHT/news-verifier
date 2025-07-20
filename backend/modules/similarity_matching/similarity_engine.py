@@ -2,12 +2,18 @@
 Algorithms for string/entity/semantic similarity.
 """
 
+from pydantic import BaseModel
 import requests
 from rapidfuzz.fuzz import ratio
 from owlready2 import default_world
-from .query_mapping import QUERY_MAP, query43, query44
 
 # 1. Helper: Get verified values from ontology using SPARQL
+
+
+class TrustedContent(BaseModel):
+    trustSementics: str
+    title: str
+    url: str
 
 
 def get_verified_values(sparql_query):
@@ -35,19 +41,26 @@ def get_trusted_contents_by_category(category):
     category_uri = f"ns:{category}"
     sparql = f"""
     PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
-    SELECT DISTINCT ?trustSementics
+    SELECT DISTINCT ?trustSementics ?title ?url
     WHERE {{
       ?article ns:hasCategory ?cat .
       FILTER (?cat = {category_uri})
       ?article ns:hasFullText ?trustSementics .
+      ?article ns:hasTitle ?title .
+      ?article ns:hasSourceURL ?url .
     }}
     """
     results = list(default_world.sparql(sparql))
-    return [str(r[0]) for r in results]
+    return [
+        TrustedContent(trustSementics=str(r[0]), title=str(r[1]), url=str(r[2]))
+        for r in results
+    ]
 
 
 def get_semantic_similarity_score(
-    news_text, trusted_texts, api_url="https://5f563af82bb5.ngrok-free.app/similarity"
+    news_text,
+    trusted_texts,
+    api_url="https://neat-eagerly-tiger.ngrok-free.app/similarity",
 ):
     payload = {"news_text": news_text, "trusted_texts": trusted_texts}
     try:
