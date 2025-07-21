@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 import requests
 
 
@@ -12,4 +13,7 @@ def get_news_or_not(
         return result.get("checking", "")
     except Exception as e:
         print(f"[Error] Could not get news or not from API: {e}")
-        return False
+        raise HTTPException(
+            status_code=500,
+            detail="Failed to connect to the news detection service. Please try again later.",
+        )

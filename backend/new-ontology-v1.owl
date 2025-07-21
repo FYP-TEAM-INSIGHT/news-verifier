@@ -261,19 +261,7 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#NewsArticle">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#NewsCategory">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#NamedEntity">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Statement">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -281,15 +269,67 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#NewsOccurDuration">
+<owl:Class rdf:about="#NewsCategory">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Person">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#DomesticPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cricket">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Football">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#InternationalPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MusicAndArts">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CrimeReport">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ResearchAndSpace">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Other">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TechAndInnovation">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CourtsAndInvestigation">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ScreenAndStage">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Statement">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Organization">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Event">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Person">
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
@@ -297,8 +337,12 @@
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Event">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#NewsArticle">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NewsOccurDuration">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#PoliticsAndGovernance">
@@ -319,50 +363,6 @@
 
 <owl:Class rdf:about="#CrimeAndJustice">
   <rdfs:subClassOf rdf:resource="#NewsCategory"/>
-</owl:Class>
-
-<owl:Class rdf:about="#InternationalPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#DomesticPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#TechAndInnovation">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ResearchAndSpace">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ScreenAndStage">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
-</owl:Class>
-
-<owl:Class rdf:about="#MusicAndArts">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Cricket">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Football">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Other">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CrimeReport">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CourtsAndInvestigation">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
 </owl:Class>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24_">
@@ -2002,12 +2002,15 @@
   <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
   <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
   <hasCricketTournament rdf:resource="#ට_ස_ට__තරගය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ශ්‍රී ලංකා නායක ඇන්ජලෝ මැතිව්ස් ටෙස්ට් ක්‍රිකට් පිටියට සමු දෙන බවට නිවේදනය කරයි....</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-23T06:32:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/23/%e0%b7%84%e0%b7%92%e0%b6%a7%e0%b6%b4%e0%b7%94-%e0%b7%81%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93-%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b6%b1%e0%b7%8f</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.149</processedDate>
+  <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
+  <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
   <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තමන් ටෙස්ට් ක්‍රිකට් තරග බිමෙන් සමු ගන්නා බව හිටපු ශ්‍රී ලංකා ක්‍රිකට් නායක ඇන්ජලෝ මැතිව්ස් අද (23) නිවේදනය කළේ ය.2009 වසරේදී පාකිස්ථානයට එරෙහිව පළමු ටෙස්ට් තරගයට ක්‍රීඩා කළ ඇන්ජලෝ මැතිව්ස් වසර 17ක් තරග බිමේ රැඳී සිටියේ ය.ටෙස්ට් තරග 118කට ක්‍රීඩා කළ ඔහු, ශතක 16ක් සහ අර්ධ ශතක 45ක්ද සමගින් රැස් කර ඇති ලකුණු සංඛ්‍යාව 8167 ක්.තුන් ඉරියව්වෙන්ම දස්කම් දක්වන ක්‍රීඩකයෙකු වන ඔහු, ටෙස්ට් කඩුලු 33ක් දවාගෙන තිබේ.වසර 17ක් ටෙස්ට් ක්‍රිකට් ක්‍රීඩාවේ නිරත වීමට ලැබීම තමන් ලැබූ ඉහළම ගෞරවය සහ ආඩම්බරයට හේතුව බව ඇන්ජලෝ මැතිව්ස්ගේ ෆේස් බුක් සටහනේ සඳහන්.ජාතික කණ්ඩායමේ ජර්සිය පැළඳ සිටින විට ඇතිවන අභිමානයට සම කළ හැකි කිසිවක් නොමැති බවද, එහි වැඩි දුරටත් දැක්වේ.ක්‍රීඩා ලෝලීන්ට ස්තූතිය පළ කරන මැතිව්ස් පවසන්නේ මෙය ටෙස්ට් පිටියට සමු දීමට සුදුසුම කාලය බවයි.ඒ අනුව, බංග්ලාදේශය සමග ලබන ජූනි මාසයේ පැවැත්වෙන පළමු ටෙස්ට් තරගය තමන්ගේ අවසන් ටෙස්ට් තරගය වනු ඇතැයි ඔහු සඳහන් කරතිබේ.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ශ්‍රී ලංකා නායක ඇන්ජලෝ මැතිව්ස් ටෙස්ට් ක්‍රිකට් පිටියට සමු දෙන බවට නිවේදනය කරයි</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-23T06:32:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/23/%e0%b7%84%e0%b7%92%e0%b6%a7%e0%b6%b4%e0%b7%94-%e0%b7%81%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93-%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b6%b1%e0%b7%8f</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T04:03:25.139</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තමන් ටෙස්ට් ක්‍රිකට් තරග බිමෙන් සමු ගන්නා බව හිටපු ශ්‍රී ලංකා ක්‍රිකට් නායක ඇන්ජලෝ මැතිව්ස් අද (23) නිවේදනය කළේ ය.</hasFullText>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඇන_ජල__ම_ත_ව_ස_">

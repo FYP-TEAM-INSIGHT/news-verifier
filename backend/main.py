@@ -296,12 +296,6 @@ async def verify_news(request: VerifyNewsRequest):
         checked_news = get_news_or_not(article_data)
         flow.append({"step": "News Detection", "result": checked_news})
         print(f"[DEBUG] is_news: {checked_news}")
-        if checked_news != "news":
-            raise HTTPException(
-                status_code=400,
-                detail="The provided content is not recognized as news. It is categorized as: "
-                + checked_news,
-            )
 
         # STEP 03: Do classification , sub-categorization, etc.
         classification_result = get_category_subcategory(article_data)
@@ -325,17 +319,12 @@ async def verify_news(request: VerifyNewsRequest):
         # STEP 04: Extract named entities using NER service
         persons, locations, events, organizations = extract_named_entities(article_data)
         print(
-            f"[DEBUG] Extracted entities: {'persons': persons, 'locations': locations, 'events': events, 'organizations': organizations}"
+            f"[DEBUG] Extracted entities: persons={persons}, locations={locations}, events={events}, organizations={organizations}"
         )
         flow.append(
             {
                 "step": "Named Entity Recognition",
-                "result": {
-                    "persons": persons,
-                    "locations": locations,
-                    "events": events,
-                    "organizations": organizations,
-                },
+                "result": f"persons={persons}, locations={locations}, events={events}, organizations={organizations}",
             }
         )
 
