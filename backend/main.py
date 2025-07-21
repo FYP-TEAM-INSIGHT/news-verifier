@@ -1,4 +1,3 @@
-from math import sin
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -49,6 +48,16 @@ class CheckNewsModel(BaseModel):
     locations: list[str] = []
     events: list[str] = []
     organizations: list[str] = []
+
+
+class NewsArticleFromSource(BaseModel):
+    """Model for news article from source"""
+
+    headline: str
+    content: str
+    source: str
+    timestamp: str
+    url: str
 
 
 # Setup logging
@@ -204,11 +213,76 @@ async def populate_bulk_articles_endpoint(request: BulkPopulateRequest):
         )
 
 
+@app.post("/ontology/preprocess-n-populate", tags=["Ontology"])
+async def preprocess_and_populate(request: NewsArticleFromSource):
+    """Endpoint to preprocess text and populate into ontology"""
+    if not ontology_manager:
+        raise HTTPException(status_code=503, detail="Ontology manager not initialized")
+
+    try:
+        # Preprocess the text
+        preprocessed_text = sinhala_preprocessor.preprocess_text(request.content)
+
+        # Get category and subcategory
+        category, subcategory = get_category_subcategory(preprocessed_text)
+
+        if not category or not subcategory:
+            raise HTTPException(
+                status_code=400,
+                detail="Could not determine category or subcategory from the content.",
+            )
+
+        # Extract named entities
+        persons, locations, events, organizations = extract_named_entities(
+            preprocessed_text
+        )
+
+        # Create a NewsArticleCreate instance
+        article_data = NewsArticleCreate(
+            headline=request.headline,
+            content=preprocessed_text,
+            source=request.source,
+            timestamp=request.timestamp,
+            url=request.url,
+            category=category,
+            subcategory=subcategory,
+            persons=persons,
+            locations=locations,
+            events=events,
+            organizations=organizations,
+        )
+
+        # Populate the article into the ontology
+        article_individual = populate_article_from_json(
+            article_data.dict(), ontology_manager
+        )
+
+        # Save the ontology
+        ontology_manager.save()
+
+        return NewsArticleResponse(
+            success=True,
+            message="Article populated successfully",
+            article_id=str(article_individual.name)
+            if hasattr(article_individual, "name")
+            else None,
+        )
+
+    except Exception as e:
+        logger.error(f"Error preprocessing and populating article: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error preprocessing and populating article: {str(e)}",
+        )
+
+
 @app.post("/news/verify", tags=["News Verification"])
 async def verify_news(request: VerifyNewsRequest):
     """Endpoint to verify a news article"""
     if not ontology_manager:
         raise HTTPException(status_code=503, detail="Ontology manager not initialized")
+
+    flow = []
 
     try:
         # Convert Pydantic model to dict
@@ -216,9 +290,11 @@ async def verify_news(request: VerifyNewsRequest):
 
         # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
         article_data = sinhala_preprocessor.preprocess_text(article_data)
+        flow.append({"step": "Pre-processing", "result": article_data})
 
         # STEP 02: Verify whether the news is a news or not.
         checked_news = get_news_or_not(article_data)
+        flow.append({"step": "News Detection", "result": checked_news})
         print(f"[DEBUG] is_news: {checked_news}")
         if checked_news != "news":
             raise HTTPException(
@@ -230,6 +306,15 @@ async def verify_news(request: VerifyNewsRequest):
         # STEP 03: Do classification , sub-categorization, etc.
         classification_result = get_category_subcategory(article_data)
         print(f"[DEBUG] Classification result: {classification_result}")
+        flow.append(
+            {
+                "step": "Classification",
+                "result": "Category: "
+                + classification_result[0]
+                + ", Subcategory: "
+                + classification_result[1],
+            }
+        )
 
         # Check if category and subcategory are valid
         if classification_result[0] == "" or classification_result[1] == "":
@@ -241,6 +326,17 @@ async def verify_news(request: VerifyNewsRequest):
         persons, locations, events, organizations = extract_named_entities(article_data)
         print(
             f"[DEBUG] Extracted entities: {'persons': persons, 'locations': locations, 'events': events, 'organizations': organizations}"
+        )
+        flow.append(
+            {
+                "step": "Named Entity Recognition",
+                "result": {
+                    "persons": persons,
+                    "locations": locations,
+                    "events": events,
+                    "organizations": organizations,
+                },
+            }
         )
 
         formatted_article_data = CheckNewsModel(
@@ -254,11 +350,15 @@ async def verify_news(request: VerifyNewsRequest):
         )
 
         # STEP 05: Do the similarity checking with ontology.
-        return check_news(
+        result = check_news(
             news_json=formatted_article_data.dict(),
             ontology_manager=ontology_manager,
             debug=True,
         )
+
+        result["flow"] = flow
+
+        return result
 
     except Exception as e:
         logger.error(f"Error verifying news article: {e}")
@@ -276,7 +376,10 @@ async def simulate_verify_news(request: VerifyNewsRequest):
     cleaned = sinhala_preprocessor.preprocess_text(request.text)
     flow.append({"step": "Pre-processing", "result": cleaned})
 
-    return simulate_news_verification(cleaned)
+    result = simulate_news_verification(cleaned)
+
+    result["flow"] = flow
+    return result
 
 
 @app.post("/similarity/check", tags=["Similarity Matching"])

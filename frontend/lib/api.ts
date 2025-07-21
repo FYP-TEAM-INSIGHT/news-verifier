@@ -8,6 +8,11 @@ export class APIError extends Error {
   }
 }
 
+export interface VerificationFlow {
+  step: string;
+  result: string;
+}
+
 export interface VerificationResponse {
   final_score: number;
   result: string;
@@ -27,6 +32,7 @@ export interface VerificationResponse {
       organizations: number;
     };
   };
+  flow?: VerificationFlow[];
 }
 
  const mockVerifyNews = async (text: string): Promise<VerificationResponse> => {
