@@ -8,11 +8,11 @@ demo_cases = [
     {
         "keyword": ["ඇන්ජලෝ", "මැතිව්ස්", "ටෙස්ට්", "ක්‍රිකට්"],
         "result": {
-            "final_score": 0.91,
+            "final_score": 0.93,
             "result": "NOT FAKE ✅",
             "semantic_ranking": [
                 {
-                    "score": 0.96,
+                    "score": 0.98,
                     "title": "හිටපු ශ්‍රී ලංකා නායක ඇන්ජලෝ මැතිව්ස් ටෙස්ට් ක්‍රිකට් පිටියට සමු දෙන බවට නිවේදනය කරයි",
                     "url": "https://sinhala.newsfirst.lk/2025/05/23/%e0%b7%84%e0%b7%92%e0%b6%a7%e0%b6%b4%e0%b7%94-%e0%b7%81%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93-%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b6%b1%e0%b7%8f",
                 }
@@ -24,8 +24,8 @@ demo_cases = [
                 "per_entity": {
                     "persons": 0.9,
                     "locations": 0.8,
-                    "events": 0.92,
-                    "organizations": 0.5,
+                    "events": 0.7,
+                    "organizations": 0,
                 },
             },
         },

@@ -9,10 +9,12 @@ import { Timeline } from "@/components/timeline";
 import { VerificationFlow, VerificationResponse } from "@/lib/api";
 
 interface AnalysisTabContentProps {
-    result: VerificationResponse
+  result: VerificationResponse;
 }
 
-export default function AnalysisTabContent({ result }: AnalysisTabContentProps) {
+export default function AnalysisTabContent({
+  result,
+}: AnalysisTabContentProps) {
   return (
     <Card className="shadow-lg">
       <CardHeader>
@@ -22,22 +24,20 @@ export default function AnalysisTabContent({ result }: AnalysisTabContentProps) 
         </CardDescription>
       </CardHeader>
       <CardContent>
-        {
-            result.flow && result.flow.length > 0 ? (
-                <Timeline
-                items={result.flow.map((item) => ({
-                    step: item.step,
-                    result: item.result,
-                    status: "completed" as const,
-                }))}
-                />
-            ) : (
-                <div className="text-gray-500">No verification flow data available.</div>
-            )}
-        </CardContent>
-
-
-  
+        {result.flow && result.flow.length > 0 ? (
+          <Timeline
+            items={result.flow.map((item) => ({
+              step: item.step,
+              result: item.result,
+              status: "completed" as const,
+            }))}
+          />
+        ) : (
+          <div className="text-gray-500">
+            No verification flow data available.
+          </div>
+        )}
+      </CardContent>
     </Card>
   );
 }
