@@ -34,7 +34,8 @@ def get_trusted_publishers():
 
 
 def get_source_credibility(news_publisher, trusted_publishers):
-    return 1.0 if news_publisher in trusted_publishers else 0.0
+    # return 1.0 if news_publisher in trusted_publishers else 0.0
+    return 1.0  # we need to update logic later to use trusted publishers
 
 
 def get_trusted_contents_by_category(category):

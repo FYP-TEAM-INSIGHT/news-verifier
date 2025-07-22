@@ -23,17 +23,17 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasSubCategory">
-  <rdfs:range rdf:resource="#DomesticPolitics"/>
-  <rdfs:range rdf:resource="#Cricket"/>
   <rdfs:range rdf:resource="#Football"/>
-  <rdfs:range rdf:resource="#InternationalPolitics"/>
   <rdfs:range rdf:resource="#MusicAndArts"/>
-  <rdfs:range rdf:resource="#CrimeReport"/>
   <rdfs:range rdf:resource="#ResearchAndSpace"/>
-  <rdfs:range rdf:resource="#Other"/>
-  <rdfs:range rdf:resource="#TechAndInnovation"/>
   <rdfs:range rdf:resource="#CourtsAndInvestigation"/>
+  <rdfs:range rdf:resource="#Other"/>
+  <rdfs:range rdf:resource="#InternationalPolitics"/>
+  <rdfs:range rdf:resource="#CrimeReport"/>
+  <rdfs:range rdf:resource="#Cricket"/>
   <rdfs:range rdf:resource="#ScreenAndStage"/>
+  <rdfs:range rdf:resource="#TechAndInnovation"/>
+  <rdfs:range rdf:resource="#DomesticPolitics"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#mentionsEntity">
@@ -98,7 +98,7 @@
   <rdfs:range rdf:resource="#Person"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#hasResearchLocation">
+<owl:ObjectProperty rdf:about="#hasTechLocation">
   <rdfs:range rdf:resource="#Location"/>
 </owl:ObjectProperty>
 
@@ -114,12 +114,24 @@
   <rdfs:range rdf:resource="#Event"/>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#hasResearchLocation">
+  <rdfs:range rdf:resource="#Location"/>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#hasFilmDirectorActor">
   <rdfs:range rdf:resource="#Person"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasFilmProductionCompany">
   <rdfs:range rdf:resource="#Organization"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasStageEvent">
+  <rdfs:range rdf:resource="#Event"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasFilmLocation">
+  <rdfs:range rdf:resource="#Location"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasMusicArtist">
@@ -261,11 +273,7 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#NamedEntity">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#NewsVerb">
+<owl:Class rdf:about="#NewsArticle">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -273,63 +281,27 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#DomesticPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Cricket">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Football">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#InternationalPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#MusicAndArts">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CrimeReport">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ResearchAndSpace">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Other">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#TechAndInnovation">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CourtsAndInvestigation">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ScreenAndStage">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+<owl:Class rdf:about="#NamedEntity">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Statement">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Organization">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#NewsVerb">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Event">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#NewsOccurDuration">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Person">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Organization">
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
@@ -337,12 +309,8 @@
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
-<owl:Class rdf:about="#NewsArticle">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#NewsOccurDuration">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+<owl:Class rdf:about="#Event">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
 <owl:Class rdf:about="#PoliticsAndGovernance">
@@ -365,68 +333,70 @@
   <rdfs:subClassOf rdf:resource="#NewsCategory"/>
 </owl:Class>
 
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24_">
+<owl:Class rdf:about="#InternationalPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DomesticPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TechAndInnovation">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ResearchAndSpace">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ScreenAndStage">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MusicAndArts">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cricket">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Football">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Other">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CrimeReport">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CourtsAndInvestigation">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#https___hirunews_lk_408173_iran_denies_firing_missile_at_israel_">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#අග__ර_ම_ත__ය"/>
-  <mentionsEntity rdf:resource="#බ_න_ජම_න_"/>
-  <mentionsEntity rdf:resource="#න_තන_ය_හ_"/>
-  <mentionsEntity rdf:resource="#ජන_ධ_පත_"/>
-  <mentionsEntity rdf:resource="#ඩ_නල_ඩ_"/>
-  <mentionsEntity rdf:resource="#ට__රම_ප_"/>
   <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
   <mentionsEntity rdf:resource="#ඉර_නය"/>
-  <mentionsEntity rdf:resource="#ඇමර_ක_"/>
   <mentionsEntity rdf:resource="#සටන__ව_ර_මය"/>
-  <mentionsEntity rdf:resource="#ක_ර_ය_ලය"/>
-  <hasForeignOrganization rdf:resource="#ක_ර_ය_ලය"/>
+  <mentionsEntity rdf:resource="#ම_සය_ල_ප__රහ_රය"/>
+  <mentionsEntity rdf:resource="#ඉර_න_ර_ජ__ය_ම_ධ__ය"/>
+  <hasForeignOrganization rdf:resource="#ඉර_න_ර_ජ__ය_ම_ධ__ය"/>
   <hasForeignEvent rdf:resource="#සටන__ව_ර_මය"/>
-  <hasForeignPerson rdf:resource="#අග__ර_ම_ත__ය"/>
-  <hasForeignPerson rdf:resource="#බ_න_ජම_න_"/>
-  <hasForeignPerson rdf:resource="#න_තන_ය_හ_"/>
-  <hasForeignPerson rdf:resource="#ජන_ධ_පත_"/>
-  <hasForeignPerson rdf:resource="#ඩ_නල_ඩ_"/>
-  <hasForeignPerson rdf:resource="#ට__රම_ප_"/>
+  <hasForeignEvent rdf:resource="#ම_සය_ල_ප__රහ_රය"/>
   <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
   <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasForeignLocation rdf:resource="#ඇමර_ක_"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය සහ ඉරානය සටන් විරාමයට එකඟ වෙයි</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-08T14:30:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:22.994</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය සටන් විරාමයට එකඟ වූ බව ...</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NewsFirst Sri Lanka</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අග__ර_ම_ත__ය">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අග්‍රාමාත්‍ය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#බ_න_ජම_න_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බෙන්ජමින්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#න_තන_ය_හ_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නෙතන්යාහු</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජන_ධ_පත_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඩ_නල_ඩ_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඩොනල්ඩ්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ට__රම_ප_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ට්‍රම්ප්</canonicalName>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සටන් විරාමය ආරම්භ වීමෙන් පසු ඊශ්‍රායලයට මිසයිලයක් එල්ල කළ බවට වන චෝදනා ඉරානය ප්‍රතික්ෂේප කරයි</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T14:19:09.000</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408173/iran-denies-firing-missile-at-israel-after-ceasefire-begins</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.523</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන රාජ්‍ය මාධ්‍ය වාර්තා කරන්නේ සටන් විරාමයෙන් පසුව ඊශ්‍රායලයට මිසයිල ප්‍රහාරයක් එල්ල කළ බවට එල්ල වන චෝදනා ඉරානය ප්‍රතික්ෂේප කරන බවයි.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඊශ__ර_යලය">
@@ -439,46 +409,14 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරානය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ඇමර_ක_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඇමරිකා</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#සටන__ව_ර_මය">
   <rdf:type rdf:resource="#Event"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සටන් විරාමය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ක_ර_ය_ලය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කාර්යාලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___hirunews_lk_408173_iran_denies_firing_missile_at_israel_">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#PoliticsAndGovernance"/>
-  <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
-  <mentionsEntity rdf:resource="#ඉර_නය"/>
-  <mentionsEntity rdf:resource="#සටන__ව_ර_මය"/>
-  <mentionsEntity rdf:resource="#ම_සය_ල_ප__රහ_රයක_"/>
-  <mentionsEntity rdf:resource="#ඉර_න_ර_ජ__ය_ම_ධ__ය"/>
-  <hasForeignOrganization rdf:resource="#ඉර_න_ර_ජ__ය_ම_ධ__ය"/>
-  <hasForeignEvent rdf:resource="#සටන__ව_ර_මය"/>
-  <hasForeignEvent rdf:resource="#ම_සය_ල_ප__රහ_රයක_"/>
-  <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
-  <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සටන් විරාමය ආරම්භ වීමෙන් පසු ඊශ්‍රායලයට මිසයිලයක් එල්ල කළ බවට වන චෝදනා ඉරානය ප්‍රතික්ෂේප කරයි</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T14:19:09.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408173/iran-denies-firing-missile-at-israel-after-ceasefire-begins</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:22.997</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන රාජ්‍ය මාධ්‍ය වාර්තා කරන්නේ සටන් විරාමයෙන් පසුව ඊශ්‍රායලයට මිසයිල ප්‍රහාරයක් එල්ල කළ බවට එල්ල වන චෝදනා ඉරානය ප්‍රතික්ෂේප කරන බවයි.ඊශ්‍රායලය විසින් ඉරානයට එල්ල කරන ලද මෙම චෝදනාවලට ප්‍රතිචාර දක්වමින් ඉරාන රාජ්‍ය මාධ්‍ය ප්‍රකාශ කර ඇත්තේ, සටන් විරාමය ආරම්භ වීමෙන් පසු ඊශ්‍රායලයට මිසයිල ප්‍රහාර එල්ල කළ බවට වන වාර්තා අසත්‍ය බවයි.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_සය_ල_ප__රහ_රයක_">
+<owl:NamedIndividual rdf:about="#ම_සය_ල_ප__රහ_රය">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මිසයිල ප්‍රහාරයක්</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මිසයිල ප්‍රහාරය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඉර_න_ර_ජ__ය_ම_ධ__ය">
@@ -494,19 +432,19 @@
   <mentionsEntity rdf:resource="#කට_ර_"/>
   <mentionsEntity rdf:resource="#ඉර_කය"/>
   <mentionsEntity rdf:resource="#ග_වන__ස_ම__ව_ව_ත_ක_ර_ම"/>
-  <mentionsEntity rdf:resource="#ග_වන__ම_හ_ය_ම__අත_හ_ට_ව_ම"/>
+  <mentionsEntity rdf:resource="#ග_වන__ම_හ_ය_ම_"/>
   <mentionsEntity rdf:resource="#ඕම_න_එය_ර_"/>
   <hasForeignOrganization rdf:resource="#ඕම_න_එය_ර_"/>
   <hasForeignEvent rdf:resource="#ග_වන__ස_ම__ව_ව_ත_ක_ර_ම"/>
-  <hasForeignEvent rdf:resource="#ග_වන__ම_හ_ය_ම__අත_හ_ට_ව_ම"/>
+  <hasForeignEvent rdf:resource="#ග_වන__ම_හ_ය_ම_"/>
   <hasForeignLocation rdf:resource="#ස_ර_ය_ව"/>
   <hasForeignLocation rdf:resource="#කට_ර_"/>
   <hasForeignLocation rdf:resource="#ඉර_කය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සිරියාව, කටාර්, ඉරාකය තම ගුවන් සීමා විවෘත කරයි</hasTitle>
   <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T14:36:37.000</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408176/syria-qatar-iraq-open-their-airspace</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:22.999</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විදෙස් මාධ්‍ය වාර්තා කරන පරිදි, සිරියානු ගුවන් සීමාව යළි විවෘත කර ඇති අතර, කලාපීය වශයෙන් පැවති නොසන්සුන්තා හේතුවෙන් අත්හිටුවා තිබූ ගුවන් මෙහෙයුම් යථා තත්ත්වයට පත්වෙමින් තිබෙන බවයි සඳහන්.ඕමාන එයාර් ආයතනය නිවේදනය කර ඇත්තේ, කලාපීය නොසන්සුන්තා හේතුවෙන් ඊයේ රාත්‍රියේ අවලංගු කරන ලද සිය ගුවන් මෙහෙයුම් මේ වන විට සාමාන්‍ය තත්ත්වයට පත්ව ඇති බවයි.කටාර් සහ ඉරාකය ද සිය ගුවන් සීමාවන් යළි විවෘත කර ඇති අතර, ගුවන් සේවා සමාගම් අද (24) සිට සිය මෙහෙයුම් නැවත ආරම්භ කිරීමට සැලසුම් කර ඇති බව තහවුරු කර තිබෙනවා.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.534</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විදෙස් මාධ්‍ය වාර්තා කරන පරිදි, සිරියානු ගුවන් සීමාව යළි විවෘත කර ඇති අතර, කලාපීය වශයෙන් පැවති නොසන්සුන්තා හේතුවෙන් අත්හිටුවා තිබූ ගුවන් මෙහෙයුම් යථා තත්ත්වයට පත්වෙමින් තිබෙන බවයි සඳහන්.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -530,9 +468,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවන් සීමා විවෘත කිරීම</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ග_වන__ම_හ_ය_ම__අත_හ_ට_ව_ම">
+<owl:NamedIndividual rdf:about="#ග_වන__ම_හ_ය_ම_">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවන් මෙහෙයුම් අත්හිටුවීම</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවන් මෙහෙයුම්</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඕම_න_එය_ර_">
@@ -551,10 +489,10 @@
   <hasForeignEvent rdf:resource="#න__යෂ_ට_ක_ව_ඩසටහන"/>
   <hasForeignLocation rdf:resource="#ඉර_නය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රටේ න්‍යෂ්ටික වැඩසටහනට වූ හානිය තක්සේරු කරමින් යථාවත් කිරීමට සැලසුම් කරන බව ඉරානය කියයි</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:16:37.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:16:37.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408185/iran-says-it-is-assessing-damage-to-its-nuclear-program-and-planning-to-repair-it</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.000</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සිය රටේ න්‍යෂ්ටික වැඩසටහනට සිදු වූ හානිය තක්සේරු කර එය යථාවත් කිරීමට සැලසුම් කරමින් සිටින බව ඉරාන පරමාණුක බලශක්ති සංවිධානයේ ප්‍රධානියා පවසනවා. ඔහු පැවසූ දේ උපුටා දක්වමින්, “ප්‍රකෘතිමත් වීම සඳහා සූදානම් කිරීම් දැනටමත් ආරම්භ කර තිබෙනවා, අපගේ සැලැස්ම නිෂ්පාදනයේ හෝ සේවාවන්හි කිසිදු බාධාවක් නොවීම වැළැක්වීමයි” ලෙසයි විදෙස් මාධ්‍ය වාර්තා කරන්නේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.545</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සිය රටේ න්‍යෂ්ටික වැඩසටහනට සිදු වූ හානිය තක්සේරු කර එය යථාවත් කිරීමට සැලසුම් කරමින් සිටින බව ඉරාන පරමාණුක බලශක්ති සංවිධානයේ ප්‍රධානියා පවසනවා</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -574,25 +512,21 @@
   <hasCategory rdf:resource="#InternationalPolitics"/>
   <mentionsEntity rdf:resource="#ඉර_නය"/>
   <mentionsEntity rdf:resource="#ර_ස_ය_ව"/>
-  <mentionsEntity rdf:resource="#ම_ස_කව_"/>
-  <mentionsEntity rdf:resource="#ට_හ_ර_නය"/>
   <mentionsEntity rdf:resource="#අම_ර_ක_ව"/>
   <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
-  <mentionsEntity rdf:resource="#න__යෂ_ට_ක_බල_ග_රවලට_ප__රහ_ර"/>
-  <mentionsEntity rdf:resource="#ක__ර_ම_ල_නය"/>
-  <hasForeignOrganization rdf:resource="#ක__ර_ම_ල_නය"/>
-  <hasForeignEvent rdf:resource="#න__යෂ_ට_ක_බල_ග_රවලට_ප__රහ_ර"/>
+  <mentionsEntity rdf:resource="#න__යෂ_ට_ක_බල_ග_ර"/>
+  <mentionsEntity rdf:resource="#ප__රහ_ර"/>
+  <hasForeignEvent rdf:resource="#ප__රහ_ර"/>
   <hasForeignLocation rdf:resource="#ඉර_නය"/>
   <hasForeignLocation rdf:resource="#ර_ස_ය_ව"/>
-  <hasForeignLocation rdf:resource="#ම_ස_කව_"/>
-  <hasForeignLocation rdf:resource="#ට_හ_ර_නය"/>
   <hasForeignLocation rdf:resource="#අම_ර_ක_ව"/>
   <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
+  <hasForeignLocation rdf:resource="#න__යෂ_ට_ක_බල_ග_ර"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන න්‍යෂ්ටික බලාගාරවලට එල්ල වූ අමෙරිකානු සහ ඊශ්‍රායල ප්‍රහාර හෙළා දකිමින් ඉරානයට රුසියාවේ සහාය</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:40:54.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:40:54.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408191/russia-supports-iran-condemns-us-and-israeli-attacks-on-iranian-nuclear-facilities</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.002</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන න්‍යෂ්ටික බලාගාරවලට එල්ල වූ අමෙරිකානු සහ ඊශ්‍රායල ප්‍රහාර හෙළා දකිමින් රුසියාව ඉරානයට "පැහැදිලි ස්ථාවරයකින්" සහාය දක්වන බව පවසනවා. මේ අතර මොස්කව්, ටෙහෙරානය සමඟ සබඳතා තවදුරටත් වර්ධනය කර ගැනීමට අදහස් කරන බවයි ක්‍රෙම්ලිනය පවසන්නේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.553</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන න්‍යෂ්ටික බලාගාරවලට එල්ල වූ අමෙරිකානු සහ ඊශ්‍රායල ප්‍රහාර හෙළා දකිමින් රුසියාව ඉරානයට පැහැදිලි ස්ථාවරයකින් සහාය දක්වන බව පවසනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -601,29 +535,19 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රුසියාව</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ම_ස_කව_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මොස්කව්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ට_හ_ර_නය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙහෙරානය</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#අම_ර_ක_ව">
   <rdf:type rdf:resource="#Location"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමෙරිකාව</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#න__යෂ_ට_ක_බල_ග_රවලට_ප__රහ_ර">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">න්‍යෂ්ටික බලාගාරවලට ප්‍රහාර</canonicalName>
+<owl:NamedIndividual rdf:about="#න__යෂ_ට_ක_බල_ග_ර">
+  <rdf:type rdf:resource="#Location"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">න්‍යෂ්ටික බලාගාර</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ක__ර_ම_ල_නය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රෙම්ලිනය</canonicalName>
+<owl:NamedIndividual rdf:about="#ප__රහ_ර">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ප්‍රහාර</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408198_indian_actor_srikanth_arrested">
@@ -632,19 +556,13 @@
   <hasCategory rdf:resource="#CrimeReport"/>
   <mentionsEntity rdf:resource="#ශ__ර_ක_න_ත_"/>
   <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
-  <mentionsEntity rdf:resource="#අත_අඩ_ග_වට_ග_න_ම"/>
-  <mentionsEntity rdf:resource="#මත_ද__රව__ය_භ_ව_තය"/>
-  <mentionsEntity rdf:resource="#ප_ල_ස_ය"/>
   <hasWitness rdf:resource="#ශ__ර_ක_න_ත_"/>
-  <hasInvestigation rdf:resource="#ප_ල_ස_ය"/>
-  <hasCrimeType rdf:resource="#අත_අඩ_ග_වට_ග_න_ම"/>
-  <hasCrimeType rdf:resource="#මත_ද__රව__ය_භ_ව_තය"/>
   <hasCrimeLocation rdf:resource="#ඉන_ද_ය_ව"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දීය නළු ශ්‍රීකාන්ත් අත්අඩංගුවට</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T16:01:01.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T16:01:01.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408198/indian-actor-srikanth-arrested</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.006</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දීය ජනප්‍රිය දෙමළ සහ තෙළිඟු නළු ශ්‍රීකාන්ත් අත්අඩංගුවට ගෙන තිබෙන බව විදෙස් මාධ්‍ය වාර්තා කරනවා. කොකේන් මත්ද්‍රව්‍ය මිලදී ගැනීම සහ භාවිත කිරීමේ චෝදනාව යටතේ ඔහු මෙසේ අත්අඩංගුවට ගත බවයි මාධ්‍ය වාර්තා කරන්නේ. අත්අඩංගුවට ගැනීමට පෙර පොලිසිය විසින් ඔහුගෙන් පැය කිහිපයක් ප්‍රශ්න කර තිබෙනවා. පරීක්ෂණ සඳහා යවන ලද ඔහුගේ රුධිර සාම්පලවල මත්ද්‍රව්‍ය භාවිතය තහවුරු කළ බව වාර්තා වෙන නමුත් අධිකරණ වෛද්‍ය වාර්තාව තවමත් ප්‍රසිද්ධ කර නොමැති බවටයි විදෙස් මාධ්‍ය වාර්තා කරන්නේ. ඒ අනුව ඔහු ජූලි 7 වැනිදා දක්වා සිරගත කර තිබෙනවා.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.565</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දීය ජනප්‍රිය දෙමළ සහ තෙළිඟු නළු ශ්‍රීකාන්ත් අත්අඩංගුවට ගෙන තිබෙන බව විදෙස් මාධ්‍ය වාර්තා කරනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -655,22 +573,7 @@
 
 <owl:NamedIndividual rdf:about="#ඉන_ද_ය_ව">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අත_අඩ_ග_වට_ග_න_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අත්අඩංගුවට ගැනීම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#මත_ද__රව__ය_භ_ව_තය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මත්ද්‍රව්‍ය භාවිතය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ප_ල_ස_ය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොලිසිය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දීයාව</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408207_israel_is_not_attacking_iran_ceasefir">
@@ -680,16 +583,18 @@
   <mentionsEntity rdf:resource="#ඩ_නල_ඩ__ට__රම_ප_"/>
   <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
   <mentionsEntity rdf:resource="#ඉර_නය"/>
+  <mentionsEntity rdf:resource="#එක_සත__ජනපද"/>
   <mentionsEntity rdf:resource="#සටන__ව_ර_මය"/>
   <hasForeignEvent rdf:resource="#සටන__ව_ර_මය"/>
   <hasForeignPerson rdf:resource="#ඩ_නල_ඩ__ට__රම_ප_"/>
   <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
   <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"ඊශ්‍රායලය ඉරානයට පහර දෙන්නේ නැහැ; සටන් විරාමය ක්‍රියාත්මකයි!" - ට්‍රම්ප්</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T17:22:31.000</hasPublicationDate>
+  <hasForeignLocation rdf:resource="#එක_සත__ජනපද"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය ඉරානයට පහර දෙන්නේ නැහැ; සටන් විරාමය ක්‍රියාත්මකයි! - ට්‍රම්ප්</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T17:22:31.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408207/israel-is-not-attacking-iran-ceasefire-is-in-effect-trump</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.008</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්සත් ජනපද ජනාධිපති ඩොනල්ඩ් ට්‍රම්ප් සිය සමාජ මාධ්‍ය ගිණුම හරහා ප්‍රකාශ කර ඇත්තේ ඊශ්‍රායලය ඉරානයට පහර නොදෙන බවයි. "ඊශ්‍රායලය ඉරානයට පහර දෙන්නේ නැහැ. සියලුම ගුවන් යානා හැරී, ඉරානයට මිත්‍රශීලී 'ගුවන් යානා රැල්ලක්' කරමින් ආපසු නිවෙස් බලා යනු ඇති" යනුවෙන් එහි ඔහු සඳහන් කර තිබෙනවා. ට්‍රම්ප් වැඩිදුරටත් කියා සිටියේ "කිසිවෙකුට හානියක් සිදු නොවනු ඇති, සටන් විරාමය ක්‍රියාත්මකයි!" යනුවෙන්.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.571</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්සත් ජනපද ජනාධිපති ඩොනල්ඩ් ට්‍රම්ප් සිය සමාජ මාධ්‍ය ගිණුම හරහා ප්‍රකාශ කර ඇත්තේ ඊශ්‍රායලය ඉරානයට පහර නොදෙන බවයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -698,135 +603,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඩොනල්ඩ් ට්‍රම්ප්</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#https___hirunews_lk_408221_a_radar_installation_near_tehran_was_">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#PoliticsAndGovernance"/>
-  <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#බ_න_ජම_න__න_තන_ය_හ_"/>
-  <mentionsEntity rdf:resource="#ට__රම_ප_"/>
-  <mentionsEntity rdf:resource="#ට_හ_ර_නය"/>
-  <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
-  <mentionsEntity rdf:resource="#ඉර_නය"/>
-  <mentionsEntity rdf:resource="#සටන__ව_ර_මය_උල_ල_ඝනය"/>
-  <mentionsEntity rdf:resource="#ර_ඩ_ර__ස_ථ_පනයක__ව_න_ශ_ක_ර_ම"/>
-  <mentionsEntity rdf:resource="#ම_සය_ල_ප__රහ_ර"/>
-  <mentionsEntity rdf:resource="#ඊශ__ර_යල_හම_ද_ව"/>
-  <mentionsEntity rdf:resource="#ඊශ__ර_යල_අග__ර_ම_ත__ය_ක_ර_ය_ලය"/>
-  <hasForeignOrganization rdf:resource="#ඊශ__ර_යල_හම_ද_ව"/>
-  <hasForeignOrganization rdf:resource="#ඊශ__ර_යල_අග__ර_ම_ත__ය_ක_ර_ය_ලය"/>
-  <hasForeignEvent rdf:resource="#සටන__ව_ර_මය_උල_ල_ඝනය"/>
-  <hasForeignEvent rdf:resource="#ර_ඩ_ර__ස_ථ_පනයක__ව_න_ශ_ක_ර_ම"/>
-  <hasForeignEvent rdf:resource="#ම_සය_ල_ප__රහ_ර"/>
-  <hasForeignPerson rdf:resource="#බ_න_ජම_න__න_තන_ය_හ_"/>
-  <hasForeignPerson rdf:resource="#ට__රම_ප_"/>
-  <hasForeignLocation rdf:resource="#ට_හ_ර_නය"/>
-  <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
-  <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">"සටන් විරාමය උල්ලංඝනය කරමින් සිදුකළ ඉරාන ප්‍රහාරයට පලිගැනීමක් ලෙස ටෙහෙරානය අසල රේඩාර් ස්ථාපනයක් විනාශ කළා"- ඊශ්‍රායල අග්‍රාමාත්‍ය කාර්යාලය</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T18:57:29.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408221/a-radar-installation-near-tehran-was-destroyed-in-retaliation-for-an-iranian-attack-that-violated-the-ceasefire-said-the-israeli-prime-ministers-office</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.010</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායල හමුදාව විසින් ටෙහෙරානය අසල රේඩාර් ස්ථාපනයක් විනාශ කළ බව පවසනවා. ඊශ්‍රායල අගමැති බෙන්ජමින් නෙතන්යාහුගේ කාර්යාලය නිවේදනයක් නිකුත් කරමින් මේ බව පැවසුවා. සටන් විරාම ගිවිසුම "උල්ලංඝනය" කරමින් ඉරානය එල්ල කළ මිසයිල ප්‍රහාර කිහිපයකට පළිගැනීමක් ලෙස ඊශ්‍රායල හමුදාව මේ පියවරගත් බවද පෙන්වා දෙනවා. නමුත් ට්‍රම්ප් සමඟ කළ සංවාදයකින් පසුව, නෙතන්යාහු "නැවත ප්‍රහාරවලින් වැළකී සිටි" බවද එහි සඳහන් කර තිබෙනවා.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#බ_න_ජම_න__න_තන_ය_හ_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බෙන්ජමින් නෙතන්යාහු</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#සටන__ව_ර_මය_උල_ල_ඝනය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සටන් විරාමය උල්ලංඝනය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ර_ඩ_ර__ස_ථ_පනයක__ව_න_ශ_ක_ර_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රේඩාර් ස්ථාපනයක් විනාශ කිරීම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_සය_ල_ප__රහ_ර">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මිසයිල ප්‍රහාර</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඊශ__ර_යල_හම_ද_ව">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායල හමුදාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඊශ__ර_යල_අග__ර_ම_ත__ය_ක_ර_ය_ලය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායල අග්‍රාමාත්‍ය කාර්යාලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___hirunews_lk_408225_iranian_president_says_if_israel_upho">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#PoliticsAndGovernance"/>
-  <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#මස_ද__ප_ෂ_ෂ_ක_යන_"/>
-  <mentionsEntity rdf:resource="#අන_වර__ඊබ__ර_හ_ම_"/>
-  <mentionsEntity rdf:resource="#ඩ_නල_ඩ__ට__රම_ප_"/>
-  <mentionsEntity rdf:resource="#ඉර_නය"/>
-  <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
-  <mentionsEntity rdf:resource="#ම_ල_ස_ය_ව"/>
-  <mentionsEntity rdf:resource="#සටන__ව_ර_මය"/>
-  <mentionsEntity rdf:resource="#ම_දප_රද_ග_ආතත_න_"/>
-  <mentionsEntity rdf:resource="#ප_ලන_තන_ත__ර_ව_නසක_"/>
-  <mentionsEntity rdf:resource="#ඉර_න_ජන_ධ_පත__ක_ර_ය_ලය"/>
-  <mentionsEntity rdf:resource="#එක_සත__ජනපද_ජන_ධ_පත_"/>
-  <hasForeignOrganization rdf:resource="#ඉර_න_ජන_ධ_පත__ක_ර_ය_ලය"/>
-  <hasForeignOrganization rdf:resource="#එක_සත__ජනපද_ජන_ධ_පත_"/>
-  <hasForeignEvent rdf:resource="#සටන__ව_ර_මය"/>
-  <hasForeignEvent rdf:resource="#ම_දප_රද_ග_ආතත_න_"/>
-  <hasForeignEvent rdf:resource="#ප_ලන_තන_ත__ර_ව_නසක_"/>
-  <hasForeignPerson rdf:resource="#මස_ද__ප_ෂ_ෂ_ක_යන_"/>
-  <hasForeignPerson rdf:resource="#අන_වර__ඊබ__ර_හ_ම_"/>
-  <hasForeignPerson rdf:resource="#ඩ_නල_ඩ__ට__රම_ප_"/>
-  <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
-  <hasForeignLocation rdf:resource="#ම_ල_ස_ය_ව"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය සටන් විරාමය රැක ගතහොත්, ඉරානයද එය කඩ නොකරන බව ඉරාන ජනපති පවසයි</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T19:50:20.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408225/iranian-president-says-if-israel-upholds-ceasefire-iran-will-not-violate-it</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.014</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මැදපෙරදිග ආතතීන් වැඩි වී ඇති පසුබිමක, ඉරානයේ ජනාධිපති මසූද් පෙෂෙෂ්කියන් ප්‍රකාශ කර ඇත්තේ ඊශ්‍රායලය (සියොන්වාදී පාලනය) සටන් විරාමයට ගරු කරන්නේ නම්, ඉරානයද එය කඩ නොකරන බවයි. මෙම ප්‍රකාශය මැලේසියානු අගමැති අන්වර් ඊබ්‍රාහිම් සමඟ දුරකථන සංවාදයකදී සිදු කර ඇති අතර, එය ඉරාන ජනාධිපති කාර්යාලයේ වෙබ් අඩවියේ සඳහන්.මේ අතර, එක්සත් ජනපද ජනාධිපති ඩොනල්ඩ් ට්‍රම්ප්, යානය තුළදී මාධ්‍යවේදීන් අමතමින් කියා සිටියේ, ඉරානයේ "පාලන තන්ත්‍ර වෙනසක්" තමාට අවශ්‍ය නොවන බවයි. එවැනි පාලන තන්ත්‍ර වෙනසක් මගින් අවුල් සහගත තත්ත්වයක් ඇති විය හැකි බවට ඔහු විශ්වාසය කරන බවයි එහිදී සඳහන් කර ඇත්තේ. දින කිහිපයකට පෙර සමාජ මාධ්‍ය සටහනකින් ඉරානයේ පාලන තන්ත්‍ර වෙනසක් ගැන ඉඟි කර තිබූ ට්‍රම්ප්ගේ මෙම ප්‍රකාශය, ඔහුගේ පෙර අදහස්වලට පටහැනි බවත් විදෙස් මාධ්‍ය වාර්තාවේ සඳහන්.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#මස_ද__ප_ෂ_ෂ_ක_යන_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මසූද් පෙෂෙෂ්කියන්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අන_වර__ඊබ__ර_හ_ම_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අන්වර් ඊබ්‍රාහිම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_ල_ස_ය_ව">
+<owl:NamedIndividual rdf:about="#එක_සත__ජනපද">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මැලේසියාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_දප_රද_ග_ආතත_න_">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මැදපෙරදිග ආතතීන්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ප_ලන_තන_ත__ර_ව_නසක_">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පාලන තන්ත්‍ර වෙනසක්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඉර_න_ජන_ධ_පත__ක_ර_ය_ලය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉරාන ජනාධිපති කාර්යාලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#එක_සත__ජනපද_ජන_ධ_පත_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්සත් ජනපද ජනාධිපති</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්සත් ජනපද</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408286_texas_governor_signs_bill_restricting">
@@ -834,30 +613,20 @@
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#InternationalPolitics"/>
   <mentionsEntity rdf:resource="#ග__ර_ග__ඇබට_"/>
-  <mentionsEntity rdf:resource="#අම_ර_ක_ව"/>
   <mentionsEntity rdf:resource="#ට_ක_ස_ස_"/>
+  <mentionsEntity rdf:resource="#අම_ර_ක_ව"/>
   <mentionsEntity rdf:resource="#ච_නය"/>
-  <mentionsEntity rdf:resource="#ඉර_නය"/>
-  <mentionsEntity rdf:resource="#උත_ර__ක_ර_ය_ව"/>
-  <mentionsEntity rdf:resource="#ර_ස_ය_ව"/>
   <mentionsEntity rdf:resource="#ද_පල_හ_ම_කම_ස_ම__ක_ර_ම__පනත"/>
-  <mentionsEntity rdf:resource="#නව_න_ත_ය_ප_නව_ම"/>
-  <mentionsEntity rdf:resource="#ට_ක_ස_ස__ආණ_ඩ_ක_රය_"/>
-  <hasForeignOrganization rdf:resource="#ට_ක_ස_ස__ආණ_ඩ_ක_රය_"/>
   <hasForeignEvent rdf:resource="#ද_පල_හ_ම_කම_ස_ම__ක_ර_ම__පනත"/>
-  <hasForeignEvent rdf:resource="#නව_න_ත_ය_ප_නව_ම"/>
   <hasForeignPerson rdf:resource="#ග__ර_ග__ඇබට_"/>
-  <hasForeignLocation rdf:resource="#අම_ර_ක_ව"/>
   <hasForeignLocation rdf:resource="#ට_ක_ස_ස_"/>
+  <hasForeignLocation rdf:resource="#අම_ර_ක_ව"/>
   <hasForeignLocation rdf:resource="#ච_නය"/>
-  <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasForeignLocation rdf:resource="#උත_ර__ක_ර_ය_ව"/>
-  <hasForeignLocation rdf:resource="#ර_ස_ය_ව"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චීන පුරවැසියන්ට දේපල හිමිකම සීමා කිරීමේ පනතට ටෙක්සාස් ආණ්ඩුකාරයාගේ අත්සන</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T11:20:11.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T11:20:11.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408286/texas-governor-signs-bill-restricting-property-ownership-for-chinese-citizens</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.018</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමෙරිකාවේ ටෙක්සාස්හි ආණ්ඩුකාර ග්‍රෙග් ඇබට් විසින් චීන පුරවැසියන් විසින් ටෙක්සාස් හි දේපල හිමිකම සීමා කිරීමේ පනතට අත්සන් තබා තිබෙන බව විදෙස් මාධ්‍ය වාර්තා සඳහන් කරනවා.ඒ අනුව එම පනත නීතියක් බවට පත්ව තිබෙන බවත් එම මාධ්‍ය වාර්තා වැඩිදුරටත් පෙන්වා දෙනවා.ඒ පනත ප්‍රථම වරට හඳුන්වා දී වසර දෙකකට වැඩි කාලයකට පසුවයි.පනතට අත්සන් තබමින් ආණ්ඩුකාරවරයා පවසා ඇත්තේ, ජාතික ආරක්ෂාවට තර්ජනයක් යැයි සලකන රටවල පුද්ගලයින්ට ප්‍රාන්තයේ දේපල මිලදී ගැනීම හෝ අත්පත් කර ගැනීම තහනම් බවයි.රිපබ්ලිකානුවෙකු වන ආණ්ඩුකාර ග්‍රෙග් ඇබට් ගත් තීරණය සහ පැනවූ නව නීතිය චීනය මෙන්ම ඉරානය, උතුරු කොරියාව සහ රුසියාව යන රටවල පුරවැසියන්ට ද වලංගු වනු ඇති බවයි විදෙස් මාධ්‍ය වාර්තා වැඩිදුරටත් සඳහන් කරන්නේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.582</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමෙරිකාවේ ටෙක්සාස්හි ආණ්ඩුකාර ග්‍රෙග් ඇබට් විසින් චීන පුරවැසියන් විසින් ටෙක්සාස් හි දේපල හිමිකම සීමා කිරීමේ පනතට අත්සන් තබා තිබෙන බව විදෙස් මාධ්‍ය වාර්තා සඳහන් කරනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -876,24 +645,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චීනය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#උත_ර__ක_ර_ය_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">උතුරු කොරියාව</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#ද_පල_හ_ම_කම_ස_ම__ක_ර_ම__පනත">
   <rdf:type rdf:resource="#Event"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දේපල හිමිකම සීමා කිරීමේ පනත</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#නව_න_ත_ය_ප_නව_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නව නීතිය පැනවීම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ට_ක_ස_ස__ආණ_ඩ_ක_රය_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙක්සාස් ආණ්ඩුකාරයා</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408344_chinese_foreign_minister_meets_indias">
@@ -904,23 +658,15 @@
   <mentionsEntity rdf:resource="#ව_න_ග__ය_"/>
   <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
   <mentionsEntity rdf:resource="#ච_නය"/>
-  <mentionsEntity rdf:resource="#හම_ව"/>
-  <mentionsEntity rdf:resource="#ච_න_ස_ච_රය"/>
-  <mentionsEntity rdf:resource="#ජ_ත_ක_ආරක_ෂක_උපද_ශක"/>
-  <mentionsEntity rdf:resource="#ව_ද_ශ_අම_ත__ය"/>
-  <hasForeignOrganization rdf:resource="#ජ_ත_ක_ආරක_ෂක_උපද_ශක"/>
-  <hasForeignOrganization rdf:resource="#ව_ද_ශ_අම_ත__ය"/>
-  <hasForeignEvent rdf:resource="#හම_ව"/>
-  <hasForeignEvent rdf:resource="#ච_න_ස_ච_රය"/>
   <hasForeignPerson rdf:resource="#අජ_ත__ද_ව_ල_"/>
   <hasForeignPerson rdf:resource="#ව_න_ග__ය_"/>
   <hasForeignLocation rdf:resource="#ඉන_ද_ය_ව"/>
   <hasForeignLocation rdf:resource="#ච_නය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චීන විදෙස් ඇමති හදිසියේම ඉන්දියාවේ ආරක්ෂක උපදේශක හමුවෙයි</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T17:19:10.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T17:19:10.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408344/chinese-foreign-minister-meets-indias-national-security-advisor-in-surprise-meeting</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.026</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියාවේ ජාතික ආරක්ෂක උපදේශක අජිත් දොවාල් සහ චීන විදේශ අමාත්‍ය වැන්ග් යී අතර හමුවක් සිදුව තිබෙන බව එරට මාධ්‍ය වාර්තා කරනවා. ඒ, ඉන්දීය ජාතික ආරක්ෂක උපදේශකවරයාගේ චීන සංචාරය අතරතුරදීයි. එහි දී ඉහළ පෙළේ රාජ්‍ය තාන්ත්‍රිකයින් දෙදෙනා ඉන්දු-චීන සබඳතාවල මෑත කාලීන වර්ධනයන් සමාලෝචනය කළ බවයි ඉන්දීය මාධ්‍ය වාර්තා කරන්නේ. දෙරටේ ජනතාව අතර සබඳතා වැඩි දියුණු කිරීම ඇතුළුව ද්විපාර්ශ්වික සබඳතාවල සමස්ත සංවර්ධනය ප්‍රවර්ධනය කිරීමේ අවශ්‍යතාවය ද ඔවුන් එහිදී අවධාරනය කර තිබෙනවා. එහි දී කලාපයේ සාමය සහ ස්ථාවරත්වය පවත්වා ගැනීම සඳහා ත්‍රස්තවාදයට එහි සියලු ආකාරවලින් සහ ප්‍රකාශනයන්ගෙන් ප්‍රතිරෝධය දැක්වීමේ අවශ්‍යතාවය ඉන්දියාවේ ජාතික ආරක්ෂක උපදේශක අජිත් දෝවාල් අවධාරණය කර ඇති බවත් එම මාධ්‍ය වාර්තා සඳහන් කරනවා. ඊට අමතරව මෙම හමුවේ දී ද්විපාර්ශ්වික, කලාපීය සහ ගෝලීය ගැටළු පිළිබඳව ද සාකච්ඡා කර තිබෙන බවයි එම මාධ්‍ය වාර්තාවල දැක්වෙන්නේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.592</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියාවේ ජාතික ආරක්ෂක උපදේශක අජිත් දොවාල් සහ චීන විදේශ අමාත්‍ය වැන්ග් යී අතර හමුවක් සිදුව තිබෙන බව එරට මාධ්‍ය වාර්තා කරනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -934,151 +680,40 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වැන්ග් යී</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#හම_ව">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හමුව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ච_න_ස_ච_රය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චීන සංචාරය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජ_ත_ක_ආරක_ෂක_උපද_ශක">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජාතික ආරක්ෂක උපදේශක</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ව_ද_ශ_අම_ත__ය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විදේශ අමාත්‍ය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___hirunews_lk_408352_young_tourist_dies_after_falling_from">
+<owl:NamedIndividual rdf:about="#https___hirunews_lk_408360_iran_arrests_700_people_for_spying_fo">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#CrimeAndJustice"/>
   <hasCategory rdf:resource="#CrimeReport"/>
-  <mentionsEntity rdf:resource="#ජ_ල_ය_න__ම_ර_න_ස_"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_න_ස_ය_ව"/>
-  <mentionsEntity rdf:resource="#ල_ම_බ_ක__ද_පත"/>
-  <mentionsEntity rdf:resource="#ර_න_ජ_න__ග_න__කන_ද"/>
-  <mentionsEntity rdf:resource="#බ__රස_ලය"/>
-  <mentionsEntity rdf:resource="#ග_න__කන_ද_න__ව_ට__ම_ය_ය_ම"/>
-  <mentionsEntity rdf:resource="#අනත_ර"/>
-  <mentionsEntity rdf:resource="#ම_ද__ග_න_ම__කණ_ඩ_යම_"/>
-  <hasWitness rdf:resource="#ජ_ල_ය_න__ම_ර_න_ස_"/>
-  <hasInvestigation rdf:resource="#ම_ද__ග_න_ම__කණ_ඩ_යම_"/>
-  <hasCrimeType rdf:resource="#ග_න__කන_ද_න__ව_ට__ම_ය_ය_ම"/>
-  <hasCrimeType rdf:resource="#අනත_ර"/>
-  <hasCrimeLocation rdf:resource="#ඉන_ද_න_ස_ය_ව"/>
-  <hasCrimeLocation rdf:resource="#ල_ම_බ_ක__ද_පත"/>
-  <hasCrimeLocation rdf:resource="#ර_න_ජ_න__ග_න__කන_ද"/>
-  <hasCrimeLocation rdf:resource="#බ__රස_ලය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සංචාරක තරුණියක් රින්ජානි ගිනි කන්දෙන් වැටී ජීවිතක්ෂයට</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T18:29:37.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408352/young-tourist-dies-after-falling-from-mount-rinjani</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.030</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගිනි කන්දක් තරණය කරමින් සිටි බ්‍රසීලියානු ජාතික සංචාරක තරුණියක් ඉකුත් (21) දා ඇද වැටී ජීවිතක්ෂයට පත්ව ඇතැයි විදෙස් මාධ්‍ය වාර්තා කරනවා. ඉන්දුනීසියාවේ ලොම්බොක් දූපතේ පිහිටි රින්ජානි නැමැති ගිනි කන්ද තරණය කරමින් සිටියදී අනතුර සිදුව ඇති බවයි සඳහන්. මෙසේ අවාසනාවන්ත ලෙස මියගොස් ඇත්තේ (26) හැවිරිදි 'ජූලියානා මැරින්ස්' නැමැති තරුණියක්. අනතුර සිදුවන අවස්ථාවේදී ඇය එම ගිනි කන්දේ ආවාටය ආසන්නයෙන් යමින් සිටි බවයි වාර්තා වන්නේ. ඉකුත් 21 වැනිදා අනතුර සිදුව ඇතත්, මුදා ගැනීමේ කණ්ඩායම්වලට අදාළ ස්ථානය වෙත ළඟාවීමට හැකිව ඇත්තේ දින තුනකට පසුව ඊයේ (24) දිනයේදී බවද විදෙස් මාධ්‍ය වාර්තා කරනවා. එම ප්‍රදේශයේ අධික බෑවුම සහ මීදුම හේතුවෙන් ගලවාගැනීමේ නිලධාරීන්ට ඇය වෙත ළඟවීම අසීරු වී තිබෙන බවයි විදෙස් මාධ්‍ය පවසන්නේ. ඉන්දුනීසියාවේ ලොම්බොක් දූපතේ පිහිටි උසින් වැඩි දෙවැනි ගිනි කන්ද මෙය බවද පැවසෙනවා. එය කඳු නගින්නන් අතර වඩාත් ජනප්‍රිය ගිනි කඳු ස්ථානයක් බවයි සඳහන් වන්නේ. අනතුරට පත් තරුණිය සිටි ප්‍රදේශය ගලවාගැනීමේ නිලධාරීන් විසින් ඩ්‍රෝන යානයක් මගින් නිරීක්ෂණය කර තිබෙන අතර මුදා ගැනීමේ කණ්ඩායම්වලට ළඟාවීමේ හැකියාවක් තිබුණේනම් ඇගේ ජීවිතය බේරා ගැනීමට හැකිවනු ඇති බවයි පැවසෙන්නේ.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජ_ල_ය_න__ම_ර_න_ස_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජූලියානා මැරින්ස්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඉන_ද_න_ස_ය_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දුනීසියාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ල_ම_බ_ක__ද_පත">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලොම්බොක් දූපත</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ර_න_ජ_න__ග_න__කන_ද">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රින්ජානි ගිනි කන්ද</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#බ__රස_ලය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බ්‍රසීලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ග_න__කන_ද_න__ව_ට__ම_ය_ය_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගිනි කන්දෙන් වැටී මිය යාම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අනත_ර">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අනතුර</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_ද__ග_න_ම__කණ_ඩ_යම_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මුදා ගැනීමේ කණ්ඩායම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___hirunews_lk_408360_iran_arrests_700_people_for_spying_fo">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#PoliticsAndGovernance"/>
-  <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#ඉර_නය"/>
   <mentionsEntity rdf:resource="#ඊශ__ර_යලය"/>
-  <mentionsEntity rdf:resource="#අත_අඩ_ග_වට_ග_න_ම_"/>
-  <mentionsEntity rdf:resource="#ඔත_ත__බ_ල_ම"/>
-  <hasForeignEvent rdf:resource="#අත_අඩ_ග_වට_ග_න_ම_"/>
-  <hasForeignEvent rdf:resource="#ඔත_ත__බ_ල_ම"/>
-  <hasForeignLocation rdf:resource="#ඉර_නය"/>
-  <hasForeignLocation rdf:resource="#ඊශ__ර_යලය"/>
+  <mentionsEntity rdf:resource="#ඉර_නය"/>
+  <hasCrimeLocation rdf:resource="#ඊශ__ර_යලය"/>
+  <hasCrimeLocation rdf:resource="#ඉර_නය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලයට ඔත්තු බැලූ 700ක් ඉරාන අත්අඩංගුවට</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T20:09:56.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T20:09:56.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408360/iran-arrests-700-people-for-spying-for-israel</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.035</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය වෙනුවෙන් ඔත්තු බැලුවායැයි කියන සැකකරුවන් 700කට අධික පිරිසක් ඉරානය විසින් අත්අඩංගුවට ගෙන ඇතැයි විදෙස් මාධ්‍ය පවසනවා. ඉකුත් දින 12ක් තුළ මේ පිරිස අත්අඩංගුවට පත්ව ඇති බවයි සඳහන්. පසුගිය දින කිහිපයේදී ඉරානය විසින් සිදුකළ මෙහෙයුම් මැද කුඩා ප්‍රමාණයේ ඩ්‍රෝන යානා 10,000 කට අධිකව සිය භාරයට ගත් බවයි ඉරානය පවසන්නේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.602</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඊශ්‍රායලය වෙනුවෙන් ඔත්තු බැලුවායැයි කියන සැකකරුවන් 700කට අධික පිරිසක් ඉරානය විසින් අත්අඩංගුවට ගෙන ඇතැයි විදෙස් මාධ්‍ය පවසනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අත_අඩ_ග_වට_ග_න_ම_">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අත්අඩංගුවට ගැනීම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඔත_ත__බ_ල_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඔත්තු බැලීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408385_12_killed_in_shooting_at_religious_ce">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#CrimeAndJustice"/>
   <hasCategory rdf:resource="#CrimeReport"/>
-  <mentionsEntity rdf:resource="#ක_ල_ඩ_ය__ෂය_න_බ_ම_"/>
   <mentionsEntity rdf:resource="#ම_ක_ස_ක_ව"/>
-  <mentionsEntity rdf:resource="#ග_ව_න_ජ_ව_ට__ප__ර_න_තය"/>
-  <mentionsEntity rdf:resource="#ව_ඩ__ත_බ_ම"/>
+  <mentionsEntity rdf:resource="#ග_ව_න_ජ_ව_ට_"/>
   <mentionsEntity rdf:resource="#ආගම_ක_උත_සවය"/>
-  <mentionsEntity rdf:resource="#ශ_න_ත_ජ_න__බ_ප_ට_ස_ට__ස_මර_ම"/>
-  <hasWitness rdf:resource="#ක_ල_ඩ_ය__ෂය_න_බ_ම_"/>
-  <hasCrimeType rdf:resource="#ව_ඩ__ත_බ_ම"/>
+  <mentionsEntity rdf:resource="#ව_ඩ__ත_බ_ම"/>
   <hasCrimeType rdf:resource="#ආගම_ක_උත_සවය"/>
-  <hasCrimeType rdf:resource="#ශ_න_ත_ජ_න__බ_ප_ට_ස_ට__ස_මර_ම"/>
+  <hasCrimeType rdf:resource="#ව_ඩ__ත_බ_ම"/>
   <hasCrimeLocation rdf:resource="#ම_ක_ස_ක_ව"/>
-  <hasCrimeLocation rdf:resource="#ග_ව_න_ජ_ව_ට__ප__ර_න_තය"/>
+  <hasCrimeLocation rdf:resource="#ග_ව_න_ජ_ව_ට_"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙක්සිකෝවේ ආගමික උත්සවයක් අතරතුර සිදු වූ වෙඩි තැබීමකින් 12 දෙනෙකු මරුට</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T07:47:40.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T07:47:40.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408385/12-killed-in-shooting-at-religious-ceremony-in-mexico</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.038</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙක්සිකානු ගුවානාජුවාටෝ ප්‍රාන්තයේ පෙරේදා (24) පැවති ආගමික උත්සවයක් අතරතුර වූ වෙඩි තැබීමකින් පුද්ගලයින් 12 දෙනෙකු මිය ගොස් ඇති බව විදෙස් මාධ්‍ය වාර්තා කරනවා. වෙඩි තැබීම හේතුවෙන් තවත් පුද්ගලයින් 20 දෙනෙකු පමණ තුවාල ලබා තිබෙනවා. වෙඩි තැබීම ආරම්භ වන විට ශාන්ත ජෝන් බැප්ටිස්ට් සැමරීම සඳහා ජනතාව එම වීදියේ නටමින් සහ මත්පැන් පානය කරමින් සිටි බවයි මාධ්‍ය වාර්තා සඳහන් කරන්නේ. මෙක්සිකානු ජනාධිපති ක්ලෝඩියා ෂයින්බෝම් මෙම සම්බන්ධයෙන් විමර්ශනය කරමින් පවතින බවටයි පවසා ඇත්තේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.612</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙක්සිකානු ගුවානාජුවාටෝ ප්‍රාන්තයේ පෙරේදා (24) පැවති ආගමික උත්සවයක් අතරතුර වූ වෙඩි තැබීමකින් පුද්ගලයින් 12 දෙනෙකු මිය ගොස් ඇති බව විදෙස් මාධ්‍ය වාර්තා කරනවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක_ල_ඩ_ය__ෂය_න_බ_ම_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්ලෝඩියා ෂයින්බෝම්</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ම_ක_ස_ක_ව">
@@ -1086,14 +721,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙක්සිකෝව</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ග_ව_න_ජ_ව_ට__ප__ර_න_තය">
+<owl:NamedIndividual rdf:about="#ග_ව_න_ජ_ව_ට_">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවානාජුවාටෝ ප්‍රාන්තය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ව_ඩ__ත_බ_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වෙඩි තැබීම</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවානාජුවාටෝ</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ආගම_ක_උත_සවය">
@@ -1101,48 +731,32 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආගමික උත්සවය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ශ_න_ත_ජ_න__බ_ප_ට_ස_ට__ස_මර_ම">
+<owl:NamedIndividual rdf:about="#ව_ඩ__ත_බ_ම">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශාන්ත ජෝන් බැප්ටිස්ට් සැමරීම</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වෙඩි තැබීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408397_american_actor_joe_marinelli_passes_a">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#CultureAndEntertainment"/>
-  <hasCategory rdf:resource="#MusicAndArts"/>
+  <hasCategory rdf:resource="#ScreenAndStage"/>
   <mentionsEntity rdf:resource="#ජ__ම_ර_න_ල_"/>
   <mentionsEntity rdf:resource="#අම_ර_ක_ව"/>
-  <mentionsEntity rdf:resource="#කන_ක_ට_කට_"/>
-  <mentionsEntity rdf:resource="#ම_ර_ඩන_"/>
-  <mentionsEntity rdf:resource="#දක_ණ__ක_ල_ෆ_න_ය_ව"/>
-  <mentionsEntity rdf:resource="#ල_ස__ඇන_ජල_ස_"/>
-  <mentionsEntity rdf:resource="#ආර_ක_ඩ_ය_"/>
-  <mentionsEntity rdf:resource="#න_ව_ඩ_"/>
-  <mentionsEntity rdf:resource="#ර_න_"/>
-  <mentionsEntity rdf:resource="#ලන_ඩන_"/>
-  <mentionsEntity rdf:resource="#ග_න__කන_ද_න__ව_ට__ම_ය_ය_ම"/>
+  <mentionsEntity rdf:resource="#ස_න_ට__බ_බර_"/>
+  <mentionsEntity rdf:resource="#ම_ය_ය_ම"/>
   <mentionsEntity rdf:resource="#ර_ගනය"/>
-  <mentionsEntity rdf:resource="#ව_ශ_ව_ව_ද__ය_ලය"/>
-  <mentionsEntity rdf:resource="#ර_ජක_ය_න_ට__ය_කල__ඇකඩම_ය"/>
-  <hasMusicArtist rdf:resource="#ජ__ම_ර_න_ල_"/>
-  <hasMusicCompany rdf:resource="#ව_ශ_ව_ව_ද__ය_ලය"/>
-  <hasMusicCompany rdf:resource="#ර_ජක_ය_න_ට__ය_කල__ඇකඩම_ය"/>
-  <hasMusicEvent rdf:resource="#ග_න__කන_ද_න__ව_ට__ම_ය_ය_ම"/>
-  <hasMusicEvent rdf:resource="#ර_ගනය"/>
-  <hasMusicLocation rdf:resource="#අම_ර_ක_ව"/>
-  <hasMusicLocation rdf:resource="#කන_ක_ට_කට_"/>
-  <hasMusicLocation rdf:resource="#ම_ර_ඩන_"/>
-  <hasMusicLocation rdf:resource="#දක_ණ__ක_ල_ෆ_න_ය_ව"/>
-  <hasMusicLocation rdf:resource="#ල_ස__ඇන_ජල_ස_"/>
-  <hasMusicLocation rdf:resource="#ආර_ක_ඩ_ය_"/>
-  <hasMusicLocation rdf:resource="#න_ව_ඩ_"/>
-  <hasMusicLocation rdf:resource="#ර_න_"/>
-  <hasMusicLocation rdf:resource="#ලන_ඩන_"/>
+  <mentionsEntity rdf:resource="#ද_ම_න___ෂ_"/>
+  <hasFilmDirectorActor rdf:resource="#ජ__ම_ර_න_ල_"/>
+  <hasFilmProductionCompany rdf:resource="#ද_ම_න___ෂ_"/>
+  <hasResearchEvent rdf:resource="#ම_ය_ය_ම"/>
+  <hasResearchEvent rdf:resource="#ර_ගනය"/>
+  <hasResearchLocation rdf:resource="#අම_ර_ක_ව"/>
+  <hasResearchLocation rdf:resource="#ස_න_ට__බ_බර_"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමෙරිකානු නළු ජෝ මැරිනෙලි ජීවිතක්ෂයට</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T09:36:50.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T09:36:50.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://hirunews.lk/408397/american-actor-joe-marinelli-passes-away</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.041</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">“ද මෝනිං ෂෝ” සහ “සැන්ටා බාබරා” හි රංගනයෙන් දායක වූ අමෙරිකානු නළු ජෝ මැරිනෙලි මියගොස් තිබෙනවා. මියයන විට ඔහු 68 හැවිරිදි වියේ පසුවූවා. වසර කිහිපයක සිට උගුරේ සහ අමාශයේ වැළඳී තිබූ පිළිකා රෝගී තත්ත්වය නිසා ඔහු මියගොස් ඇති බවයි විදෙස් මාධ්‍ය වාර්තා කරන්නේ. මැරිනෙලි 1957 ජනවාරි 21 වන දින කනෙක්ටිකට් හි මෙරිඩන් හි උපත ලැබූ අතර වයස අවුරුදු 4 දී දකුණු කැලිෆෝනියාවට සංක්‍රමණය වී තිබෙනවා. පසුව ලොස් ඇන්ජලීස් හි ආර්කේඩියා උසස් පාසලට සහ නෙවාඩා හි රෙනෝ උසස් පාසලට ඇතුළත් වූ ඔහු ලන්ඩනයේ ලොයෝලා මේරිමවුන්ට් විශ්ව විද්‍යාලයෙන් සහ රාජකීය නාට්‍ය කලා ඇකඩමියෙන් (RADA) උසස් අධ්‍යාපනය ලබා තිබුණා. 1988-90 දක්වා බර්නාඩෝ "බනී" ටැග්ලියාටි ලෙස ඔහු රඟපෑමෙන් පසු, 1993 දී ගයිඩින් ලයිට් නාට්‍යයේ පෝලි හාර්ඩ්මන් චරිතයට රංගනයෙන් දායක වී තිබෙනවා. එමෙන්ම 1999-2001 දක්වා කාලයේ ජෙනරල් හොස්පිට්ල්හි ජෝසප් සොරෙල් නමැති චරිතය නිරූපණය කර ඇති බවයි මාධ්‍ය වාර්තා සඳහන් කරන්නේ. ඔහුගේ වෘත්තීය ජීවිතය පුරාම, ඔහු One Last Ride, Hunter, ER, The King of Queens, NYPD Blue, The West Wing, The Practice, House, Castle, Desperate Housewives, Parenthood, The Offer, Ray Donovan ඇතුළුව චිත්‍රපට සහ රූපවාහිනී නිර්මාණ 50කට අධික ප්‍රමාණයකට දායක වී තිබෙනවා.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.619</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ද මෝනිං ෂෝ සහ සැන්ටා බාබරා හි රංගනයෙන් දායක වූ අමෙරිකානු නළු ජෝ මැරිනෙලි මියගොස් තිබෙනවා. මියයන විට ඔහු 68 හැවිරිදි වියේ පසුවූවා.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hirunews</publisherName>
 </owl:NamedIndividual>
 
@@ -1151,44 +765,14 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජෝ මැරිනෙලි</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#කන_ක_ට_කට_">
+<owl:NamedIndividual rdf:about="#ස_න_ට__බ_බර_">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කනෙක්ටිකට්</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සැන්ටා බාබරා</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ම_ර_ඩන_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙරිඩන්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#දක_ණ__ක_ල_ෆ_න_ය_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දකුණු කැලිෆෝනියාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ල_ස__ඇන_ජල_ස_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලොස් ඇන්ජලීස්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ආර_ක_ඩ_ය_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආර්කේඩියා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#න_ව_ඩ_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නෙවාඩා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ර_න_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රෙනෝ</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ලන_ඩන_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලන්ඩන්</canonicalName>
+<owl:NamedIndividual rdf:about="#ම_ය_ය_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මිය යාම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ර_ගනය">
@@ -1196,14 +780,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රංගනය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ව_ශ_ව_ව_ද__ය_ලය">
+<owl:NamedIndividual rdf:about="#ද_ම_න___ෂ_">
   <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විශ්ව විද්‍යාලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ර_ජක_ය_න_ට__ය_කල__ඇකඩම_ය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රාජකීය නාට්‍ය කලා ඇකඩමිය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ද මෝනිං ෂෝ</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24_clean_sri_lanka__e0_b7_8">
@@ -1211,22 +790,20 @@
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#DomesticPolitics"/>
   <mentionsEntity rdf:resource="#ක_ළඹ"/>
-  <mentionsEntity rdf:resource="#ද_වය_න"/>
-  <mentionsEntity rdf:resource="#නව_කරණය"/>
-  <mentionsEntity rdf:resource="#න__යෂ_ට_ක_ව_ඩසටහන"/>
+  <mentionsEntity rdf:resource="#මධ__යම"/>
+  <mentionsEntity rdf:resource="#බස__න_වත_ම_ප_ළ"/>
+  <mentionsEntity rdf:resource="#ක_ල_න__ශ__ර_ල_ක__ව_ඩසටහන"/>
   <mentionsEntity rdf:resource="#රජය"/>
-  <mentionsEntity rdf:resource="#ග_වන__හම_ද_ව"/>
   <hasDomesticOrganization rdf:resource="#රජය"/>
-  <hasDomesticOrganization rdf:resource="#ග_වන__හම_ද_ව"/>
-  <hasDomesticEvent rdf:resource="#නව_කරණය"/>
-  <hasDomesticEvent rdf:resource="#න__යෂ_ට_ක_ව_ඩසටහන"/>
+  <hasDomesticEvent rdf:resource="#ක_ල_න__ශ__ර_ල_ක__ව_ඩසටහන"/>
   <hasDomesticLocation rdf:resource="#ක_ළඹ"/>
-  <hasDomesticLocation rdf:resource="#ද_වය_න"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clean Sri Lanka වැඩසටහනට සමගාමීව කොළඹ මධ්‍යම බස් නැවතුම්පොළ නවීකරණය කිරීමට සැලසුම්..</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T05:00:00.000</hasPublicationDate>
+  <hasDomesticLocation rdf:resource="#මධ__යම"/>
+  <hasDomesticLocation rdf:resource="#බස__න_වත_ම_ප_ළ"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්ලීන් ශ්‍රිලංකා වැඩසටහනට සමගාමීව කොළඹ මධ්‍යම බස් නැවතුම්පොළ නවීකරණය කිරීමට සැලසුම්..</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T05:00:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/clean-sri-lanka-%e0%b7%80%e0%b7%90%e0%b6%a9%e0%b7%83</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.047</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වැඩසටහනට සමගාමීව කොළඹ මධ්‍යම බස් නැවතුම්පොළ වසරක් ඇතුළත නවීකරණයට කිරීමට රජය සැලසුම් කර තිබේ. මෙයට සමගාමීව දිවයින පුරා පිහිටි ප්‍රධාන පෙළේ බස් නැවතුම්පොළ 50ක් නවීකරණය කිරීමටද සැලසුම් කර ඇති අතර, මෙම වැඩසටහන සඳහා ගුවන් හමුදාවේ සහාය ලබා ගැනීමට නියමිතය.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.630</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වැඩසටහනට සමගාමීව කොළඹ මධ්‍යම බස් නැවතුම්පොළ වසරක් ඇතුළත නවීකරණයට කිරීමට රජය සැලසුම් කර තිබේ.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1235,14 +812,19 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කොළඹ</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ද_වය_න">
+<owl:NamedIndividual rdf:about="#මධ__යම">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දිවයින</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මධ්‍යම</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#නව_කරණය">
+<owl:NamedIndividual rdf:about="#බස__න_වත_ම_ප_ළ">
+  <rdf:type rdf:resource="#Location"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බස් නැවතුම්පොළ</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ක_ල_න__ශ__ර_ල_ක__ව_ඩසටහන">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නවීකරණය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්ලීන් ශ්‍රිලංකා වැඩසටහන</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#රජය">
@@ -1250,57 +832,25 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රජය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ග_වන__හම_ද_ව">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවන් හමුදාව</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24__e0_b6_bd_e0_b6_82_e0_b6">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#DomesticPolitics"/>
-  <mentionsEntity rdf:resource="#ජන_ධ_පත__ල_කම_"/>
-  <mentionsEntity rdf:resource="#නන_ද_ක"/>
-  <mentionsEntity rdf:resource="#සනත_"/>
-  <mentionsEntity rdf:resource="#ක_ම_න_යක"/>
-  <mentionsEntity rdf:resource="#හම_ව"/>
+  <mentionsEntity rdf:resource="#නන_ද_ක_සනත__ක_ම_න_යක"/>
   <mentionsEntity rdf:resource="#ල_ක__බ__ක__ස_වක_ස_ගමය"/>
-  <mentionsEntity rdf:resource="#ජන_ධ_පත__ල_කම__ක_ර_ය_ලය"/>
-  <mentionsEntity rdf:resource="#ජන_ධ_පත__ම_ධ__ය_අ_ශය"/>
   <hasDomesticOrganization rdf:resource="#ල_ක__බ__ක__ස_වක_ස_ගමය"/>
-  <hasDomesticOrganization rdf:resource="#ජන_ධ_පත__ල_කම__ක_ර_ය_ලය"/>
-  <hasDomesticOrganization rdf:resource="#ජන_ධ_පත__ම_ධ__ය_අ_ශය"/>
-  <hasDomesticEvent rdf:resource="#හම_ව"/>
-  <hasDomesticPerson rdf:resource="#ජන_ධ_පත__ල_කම_"/>
-  <hasDomesticPerson rdf:resource="#නන_ද_ක"/>
-  <hasDomesticPerson rdf:resource="#සනත_"/>
-  <hasDomesticPerson rdf:resource="#ක_ම_න_යක"/>
+  <hasDomesticPerson rdf:resource="#නන_ද_ක_සනත__ක_ම_න_යක"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලංකා බැංකු සේවක සංගමය ජනාධිපති ලේකම් හමුවෙයි..</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T05:03:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T05:03:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b6%b6%e0%b7%90%e0%b6%82%e0%b6%9a%e0%b7%94-%e0%b7%83%e0%b7%9a%e0%b7%80%e0%b6%9a-%e0%b7%83%e0%b6%82%e0%b6%9c%e0%b6%b8</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.054</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති ලේකම් ආචාර්ය නන්දික සනත් කුමානායක මහතා සහ ලංකා බැංකු සේවක සංගමය අතර හමුවක් අද පැවැත්විණි. ඒ ජනාධිපති ලේකම් කාර්යාලයේදීයි. ජනාධිපති මාධ්‍ය අංශය සඳහන් කරන්නේ, වර්තමාන බැංකු ක්ෂේත්‍රයේ පවතින ගැටලු සම්බන්ධයෙන් මෙම හමුවේදී සාකච්ඡා වූ බවයි.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.638</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති ලේකම් ආචාර්ය නන්දික සනත් කුමානායක මහතා සහ ලංකා බැංකු සේවක සංගමය අතර හමුවක් අද පැවැත්විණි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ජන_ධ_පත__ල_කම_">
+<owl:NamedIndividual rdf:about="#නන_ද_ක_සනත__ක_ම_න_යක">
   <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති ලේකම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#නන_ද_ක">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නන්දික</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#සනත_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සනත්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක_ම_න_යක">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කුමානායක</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නන්දික සනත් කුමානායක</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ල_ක__බ__ක__ස_වක_ස_ගමය">
@@ -1308,54 +858,29 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලංකා බැංකු සේවක සංගමය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ජන_ධ_පත__ල_කම__ක_ර_ය_ලය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති ලේකම් කාර්යාලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජන_ධ_පත__ම_ධ__ය_අ_ශය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජනාධිපති මාධ්‍ය අංශය</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24__e0_b6_b4_e0_b7_9c_e0_b6">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#InternationalPolitics"/>
-  <mentionsEntity rdf:resource="#අග__ර_ම_ත__ය"/>
-  <mentionsEntity rdf:resource="#හර_න_"/>
-  <mentionsEntity rdf:resource="#අමරස_ර_ය"/>
+  <mentionsEntity rdf:resource="#හර_න__අමරස_ර_ය"/>
   <mentionsEntity rdf:resource="#ක_නඩ_ව"/>
-  <mentionsEntity rdf:resource="#ව_න_ක_වර_"/>
-  <mentionsEntity rdf:resource="#ඉග_න_ම__ප_ලක_මණ_ඩලය"/>
-  <mentionsEntity rdf:resource="#සම_ම_ලනය"/>
   <mentionsEntity rdf:resource="#ප_ද_ර_ජ__ය_මණ_ඩලය"/>
-  <mentionsEntity rdf:resource="#අග__ර_ම_ත__ය_ම_ධ__ය_ඒකකය"/>
+  <mentionsEntity rdf:resource="#ඉග_න_ම__ප_ලක_මණ_ඩලය"/>
   <hasForeignOrganization rdf:resource="#ප_ද_ර_ජ__ය_මණ_ඩලය"/>
-  <hasForeignOrganization rdf:resource="#අග__ර_ම_ත__ය_ම_ධ__ය_ඒකකය"/>
-  <hasForeignEvent rdf:resource="#ඉග_න_ම__ප_ලක_මණ_ඩලය"/>
-  <hasForeignEvent rdf:resource="#සම_ම_ලනය"/>
-  <hasForeignPerson rdf:resource="#අග__ර_ම_ත__ය"/>
-  <hasForeignPerson rdf:resource="#හර_න_"/>
-  <hasForeignPerson rdf:resource="#අමරස_ර_ය"/>
+  <hasForeignOrganization rdf:resource="#ඉග_න_ම__ප_ලක_මණ_ඩලය"/>
+  <hasForeignPerson rdf:resource="#හර_න__අමරස_ර_ය"/>
   <hasForeignLocation rdf:resource="#ක_නඩ_ව"/>
-  <hasForeignLocation rdf:resource="#ව_න_ක_වර_"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොදුරාජ්‍ය මණ්ඩලයේ ඉගෙනුම් පාලක මණ්ඩලයට සහභාගී වීමට අගමැති හරිනි කැනඩාව බලා පිටත්ව යයි.</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T06:46:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T06:46:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/%e0%b6%b4%e0%b7%9c%e0%b6%af%e0%b7%94%e0%b6%bb%e0%b7%8f%e0%b6%a2%e0%b7%8a%e2%80%8d%e0%b6%ba-%e0%b6%b8%e0%b6%ab%e0%b7%8a%e0%b6%a9%e0%b6%bd%e0%b6%ba%e0%b7%9a-%e0%b6%89</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.061</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොදුරාජ්‍ය මණ්ඩලයේ ඉගෙනුම් පාලක මණ්ඩලයට සහභාගී වීම සඳහා අග්‍රාමාත්‍ය ආචාර්ය හරිනි අමරසූරිය අද කැනඩාව බලා පිටත්ව ගියේ ය. පොදුරාජ්‍ය මණ්ඩලීය ඉගෙනුම් පාලක මණ්ඩලය අද සිට අනිද්දා දක්වා පැවැත්වෙන්නේ, කැනඩාවේ වැන්කුවර්හිදී යි. මෙහිදී ප්‍රධාන වශයෙන් ළමා සහ කාන්තා අධ්‍යාපනය සහ පුහුණුව, උසස් අධ්‍යාපනය, ගුරු අධ්‍යාපනය, ජීවිත කාලය පුරාම ඉගෙනීම සහ තාක්ෂණය සක්‍රීය ඉගෙනීම සඳහා දායක කර ගැනීම යන ක්ෂේත්‍ර පිළිබඳ විශේෂ අවධානයක් යොමු කෙරෙනු ඇත. එසේම නවෝත්පාදන සහ පර්යේෂණ සඳහා ආයෝජනය කිරීම, ආයතන සහ සංවිධානවල පරිවර්තනයට සහාය වීම, ස්ත්‍රී පුරුෂ සමානාත්මතාවය ප්‍රවර්ධනය කිරීම, අධීක්ෂණ සහ ඇගයීම් සැලැස්මක් ක්‍රියාත්මක කිරීම යන කරුණු පිළිබඳවද එහිදී සාකච්ඡා කිරීමට නියමිත බව අග්‍රාමාත්‍ය මාධ්‍ය ඒකකය සඳහන් කළේ ය.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.645</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොදුරාජ්‍ය මණ්ඩලයේ ඉගෙනුම් පාලක මණ්ඩලයට සහභාගී වීම සඳහා අග්‍රාමාත්‍ය ආචාර්ය හරිනි අමරසූරිය අද කැනඩාව බලා පිටත්ව ගියේ ය.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#හර_න_">
+<owl:NamedIndividual rdf:about="#හර_න__අමරස_ර_ය">
   <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හරිනි</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අමරස_ර_ය">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමරසූරිය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හරිනි අමරසූරිය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ක_නඩ_ව">
@@ -1363,29 +888,14 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කැනඩාව</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ව_න_ක_වර_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වැන්කුවර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඉග_න_ම__ප_ලක_මණ_ඩලය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉගෙනුම් පාලක මණ්ඩලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#සම_ම_ලනය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සම්මේලනය</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#ප_ද_ර_ජ__ය_මණ_ඩලය">
   <rdf:type rdf:resource="#Organization"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොදුරාජ්‍ය මණ්ඩලය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#අග__ර_ම_ත__ය_ම_ධ__ය_ඒකකය">
+<owl:NamedIndividual rdf:about="#ඉග_න_ම__ප_ලක_මණ_ඩලය">
   <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අග්‍රාමාත්‍ය මාධ්‍ය ඒකකය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉගෙනුම් පාලක මණ්ඩලය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_24__e0_b6_b4_e0_b7_9c_e0_b7">
@@ -1393,16 +903,16 @@
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#DomesticPolitics"/>
   <mentionsEntity rdf:resource="#න_මල__කර_ණ_රත_න"/>
-  <mentionsEntity rdf:resource="#ද_ඩ__ක__ර_ය_මර_ග"/>
+  <mentionsEntity rdf:resource="#ප_හ_ර_ත_ග_සඟව_ම"/>
   <mentionsEntity rdf:resource="#ක_ෂ_කර_ම_අම_ත__ය__ශය"/>
   <hasDomesticOrganization rdf:resource="#ක_ෂ_කර_ම_අම_ත__ය__ශය"/>
-  <hasDomesticEvent rdf:resource="#ද_ඩ__ක__ර_ය_මර_ග"/>
+  <hasDomesticEvent rdf:resource="#ප_හ_ර_ත_ග_සඟව_ම"/>
   <hasDomesticPerson rdf:resource="#න_මල__කර_ණ_රත_න"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොහොර තොග සඟවන වෙළදුන් සම්බන්ධයෙන් දැඩි ක්‍රියාමර්ග ගන්නා බව නියෝජ්‍ය අමාත්‍ය නාමල් කරුණාරත්න මහතා පවසයි.</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T10:08:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T10:08:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/%e0%b6%b4%e0%b7%9c%e0%b7%84%e0%b7%9c%e0%b6%bb-%e0%b6%ad%e0%b7%9c%e0%b6%9c-%e0%b7%83%e0%b6%9f%e0%b7%80%e0%b6%b1-%e0%b7%80%e0%b7%99%e0%b7%85%e0%b6%af%e0%b7%94</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.072</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLOMBO (News1st) - පොහොර තොග සඟවන වෙළදුන් සම්බන්ධයෙන් දැඩි ක්‍රියාමර්ග ගන්නා බව කෘෂිකර්ම නියෝජ්‍ය අමාත්‍ය නාමල් කරුණාරත්න මහතා පවසයි.නියෝජ්‍ය අමාත්‍යවරයා සදහන් කළේ, යළ කන්නයට ප්‍රමානවත් පොහොර තොග මෙරට ඇති බවයි.එහෙත් ඇතමුන් මෙරට පොහොර හිඟයක් මවා පෑමට උත්සහ දරමින් සිටින බව නියෝජ්‍ය අමාත්‍යවරයා පෙන්වා දෙයි.ඔහු සඳහන් කළේ යුරියා පොහොර තවත් ප්‍රමානයක් යළ කන්නය සදහා අවශ්‍ය බවයි.එම පොහොර මෙට්ට්‍රික් ටොන් පහලොස් දහසක් මෙරටට ගෙන ඒමට පියවර ගෙන තිබේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.652</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොහොර තොග සඟවන වෙළදුන් සම්බන්ධයෙන් දැඩි ක්‍රියාමර්ග ගන්නා බව කෘෂිකර්ම නියෝජ්‍ය අමාත්‍ය නාමල් කරුණාරත්න මහතා පවසයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1411,9 +921,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නාමල් කරුණාරත්න</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ද_ඩ__ක__ර_ය_මර_ග">
+<owl:NamedIndividual rdf:about="#ප_හ_ර_ත_ග_සඟව_ම">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දැඩි ක්‍රියාමර්ග</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොහොර තොග සඟවීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ක_ෂ_කර_ම_අම_ත__ය__ශය">
@@ -1434,10 +944,10 @@
   <hasCrimeLocation rdf:resource="#බ_ර_ල_ල"/>
   <hasCrimeLocation rdf:resource="#ඩ_න_ක_වත_ත"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බොරැල්ලේ වෙඩි තැබීමක්...</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T11:03:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T11:03:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/24/%e0%b6%b6%e0%b7%9c%e0%b6%bb%e0%b7%90%e0%b6%bd%e0%b7%8a%e0%b6%bd%e0%b7%9a-%e0%b7%80%e0%b7%99%e0%b6%a9%e0%b7%92-%e0%b6%ad%e0%b7%90%e0%b6%b6%e0%b7%93%e0%b6%b8%e0%b6%9a</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.076</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLOMBO (News 1st) - බොරැල්ල ඩින්කේවත්ත ප්‍රදේශයේ වෙඩි තැබීමක් සිදුව තිබේ.පොලිසිය සඳහන් කළේ, වෙඩි තැබීමෙන් කිසිවෙකුට හානියක් සිදුව නොමැති බවයි.යතුරුපැදියකින් පැමිණි පුද්ගලයින් දෙදෙනෙකු T 56 ගිනි අවියකින් මාර්ගය අසල සිටි පුද්ගලයෙකුට වෙඩි තැබිම සිදුකර පලාගොස් තිබේඅදාළ පුද්ගලයා ඉලක්ක කරගෙන වෙඩි පහර කිහිපයක් එල්ල කර ඇති බව, පොලිසිය සඳහන් කළේ ය.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.664</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බොරැල්ල ඩින්කේවත්ත ප්‍රදේශයේ වෙඩි තැබීමක් සිදුව තිබේ. පොලිසිය සඳහන් කළේ, වෙඩි තැබීමෙන් කිසිවෙකුට හානියක් සිදුව නොමැති බවයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1451,49 +961,36 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඩින්කේවත්ත</canonicalName>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#ප_ල_ස_ය">
+  <rdf:type rdf:resource="#Organization"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පොලීසිය</canonicalName>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_25__e0_b6_b1_e0_b7_80_e0_b6">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#DomesticPolitics"/>
   <mentionsEntity rdf:resource="#න_ලක_කළ_ව_ව"/>
-  <mentionsEntity rdf:resource="#අග__ර_ම_ත__ය"/>
   <mentionsEntity rdf:resource="#හර_න__අමරස_ර_ය"/>
-  <mentionsEntity rdf:resource="#ක_ර_ය_ස_ධක_බළක__පත__ක_ර_ම"/>
-  <mentionsEntity rdf:resource="#හ__සනයන__ව_ළ_ක_ව_ම"/>
-  <mentionsEntity rdf:resource="#අධ__ය_පන_අම_ත__ය__ශය"/>
-  <mentionsEntity rdf:resource="#උසස__අධ__ය_පන_ආයතන"/>
-  <hasDomesticOrganization rdf:resource="#අධ__ය_පන_අම_ත__ය__ශය"/>
-  <hasDomesticOrganization rdf:resource="#උසස__අධ__ය_පන_ආයතන"/>
-  <hasDomesticEvent rdf:resource="#ක_ර_ය_ස_ධක_බළක__පත__ක_ර_ම"/>
-  <hasDomesticEvent rdf:resource="#හ__සනයන__ව_ළ_ක_ව_ම"/>
+  <mentionsEntity rdf:resource="#නවකවදය"/>
+  <mentionsEntity rdf:resource="#අධ__ය_පන_අම_ත__ය_ශය"/>
+  <mentionsEntity rdf:resource="#උසස__අධ__ය_පන_හ__ව_ත_ත_ය_අධ__ය_පන_අම_ත__ය_ශය"/>
+  <hasDomesticOrganization rdf:resource="#අධ__ය_පන_අම_ත__ය_ශය"/>
+  <hasDomesticOrganization rdf:resource="#උසස__අධ__ය_පන_හ__ව_ත_ත_ය_අධ__ය_පන_අම_ත__ය_ශය"/>
+  <hasDomesticEvent rdf:resource="#නවකවදය"/>
   <hasDomesticPerson rdf:resource="#න_ලක_කළ_ව_ව"/>
-  <hasDomesticPerson rdf:resource="#අග__ර_ම_ත__ය"/>
   <hasDomesticPerson rdf:resource="#හර_න__අමරස_ර_ය"/>
-  <hasCategory rdf:resource="#CrimeAndJustice"/>
-  <hasCategory rdf:resource="#CourtsAndInvestigation"/>
-  <mentionsEntity rdf:resource="#එම__අය__නව_පර_"/>
-  <mentionsEntity rdf:resource="#අග_න_ද_ග"/>
-  <mentionsEntity rdf:resource="#අක_කරපත_ත_ව"/>
   <mentionsEntity rdf:resource="#නවක_වදය"/>
-  <mentionsEntity rdf:resource="#පර_ක_ෂණය"/>
-  <mentionsEntity rdf:resource="#පන_ත__තහනම__ක_ර_ම"/>
   <mentionsEntity rdf:resource="#අග_න_ද_ග_ව_ශ_වව_ද__ය_ලය"/>
-  <mentionsEntity rdf:resource="#ප_ල_ස_ය"/>
-  <hasWitness rdf:resource="#එම__අය__නව_පර_"/>
-  <hasInvestigation rdf:resource="#අග_න_ද_ග_ව_ශ_වව_ද__ය_ලය"/>
-  <hasInvestigation rdf:resource="#ප_ල_ස_ය"/>
-  <hasCourtCase rdf:resource="#නවක_වදය"/>
-  <hasCourtCase rdf:resource="#පර_ක_ෂණය"/>
-  <hasCourtCase rdf:resource="#පන_ත__තහනම__ක_ර_ම"/>
-  <hasCourtLocation rdf:resource="#අග_න_ද_ග"/>
-  <hasCourtLocation rdf:resource="#අක_කරපත_ත_ව"/>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLOMBO (News1st) - නවකවදය ඇතුළු සියලු ආකාරයේ හිංසනයන් වැළැක්වීම සඳහා කාර්ය සාධක බළකායක් පත්කර තිබේ.ඒ අධ්‍යාපන, උසස් අධ්‍යාපන හා වෘත්තිය අධ්‍යාපන අමාත්‍යංශයේ ලේකම් නාලක කළුවැව මහතා විසින්.විෂය භාර අමාත්‍ය අග්‍රාමාත්‍ය ආචාර්ය හරිනි අමරසූරියගේ උපදෙස් මත මෙම කාර්ය සාධක බළකාය පත්කර තිබේ.අධ්‍යාපන අමාත්‍යාංශය පැවසුවේ විශ්වවිද්‍යාල මෙන්ම අනෙකුත් උසස් අධ්‍යාපන ආයතන තුළ පවතින නවකවදය ඉන් තුරන් කිරීම වර්තමාන රජයේ ප්‍රමුඛ අරමුණක් වන බවයි.මීට අමතරව ශිෂ්‍යන් වෙත ශිෂ්‍යන්ගෙන්, ආයතන පරිපාලනයෙන් හෝ වෙනත් පාර්ශව හරහා සිදුවන සියලුම ආකාරයේ හිංසනයන් මෙන්ම එම පාර්ශවවලින් ආචාර්යවරුන්ට සහ අනධ්‍යයන සේවකයින්ට සිදුවන හිංසනයන් ද නතර කිරීම කාර්ය සාධක බළකායේ අරමුණකි.ඒ අනුව එම කාර්ය සාධක බළකායේ සාමාජිකයින් ලෙස පහත සඳහන් නියෝජිතයින් පත්කර තිබේ.ඊට සාමාජිකයින් 16 කු අතුළත්.ඉදිරියේදී මෙම කාර්ය සාධක බළකාය යටතේ විශ්වවිද්‍යාල මට්ටමින් සහ අනෙකුත් උසස් අධ්‍යාපන ආයතන මට්ටමින් ඒකක පිහිටුවීමට ද යෝජනා වී ඇති බව අධ්‍යාපන අමාත්‍යංශය ප්‍රකාශ කළේ ය.</hasFullText>
+  <hasDomesticOrganization rdf:resource="#අග_න_ද_ග_ව_ශ_වව_ද__ය_ලය"/>
+  <hasDomesticEvent rdf:resource="#නවක_වදය"/>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නවකවදය ඇතුළු සියලු ආකාරයේ හිංසනයන් වැළැක්වීම සඳහා කාර්ය සාධක බළකායක් පත්කර තිබේ.ඒ අධ්‍යාපන, උසස් අධ්‍යාපන හා වෘත්තිය අධ්‍යාපන අමාත්‍යංශයේ ලේකම් නාලක කළුවැව මහතා විසින් විෂය භාර අමාත්‍ය අග්‍රාමාත්‍ය ආචාර්ය හරිනි අමරසූරියගේ උපදෙස් මත මෙම කාර්ය සාධක බළකාය පත්කර තිබේ.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නවක වදය චෝදනාවකට අග්නිදිග සරසවියේ සිසුන් 22 කුගේ පන්ති තහනම්.</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T09:07:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T09:07:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/25/%e0%b6%b1%e0%b7%80%e0%b6%9a-%e0%b7%80%e0%b6%af%e0%b6%ba-%e0%b6%a0%e0%b7%9d%e0%b6%af%e0%b6%b1%e0%b7%8f%e0%b7%80%e0%b6%9a%e0%b6%a7-%e0%b6%85%e0%b6%9c%e0%b7%8a</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.091</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLOMBO (News 1st) - අග්නිදිග විශ්වවිද්‍යාලයේ සිසුන් 22 කුගේ පන්ති තහනම් කර තිබේ.ඒ එම විශ්වවිද්‍යාලයේ පළමු වසරේ සිසුන් පිරිසකට අමානුෂික ලෙස නවක වදය ලබා දීමේ සිද්ධියක් මුල් කර ගනිමින්.අග්නිදිග විශ්ව විද්‍යාලයේ ලේඛාධිකාරි එම්.අයි නවුපර් පැවසුවේ සිද්ධිය සම්බන්ධයෙන් විශ්ව විද්‍යාල ආචාර්යවරුන්ගෙන් සැදුම්ලත් කමිටුවක් විසින් අභ්‍යන්තර පරීක්ෂණයක් පවත්වන බව‍යි පසුගිය දිනෙක එම විශ්වවිද්‍යාලයේ ඉංජිනේරු පීඨයේ පළමු වසරේ සිසුන් පිරිසකට එම පීඨයේම දෙවැනි වසරේ සිසුන් පිරිසක් විසින් නවකවදය ලබා දී තිබුණි.ඊට අදාළ විඩියෝ පටයක් සමාජ මාධ්‍ය හරහා ප්‍රචාරය වීමත් සමග පාලනධිකරිය විසින් අභ්‍යන්තර පරීක්ෂණයක් ආරම්භ කර තිබේ.අක්කරපත්තුව පොලීසිය විසින්ද මේ සම්බන්ධයෙන් පරීක්ෂණයක් ආරම්භ කර තිබේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.686</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අග්නිදිග විශ්වවිද්‍යාලයේ පළමු වසරේ සිසුන් පිරිසකට අමානුෂික ලෙස නවක වදය ලබා දීමේ සිද්ධියක් මුල් කර ගනිමින් සිසුන් 22 කුගේ පන්ති තහනම් කර තිබේ.</hasFullText>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#න_ලක_කළ_ව_ව">
@@ -1501,59 +998,24 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නාලක කළුවැව</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#හර_න__අමරස_ර_ය">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හරිනි අමරසූරිය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක_ර_ය_ස_ධක_බළක__පත__ක_ර_ම">
+<owl:NamedIndividual rdf:about="#නවකවදය">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කාර්ය සාධක බළකා පත් කිරීම</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නවකවදය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#හ__සනයන__ව_ළ_ක_ව_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිංසනයන් වැළැක්වීම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අධ__ය_පන_අම_ත__ය__ශය">
+<owl:NamedIndividual rdf:about="#අධ__ය_පන_අම_ත__ය_ශය">
   <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අධ්‍යාපන අමාත්‍යාංශය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අධ්‍යාපන අමාත්‍යංශය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#උසස__අධ__ය_පන_ආයතන">
+<owl:NamedIndividual rdf:about="#උසස__අධ__ය_පන_හ__ව_ත_ත_ය_අධ__ය_පන_අම_ත__ය_ශය">
   <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">උසස් අධ්‍යාපන ආයතන</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#එම__අය__නව_පර_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එම්.අයි නවුපර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අග_න_ද_ග">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අග්නිදිග</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අක_කරපත_ත_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අක්කරපත්තුව</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">උසස් අධ්‍යාපන හා වෘත්තිය අධ්‍යාපන අමාත්‍යංශය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#නවක_වදය">
   <rdf:type rdf:resource="#Event"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නවක වදය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#පර_ක_ෂණය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පරීක්ෂණය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#පන_ත__තහනම__ක_ර_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පන්ති තහනම් කිරීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#අග_න_ද_ග_ව_ශ_වව_ද__ය_ලය">
@@ -1565,7 +1027,6 @@
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#PoliticsAndGovernance"/>
   <hasCategory rdf:resource="#DomesticPolitics"/>
-  <mentionsEntity rdf:resource="#චන_දන_අබ_රත_න"/>
   <mentionsEntity rdf:resource="#බඳව__ග_න_ම"/>
   <mentionsEntity rdf:resource="#තරග_ව_භ_ග"/>
   <mentionsEntity rdf:resource="#ර_ජ__ය_පර_ප_ලන_පළ_ත__සභ_"/>
@@ -1576,18 +1037,12 @@
   <hasDomesticOrganization rdf:resource="#ර_ජ__ය_ස_වය"/>
   <hasDomesticEvent rdf:resource="#බඳව__ග_න_ම"/>
   <hasDomesticEvent rdf:resource="#තරග_ව_භ_ග"/>
-  <hasDomesticPerson rdf:resource="#චන_දන_අබ_රත_න"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වසර 7 කට පසු රාජ්‍ය සේවයකට තිස් දහසක් බඳවා ගැනීම ඇරඹේයි - රාජ්‍ය පරිපාලන පළාත් සභා හා පළාත් පාලන අමාත්‍යංශය</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T09:58:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T09:58:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/25/%e0%b7%80%e0%b7%83%e0%b6%bb-7-%e0%b6%9a%e0%b6%a7-%e0%b6%b4%e0%b7%83%e0%b7%94-%e0%b6%bb%e0%b7%8f%e0%b6%a2%e0%b7%8a%e2%80%8d%e0%b6%ba</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.095</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLOMBO (News1st) - රාජ්‍ය සේවයට අලුතින් තිස් දහසක් බඳවා ගැනීම මේ වනවිට ආරම්භ කර ඇති බව රාජ්‍ය පරිපාලන පළාත් සභා හා පළාත් පාලන අමාත්‍යංශය පවසයි.අමාත්‍ය ආචාර්ය චන්දන අබේරත්න මහතා සඳහන් කළේ, රාජ්‍ය පරිපාලන සේවය, සැලසුම් සේවය, විද්‍යාත්මක සේවය ඇතුළු මාණ්ඩලික තනතුරු රැසකටද ඒ යටතේ සුදුස්සන් බඳවා ගන්නා බවයි.මීට අමතරව කළමණකාරණ සහකාරවරුන්, ග්‍රාම නිලධාරීවරුවන් ඇතුළු රාජ්‍ය සේවයේ අත්‍යවශ්‍ය පුරප්පාඩු රැසක් සඳහාද සුදුස්සන් බඳවා ගැනෙනු ඇති.සියලු බඳවා ගැනීම් තරග විභාග පවත්වා සිදු කරන බවද අමාත්‍යවරයා ප්‍රකාශ කළේ ය.රාජ්‍ය සේවයට එක්වර මෙවැනි විශාල පිරිසක් බඳවා ගැනෙන්නේ වසර 7 කට පමණ පසුව වීම විශේෂත්වයක්.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.697</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රාජ්‍ය සේවයට අලුතින් තිස් දහසක් බඳවා ගැනීම මේ වනවිට ආරම්භ කර ඇති බව රාජ්‍ය පරිපාලන පළාත් සභා හා පළාත් පාලන අමාත්‍යංශය පවසයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#චන_දන_අබ_රත_න">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චන්දන අබේරත්න</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#බඳව__ග_න_ම">
@@ -1620,16 +1075,18 @@
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Cricket"/>
   <mentionsEntity rdf:resource="#ව_ර_ත__ක_ල_"/>
-  <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
+  <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
+  <mentionsEntity rdf:resource="#ප_ට_ය_න__සම_ග_න_ම"/>
   <mentionsEntity rdf:resource="#ඉන_ද_ය_ක__ර_කට__ප_ලක_මණ_ඩලය"/>
   <hasCricketTeam rdf:resource="#ඉන_ද_ය_ක__ර_කට__ප_ලක_මණ_ඩලය"/>
   <hasCricketPlayer rdf:resource="#ව_ර_ත__ක_ල_"/>
-  <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
+  <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
+  <hasCricketTournament rdf:resource="#ප_ට_ය_න__සම_ග_න_ම"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විරාත් කෝලි ටෙස්ට් ක්‍රිකට් පිටියෙන් සමුගැනීමට තීරණය කරයි..</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-10T02:05:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-10T02:05:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/10/%e0%b7%80%e0%b7%92%e0%b6%bb%e0%b7%8f%e0%b6%ad%e0%b7%8a-%e0%b6%9a%e0%b7%9d%e0%b6%bd%e0%b7%92-%e0%b6%a7%e0%b7%99%e0%b7%83%e0%b7%8a%e0%b6%a7%e0%b7%8a-%e0%b6%9a</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.101</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විරාත් කෝලි ටෙස්ට් ක්‍රිකට් පිටියෙන් සමුගැනීමට තීරණය කර තිබේ.කෝලි ඒය ඉන්දීය ක්‍රිකට් පාලක මණ්ඩලයට දැනුම් දී ඇතැයි විදෙස් මාධ්‍ය සඳහන් කරයි.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.709</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විරාත් කෝලි ටෙස්ට් ක්‍රිකට් පිටියෙන් සමුගැනීමට තීරණය කර තිබේ. කෝලි ඒය ඉන්දීය ක්‍රිකට් පාලක මණ්ඩලයට දැනුම් දී ඇතැයි විදෙස් මාධ්‍ය සඳහන් කරයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1638,119 +1095,19 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විරාත් කෝලි</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම">
+<owl:NamedIndividual rdf:about="#ට_ස_ට__ක__ර_කට_">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙස්ට් ක්‍රිකට් පිටියෙන් සමුගැනීම</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙස්ට් ක්‍රිකට්</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ප_ට_ය_න__සම_ග_න_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පිටියෙන් සමුගැනීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඉන_ද_ය_ක__ර_කට__ප_ලක_මණ_ඩලය">
   <rdf:type rdf:resource="#Organization"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දීය ක්‍රිකට් පාලක මණ්ඩලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_13__e0_b7_84_e0_b6_af_e0_b7">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#බ__ගල_ර_"/>
-  <mentionsEntity rdf:resource="#ජ_ය_ප_ර_"/>
-  <mentionsEntity rdf:resource="#ද_ල_ල_"/>
-  <mentionsEntity rdf:resource="#ලක_නව_"/>
-  <mentionsEntity rdf:resource="#ම_ම_බ_ය_"/>
-  <mentionsEntity rdf:resource="#අහමද_බ_ද_"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
-  <mentionsEntity rdf:resource="#පක_ස_ථ_නය"/>
-  <mentionsEntity rdf:resource="#IPL_තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#ය_ධමය_ව_ත_වරණය"/>
-  <mentionsEntity rdf:resource="#සටන__ව_ර_ම_ග_ව_ස_ම"/>
-  <mentionsEntity rdf:resource="#ස_ද_ස_කම__ල_බ_ම__තරගය"/>
-  <mentionsEntity rdf:resource="#අවසන__මහ__තරගය"/>
-  <mentionsEntity rdf:resource="#ස_ව_ධ_යකය_න_"/>
-  <hasCricketTeam rdf:resource="#ස_ව_ධ_යකය_න_"/>
-  <hasCricketVenue rdf:resource="#බ__ගල_ර_"/>
-  <hasCricketVenue rdf:resource="#ජ_ය_ප_ර_"/>
-  <hasCricketVenue rdf:resource="#ද_ල_ල_"/>
-  <hasCricketVenue rdf:resource="#ලක_නව_"/>
-  <hasCricketVenue rdf:resource="#ම_ම_බ_ය_"/>
-  <hasCricketVenue rdf:resource="#අහමද_බ_ද_"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ය_ව"/>
-  <hasCricketVenue rdf:resource="#පක_ස_ථ_නය"/>
-  <hasCricketTournament rdf:resource="#IPL_තරග_වල_ය"/>
-  <hasCricketTournament rdf:resource="#ය_ධමය_ව_ත_වරණය"/>
-  <hasCricketTournament rdf:resource="#සටන__ව_ර_ම_ග_ව_ස_ම"/>
-  <hasCricketTournament rdf:resource="#ස_ද_ස_කම__ල_බ_ම__තරගය"/>
-  <hasCricketTournament rdf:resource="#අවසන__මහ__තරගය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හදිසියේ නැවතුණු IPL ලබන 17 වැනිදා යළි ඇරඹේ....</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-13T09:06:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/13/%e0%b7%84%e0%b6%af%e0%b7%92%e0%b7%83%e0%b7%92%e0%b6%ba%e0%b7%9a-%e0%b6%b1%e0%b7%90%e0%b7%80%e0%b6%ad%e0%b7%94%e0%b6%ab%e0%b7%94-ipl</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.104</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ඉන්දීය ප්‍රිමියර් ලීග් පන්දුවාර 20යි 20 ක්‍රිකට් තරගාවලිය මැයි 17 වැනිදා යළි ආරම්භ කිරීමට තීරණය කර තිබේ.ඒ අනුව බැංගලෝර්, ජායිපූර්, දිල්ලි, ලක්නව්, මුම්බායි සහ අහමදාබාද් යන ස්ථාන හයකදී පමණක් එම තරගාවලියේ ඉතිරි තරග පැවැත්වෙනු ඇති.සංශෝධිත කාලසටහනට අනුව පළමු සුදුසුකම් ලැබීමේ තරගය මේ මස 29 වැනිදාත්, තරගාවලියේ සුදුසුකම් ලැබීමේ වටයෙන් ඉවත් වන කණ්ඩායම තීරණය කරන තරගය මේ මස 30 වැනිදාත් පැවැත්වීමට නියමිතයි.දෙවැනි සුදුසුකම් ලැබීමේ තරගයද ජුනි පළමු වැනිදා පැවැත්වේ.තරගාවලියේ අවසන් මහා තරගය පැවැත්වෙන්නේ ජුනි 3 වැනිදායි.එම තරග පැවැත්වෙන ස්ථාන ඉදිරියේදි නිවේදනය කිරීමට නියමිතයි.ඉන්දියාව සහ පකිස්ථානය අතර ඇතිවූ යුධමය වාතාවරණය හේතුවෙන් ඉන්දීය ප්‍රිමියර් ලීග් ක්‍රිකට් තරගාවලියේ ඉතිරි තරග සතියක කාලයක් කල් දැමීමට තරගාවලි සංවිධායකයින් පසුගියදා තීරණය කළේ ය.විදෙස් මාධ්‍ය වාර්තා කර තිබෙන්නේ දෙරට අතර ඇතිවූ සටන් විරාම ගිවිසුම හේතුවෙන් තරගාවලිය යළිත් ආරම්භ කිරීමට කටයුතු සැලසුම් කර ඇති බවයි.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#බ__ගල_ර_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බැංගලෝර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජ_ය_ප_ර_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජායිපූර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ද_ල_ල_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දිල්ලි</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ලක_නව_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලක්නව්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_ම_බ_ය_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මුම්බායි</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අහමද_බ_ද_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අහමදාබාද්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#පක_ස_ථ_නය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පකිස්ථානය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#IPL_තරග_වල_ය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL තරගාවලිය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ය_ධමය_ව_ත_වරණය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">යුධමය වාතාවරණය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#සටන__ව_ර_ම_ග_ව_ස_ම">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සටන් විරාම ගිවිසුම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ස_ද_ස_කම__ල_බ_ම__තරගය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සුදුසුකම් ලැබීමේ තරගය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අවසන__මහ__තරගය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අවසන් මහා තරගය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ස_ව_ධ_යකය_න_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සංවිධායකයින්</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_14__e0_b6_a0_e0_b6_b8_e0_b6">
@@ -1764,10 +1121,10 @@
   <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
   <hasCricketTournament rdf:resource="#එක_ද_න_ජ_ත__යන_තර_ක__ර_කට_"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චමරි අතපත්තු එක්දින ක්‍රිකට් ශ්‍රේණිගත කිරීම්හි 7 වැනි තැනට...</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-14T03:49:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-14T03:49:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/14/%e0%b6%a0%e0%b6%b8%e0%b6%bb%e0%b7%92-%e0%b6%85%e0%b6%ad%e0%b6%b4%e0%b6%ad%e0%b7%8a%e0%b6%ad%e0%b7%94-%e0%b6%91%e0%b6%9a%e0%b7%8a%e0%b6%af%e0%b7%92%e0%b6%b1</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.116</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා කාන්තා ක්‍රිකට් නායක චමරි අතපත්තු එක්දින ජාත්‍යන්තර ක්‍රිකට් ශ්‍රේණිගත කිරීම්හි 7 වැනි ස්ථානය දක්වා ඉදිරියට පැමිණ තිබේ.ඒ ස්ථාන 2කින් ඉදිරියට පැමිණෙමිනි.මේ වන විට එක්දින ජාත්‍යන්තර ක්‍රිකට් තරගය 115 කදී ශ්‍රී ලංකාව නියෝජනය කර ඇති චමරි ලකුණු 3877 ක් රැස් කරගෙන තිබේ.ඊට ශතක 9ක් සහ අර්ධ ශතක 19 ක් ඇතුළත් වේ.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.716</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා කාන්තා ක්‍රිකට් නායක චමරි අතපත්තු එක්දින ජාත්‍යන්තර ක්‍රිකට් ශ්‍රේණිගත කිරීම්හි 7 වැනි ස්ථානය දක්වා ඉදිරියට පැමිණ තිබේ.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1791,34 +1148,20 @@
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Cricket"/>
   <mentionsEntity rdf:resource="#ක_සල__ම_න_ඩ_ස_"/>
-  <mentionsEntity rdf:resource="#ජ_ස__බට_ලර_"/>
   <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
   <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
-  <mentionsEntity rdf:resource="#ප_ක_ස_ථ_නය"/>
-  <mentionsEntity rdf:resource="#IPL_තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#එක_ද_න_තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#ද_ශප_ලන_ග_ටළ_"/>
+  <mentionsEntity rdf:resource="#තරග_වල_ය"/>
   <mentionsEntity rdf:resource="#ග_ජර_ට__ටය_ටන_ස_"/>
-  <mentionsEntity rdf:resource="#බටහ_ර_ඉන_ද_ය_ක_ද_ව__කණ_ඩ_යම"/>
-  <mentionsEntity rdf:resource="#එ_ගලන_ත_ස_ච_තය"/>
-  <mentionsEntity rdf:resource="#ද_ල_ල__ක_ප_ටල_ස__කණ_ඩ_යම"/>
   <hasCricketTeam rdf:resource="#ග_ජර_ට__ටය_ටන_ස_"/>
-  <hasCricketTeam rdf:resource="#බටහ_ර_ඉන_ද_ය_ක_ද_ව__කණ_ඩ_යම"/>
-  <hasCricketTeam rdf:resource="#එ_ගලන_ත_ස_ච_තය"/>
-  <hasCricketTeam rdf:resource="#ද_ල_ල__ක_ප_ටල_ස__කණ_ඩ_යම"/>
   <hasCricketPlayer rdf:resource="#ක_සල__ම_න_ඩ_ස_"/>
-  <hasCricketPlayer rdf:resource="#ජ_ස__බට_ලර_"/>
   <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
   <hasCricketVenue rdf:resource="#ඉන_ද_ය_ව"/>
-  <hasCricketVenue rdf:resource="#ප_ක_ස_ථ_නය"/>
-  <hasCricketTournament rdf:resource="#IPL_තරග_වල_ය"/>
-  <hasCricketTournament rdf:resource="#එක_ද_න_තරග_වල_ය"/>
-  <hasCricketTournament rdf:resource="#ද_ශප_ලන_ග_ටළ_"/>
+  <hasCricketTournament rdf:resource="#තරග_වල_ය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කුසල් මෙන්ඩිස් ගුජරාට් ටයිටන්ස් කණ්ඩායමට කැඳවයි...</hasTitle>
   <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-16T07:38:00.000</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/16/%e0%b6%9a%e0%b7%94%e0%b7%83%e0%b6%bd%e0%b7%8a-%e0%b6%b8%e0%b7%99%e0%b6%b1%e0%b7%8a%e0%b6%a9%e0%b7%92%e0%b7%83%e0%b7%8a-%e0%b6%9c%e0%b7%94%e0%b6%a2%e0%b6%bb%e0%b7%94</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.122</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකාවේ කුසල් මෙන්ඩිස් මෙවර IPL පන්දුවාර විස්සයි විස්ස තරගාවලියේ ඉතිරි තරග සඳහා ගුජරාට් ටයිටන්ස් කණ්ඩායමට කැඳවා තිබේ.ඒ, එංගලන්ත ක්‍රිකට් ක්‍රීඩක ජොස් බට්ලර් වෙනුවටයි.බට්ලර්, බටහිර ඉන්දීය කොදෙව් කණ්ඩායම සමග පැවැත්වීමට නියමිත එක්දින තරගාවලිය සදහා වන එංගලන්ත සංචිතයට නම් කර තිබීම හේතුවෙන් ඔහු ඉතිරි තරග සදහා ක්‍රීඩා නොකරන බව විදෙස් මාධ්‍ය වාර්තා කර තිබේ.කුසල් මෙන්ඩිස් ආදේශ ක්‍රීඩකයෙකු ලෙස ගුජරාට් කණ්ඩායම සමග හෙට(15) එක්වීමට නියමිතයි.තරගාවලියේ දිල්ලි කැපිටල්ස් කණ්ඩායම සහ ගුජරාට් ටයිටන්ස් කණ්ඩායම අතර තරගය අනිද්දා පැවැත්වේ.ඉන්දියාව සහ පාකිස්ථානය අතර උද්ගතව තිබූ දේශපාලන ගැටළු හේතුවෙන් තරගාවලිය තාවකාලිකව නතර කිරීමට සිදු විය.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.796</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකාවේ කුසල් මෙන්ඩිස් මෙවර අයි.පි.ල් පන්දුවාර විස්සයි විස්ස තරගාවලියේ ඉතිරි තරග සඳහා ගුජරාට් ටයිටන්ස් කණ්ඩායමට කැඳවා තිබේ.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -1827,24 +1170,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කුසල් මෙන්ඩිස්</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ජ_ස__බට_ලර_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජොස් බට්ලර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ප_ක_ස_ථ_නය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පාකිස්ථානය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#එක_ද_න_තරග_වල_ය">
+<owl:NamedIndividual rdf:about="#තරග_වල_ය">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින තරගාවලිය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ද_ශප_ලන_ග_ටළ_">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දේශපාලන ගැටළු</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තරගාවලිය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ග_ජර_ට__ටය_ටන_ස_">
@@ -1852,165 +1180,24 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුජරාට් ටයිටන්ස්</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#බටහ_ර_ඉන_ද_ය_ක_ද_ව__කණ_ඩ_යම">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බටහිර ඉන්දීය කොදෙව් කණ්ඩායම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#එ_ගලන_ත_ස_ච_තය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එංගලන්ත සංචිතය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ද_ල_ල__ක_ප_ටල_ස__කණ_ඩ_යම">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දිල්ලි කැපිටල්ස් කණ්ඩායම</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_22__e0_b6_bb_e0_b6_9c_e0_b7">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Other"/>
-  <mentionsEntity rdf:resource="#ප__ර_යන_ත_ඒකන_යක"/>
-  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#ග_සට__න_ව_දනය"/>
-  <mentionsEntity rdf:resource="#ශ__ර__ල_ක__රග_බ__ස_ගමය"/>
-  <mentionsEntity rdf:resource="#ක__ර_ඩ__අම_ත__යවරය_"/>
-  <mentionsEntity rdf:resource="#ජ_ත_ක_ක__ර_ඩ__සභ_ව"/>
-  <mentionsEntity rdf:resource="#ක__ර_ය_ක_ර__ක_ර_ය_ස_ධක_බලක_ය"/>
-  <hasTeam rdf:resource="#ශ__ර__ල_ක__රග_බ__ස_ගමය"/>
-  <hasTeam rdf:resource="#ක__ර_ඩ__අම_ත__යවරය_"/>
-  <hasTeam rdf:resource="#ජ_ත_ක_ක__ර_ඩ__සභ_ව"/>
-  <hasTeam rdf:resource="#ක__ර_ය_ක_ර__ක_ර_ය_ස_ධක_බලක_ය"/>
-  <hasPlayer rdf:resource="#ප__ර_යන_ත_ඒකන_යක"/>
-  <hasVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasTournament rdf:resource="#ග_සට__න_ව_දනය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රග්බි වෙනුවෙන් කමිටුවක් පත් කෙරේ</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-22T10:35:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/22/%e0%b6%bb%e0%b6%9c%e0%b7%8a%e0%b6%b6%e0%b7%92-%e0%b7%80%e0%b7%99%e0%b6%b1%e0%b7%94%e0%b7%80%e0%b7%99%e0%b6%b1%e0%b7%8a-%e0%b6%9a%e0%b6%b8%e0%b7%92%e0%b6%a7%e0%b7%94</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.137</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා රග්බි සංගමයේ ලියාපදිංචිය අත්හිටුවමින් ක්‍රීඩා අමාත්‍යවරයා අද (22) අති විශේෂ ගැසට් නිවේදනයක් නිකුත් කර තිබේ.ඒ අනුව, නිර්දේශිත ව්‍යවස්ථාවක් සම්මත කිරීම සඳහා, සාමාජිකයන් පස් දෙනෙකුගෙන් සමන්විත ක්‍රියාකාරී කාර්ය සාධක බලකායක් පත් කර ඇති අතර, එහි සභාපති ලෙස කටයුතු කරන්නේ, ජාතික ක්‍රීඩා සභාවේ සභාපති ප්‍රියන්ත ඒකනායක මහතායි.දින 90 ක් තුළ නව නිලධාරීන් පත් කළ යුතු බව අදාළ ගැසට් නිවේදනයේ සඳහන්.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ප__ර_යන_ත_ඒකන_යක">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ප්‍රියන්ත ඒකනායක</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ග_සට__න_ව_දනය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගැසට් නිවේදනය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ශ__ර__ල_ක__රග_බ__ස_ගමය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා රග්බි සංගමය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක__ර_ඩ__අම_ත__යවරය_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රීඩා අමාත්‍යවරයා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජ_ත_ක_ක__ර_ඩ__සභ_ව">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජාතික ක්‍රීඩා සභාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක__ර_ය_ක_ර__ක_ර_ය_ස_ධක_බලක_ය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රියාකාරී කාර්ය සාධක බලකාය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_17__e0_b6_91_e0_b6_af_e0_b7">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#ක_ෂ_ල__ස_ල_ව_"/>
-  <mentionsEntity rdf:resource="#ඩ_න_ඩ_න__ග_"/>
-  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#ඔස_ට__ර_ල_ය_ව"/>
-  <mentionsEntity rdf:resource="#ම_ල_බන_"/>
-  <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__සම_ජය"/>
-  <hasCricketTeam rdf:resource="#ක__ර_කට__සම_ජය"/>
-  <hasCricketPlayer rdf:resource="#ක_ෂ_ල__ස_ල_ව_"/>
-  <hasCricketPlayer rdf:resource="#ඩ_න_ඩ_න__ග_"/>
-  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasCricketVenue rdf:resource="#ඔස_ට__ර_ල_ය_ව"/>
-  <hasCricketVenue rdf:resource="#ම_ල_බන_"/>
-  <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
-  <hasCricketTournament rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එදා ක්‍රිකට්වලින් ලක්මව බැබළවූ කෞෂාල් සිල්වාට කැන්ගරු දේශයේදී අලුත් තනතුරක්...</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-17T09:15:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/17/%e0%b6%91%e0%b6%af%e0%b7%8f-%e0%b6%9a%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93%e0%b6%9a%e0%b6%a7%e0%b7%8a%e0%b7%80%e0%b6%bd%e0%b7%92%e0%b6%b1%e0%b7%8a-%e0%b6%bd%e0%b6%9a</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.142</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා හිටපු ක්‍රීඩක කෞෂාල් සිල්වා ඔස්ට්‍රේලියාවේ, මෙල්බන්හී ඩැන්ඩෙනොංග් ක්‍රිකට් සමාජයේ කාන්තා ක්‍රිකට් කණ්ඩායමේ ප්‍රධාන පුහුණුකරු ලෙස පත් කර තිබේ.ශ්‍රී ලංකාව වෙනුවෙන් ටෙස්ට් ක්‍රිකට් තරග 39කදී ශතක 3ක් සහ අර්ධ ශතක 12ක් සමගින් රැස් කර ගෙන ඇති ලකුණූ සංඛ්‍යාව 2099ක්.මීට පෙර මෙම ක්‍රීඩා සමාජයේ ක්‍රීඩකයෙකු ලෙස කෞෂාල් සිල්වා ක්‍රීඩා කර ඇත.මෙල්බන්හී පිහිටි මෙම පළමු පෙළ ක්‍රීඩා සමාජයේ නිල වෙබ් අඩවිය ඔහුගේ පත්වීම නිල වශයෙන් නිවේදනය කර තිබේ.වික්ටෝරියා ප්‍රිමියර් ක්‍රිකට් තරගාවලිය ඉලක්ක කර ගනිමින් මෙම පත්වීම සිදු කළ බව එම වෙබ් අඩවියේ වැඩිදුරටත් සඳහන්.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක_ෂ_ල__ස_ල_ව_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කෞෂාල් සිල්වා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඩ_න_ඩ_න__ග_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඩැන්ඩෙනොංග්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඔස_ට__ර_ල_ය_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඔස්ට්‍රේලියාව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_ල_බන_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මෙල්බන්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ට_ස_ට__ක__ර_කට_">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙස්ට් ක්‍රිකට්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක__ර_කට__තරග_වල_ය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රිකට් තරගාවලිය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක__ර_කට__සම_ජය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රිකට් සමාජය</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_23__e0_b7_84_e0_b7_92_e0_b6">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Cricket"/>
   <mentionsEntity rdf:resource="#ඇන_ජල__ම_ත_ව_ස_"/>
-  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_"/>
   <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
-  <mentionsEntity rdf:resource="#ට_ස_ට__තරගය"/>
-  <mentionsEntity rdf:resource="#ප_ක_ස_ථ_නය"/>
-  <mentionsEntity rdf:resource="#බ_ග_ල_ද_ශය"/>
-  <hasCricketTeam rdf:resource="#ප_ක_ස_ථ_නය"/>
-  <hasCricketTeam rdf:resource="#බ_ග_ල_ද_ශය"/>
+  <mentionsEntity rdf:resource="#සම_ද_ම"/>
   <hasCricketPlayer rdf:resource="#ඇන_ජල__ම_ත_ව_ස_"/>
-  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_"/>
   <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට_"/>
-  <hasCricketTournament rdf:resource="#ට_ස_ට__තරගය"/>
-  <mentionsEntity rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
-  <hasCricketTournament rdf:resource="#ට_ස_ට__ක__ර_කට__ප_ට_ය_න__සම_ග_න_ම"/>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තමන් ටෙස්ට් ක්‍රිකට් තරග බිමෙන් සමු ගන්නා බව හිටපු ශ්‍රී ලංකා ක්‍රිකට් නායක ඇන්ජලෝ මැතිව්ස් අද (23) නිවේදනය කළේ ය.2009 වසරේදී පාකිස්ථානයට එරෙහිව පළමු ටෙස්ට් තරගයට ක්‍රීඩා කළ ඇන්ජලෝ මැතිව්ස් වසර 17ක් තරග බිමේ රැඳී සිටියේ ය.ටෙස්ට් තරග 118කට ක්‍රීඩා කළ ඔහු, ශතක 16ක් සහ අර්ධ ශතක 45ක්ද සමගින් රැස් කර ඇති ලකුණු සංඛ්‍යාව 8167 ක්.තුන් ඉරියව්වෙන්ම දස්කම් දක්වන ක්‍රීඩකයෙකු වන ඔහු, ටෙස්ට් කඩුලු 33ක් දවාගෙන තිබේ.වසර 17ක් ටෙස්ට් ක්‍රිකට් ක්‍රීඩාවේ නිරත වීමට ලැබීම තමන් ලැබූ ඉහළම ගෞරවය සහ ආඩම්බරයට හේතුව බව ඇන්ජලෝ මැතිව්ස්ගේ ෆේස් බුක් සටහනේ සඳහන්.ජාතික කණ්ඩායමේ ජර්සිය පැළඳ සිටින විට ඇතිවන අභිමානයට සම කළ හැකි කිසිවක් නොමැති බවද, එහි වැඩි දුරටත් දැක්වේ.ක්‍රීඩා ලෝලීන්ට ස්තූතිය පළ කරන මැතිව්ස් පවසන්නේ මෙය ටෙස්ට් පිටියට සමු දීමට සුදුසුම කාලය බවයි.ඒ අනුව, බංග්ලාදේශය සමග ලබන ජූනි මාසයේ පැවැත්වෙන පළමු ටෙස්ට් තරගය තමන්ගේ අවසන් ටෙස්ට් තරගය වනු ඇතැයි ඔහු සඳහන් කරතිබේ.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ශ්‍රී ලංකා නායක ඇන්ජලෝ මැතිව්ස් ටෙස්ට් ක්‍රිකට් පිටියට සමු දෙන බවට නිවේදනය කරයි</hasTitle>
+  <hasCricketTournament rdf:resource="#සම_ද_ම"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ශ්‍රී ලංකා නායක ඇන්ජලෝ මැතිව්ස් ටෙස්ට් ක්‍රිකට් පිටියට සමු දෙන බවට නිවේදනය කරයි....</hasTitle>
   <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-23T06:32:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/23/%e0%b7%84%e0%b7%92%e0%b6%a7%e0%b6%b4%e0%b7%94-%e0%b7%81%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93-%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b6%b1%e0%b7%8f</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T04:03:25.139</processedDate>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.808</processedDate>
   <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තමන් ටෙස්ට් ක්‍රිකට් තරග බිමෙන් සමු ගන්නා බව හිටපු ශ්‍රී ලංකා ක්‍රිකට් නායක ඇන්ජලෝ මැතිව්ස් අද (23) නිවේදනය කළේ ය.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ඇන_ජල__ම_ත_ව_ස_">
@@ -2018,104 +1205,32 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඇන්ජලෝ මැතිව්ස්</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ට_ස_ට__තරගය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ටෙස්ට් තරගය</canonicalName>
+<owl:NamedIndividual rdf:about="#ශ__ර__ල_ක_">
+  <rdf:type rdf:resource="#Location"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#බ_ග_ල_ද_ශය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බංග්ලාදේශය</canonicalName>
+<owl:NamedIndividual rdf:about="#සම_ද_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සමුදීම</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_23__e0_b6_85_e0_b6_b4_e0_b7">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Other"/>
-  <mentionsEntity rdf:resource="#හ_සන__න_යකරත_න"/>
-  <mentionsEntity rdf:resource="#අර_ස_න__සන_ගබය_ව_"/>
-  <mentionsEntity rdf:resource="#සඳ_න__නරස__හ"/>
-  <mentionsEntity rdf:resource="#ෂ_ග_ල__න_ල_බ_"/>
-  <mentionsEntity rdf:resource="#න_ත_ම__තර_ෂ_ක_"/>
-  <mentionsEntity rdf:resource="#ෂ_බ_ක__ෂ_ර_ස_ක_ස_"/>
-  <mentionsEntity rdf:resource="#ම_හ_මඩ__යස_ම_න__උස_ය_ත_"/>
-  <mentionsEntity rdf:resource="#ක_න_ස_බ_ක_ව__අම_න_"/>
   <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#ක_ළඹ"/>
-  <mentionsEntity rdf:resource="#කසක_ස_ථ_නය"/>
-  <mentionsEntity rdf:resource="#ස_ගතද_ස_ග_හස_ථ_ක__ර_ඩ__ගනය"/>
   <mentionsEntity rdf:resource="#ආස_ය_න_"/>
-  <mentionsEntity rdf:resource="#ය_ව_න__බ_ක_ස___ශ_රත_වල_ය"/>
-  <hasPlayer rdf:resource="#හ_සන__න_යකරත_න"/>
-  <hasPlayer rdf:resource="#අර_ස_න__සන_ගබය_ව_"/>
-  <hasPlayer rdf:resource="#සඳ_න__නරස__හ"/>
-  <hasPlayer rdf:resource="#ෂ_ග_ල__න_ල_බ_"/>
-  <hasPlayer rdf:resource="#න_ත_ම__තර_ෂ_ක_"/>
-  <hasPlayer rdf:resource="#ෂ_බ_ක__ෂ_ර_ස_ක_ස_"/>
-  <hasPlayer rdf:resource="#ම_හ_මඩ__යස_ම_න__උස_ය_ත_"/>
-  <hasPlayer rdf:resource="#ක_න_ස_බ_ක_ව__අම_න_"/>
+  <mentionsEntity rdf:resource="#ශ_රත_වල_ය"/>
   <hasVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasVenue rdf:resource="#ක_ළඹ"/>
-  <hasVenue rdf:resource="#කසක_ස_ථ_නය"/>
-  <hasVenue rdf:resource="#ස_ගතද_ස_ග_හස_ථ_ක__ර_ඩ__ගනය"/>
   <hasVenue rdf:resource="#ආස_ය_න_"/>
-  <hasTournament rdf:resource="#ය_ව_න__බ_ක_ස___ශ_රත_වල_ය"/>
+  <hasTournament rdf:resource="#ශ_රත_වල_ය"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අපේ ක්‍රීඩකයින් රිදියෙන් සැරසූ ආසියානු යොවුන් බොක්සින් තරගාවලිය....</hasTitle>
   <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-23T10:50:00.000</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/23/%e0%b6%85%e0%b6%b4%e0%b7%9a-%e0%b6%9a%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93%e0%b6%a9%e0%b6%9a%e0%b7%92%e0%b6%b1%e0%b7%8a-%e0%b6%bb%e0%b7%92%e0%b6%af%e0%b7%92</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.156</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ආසියානු යොවුන් බොක්සිං ශූරතාවලියේ අවසන් දිනය වූ අද ශ්‍රී ලංකා ක්‍රීඩක ක්‍රීඩිකාවන්ට රිදී පදක්කම් 4ක් හිමි විය.2025 ආසියානු යොවුන් බොක්සිං ශූරතාවලිය 11 වැනි දිනටත් කොළඹ සුගතදාස ගෘහස්ථ ක්‍රීඩාංගනයේදී අද (23) පැවැත්වුණි.හංසනී නායකරත්න එහි තරග කළේ, වයස අවුරුදු 22න් පහළ කිලෝ ග්‍රෑම් 63 බර පන්තියේ අවසන් තරගයටයි.කසක්ස්ථානයේ අරූසාන් සන්ගබයේවා එම තරගය ජය ගනිමින් රන් පදක්කම දිනා ගත් අතර, හංසනීට රිදී පදක්කම හිමි විය.වයස අවුරුදු 22න් පහළ කිලෝ ග්‍රෑම් 75 බර පන්තියේ අවසන් තරගයට එක් වූ සඳුනි නරසිංහට හිමි වූයේද රිදී පදක්කමයි.තරගය ජය ගත් කසක්ස්ථානයේ ෂුගිලා නාලිබේ එම ඉසව්වේ රන් පදක්කම දිනා ගත්තාය.නෙත්මි තරුෂිකා, වයස අවුරුදු 22න් පහළ කිලෝ ග්‍රෑම් 81 බර පන්තියේ අවසන් තරගයට සහභාගී වූ අතරඉන් ජය ගත් කසක්ස්ථානයේ ෂිබෙක් ෂාරාස්කිසි රන් පදක්කමට හිමිකම් කියූ අතර, රිදී පදක්කම හිමි වූයේ නෙත්මි තරුෂිකාටයි.වයස අවුරුදු 22න් පහළ කිලෝ ග්‍රෑම් 75 බර පන්තියේ අවසන් තරගයට ශ්‍රී ලංකාවේ මොහොමඩ් යස්මින් උසෙයිත් සහභාගී විය.ඔහුගේ ප්‍රතිවාදියා වූයේ කසක්ථානයේ කොන්ස්බෙකොව් අමාන්.එම තරගය ජය ගත් අමාන් රන් පදක්කමට හිමිකම් කී අතර, ශ්‍රී ලංකාවේ උසෙයිත්ට රිදී පදක්කම හිමි විය.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.818</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ආසියානු යොවුන් බොක්සිං ශූරතාවලියේ අවසන් දිනය වූ අද ශ්‍රී ලංකා ක්‍රීඩක ක්‍රීඩිකාවන්ට රිදී පදක්කම් 4ක් හිමි විය.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#හ_සන__න_යකරත_න">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හංසනී නායකරත්න</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අර_ස_න__සන_ගබය_ව_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අරූසාන් සන්ගබයේවා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#සඳ_න__නරස__හ">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සඳුනි නරසිංහ</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ෂ_ග_ල__න_ල_බ_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ෂුගිලා නාලිබේ</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#න_ත_ම__තර_ෂ_ක_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නෙත්මි තරුෂිකා</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ෂ_බ_ක__ෂ_ර_ස_ක_ස_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ෂිබෙක් ෂාරාස්කිසි</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_හ_මඩ__යස_ම_න__උස_ය_ත_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මොහොමඩ් යස්මින් උසෙයිත්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ක_න_ස_බ_ක_ව__අම_න_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කොන්ස්බෙකොව් අමාන්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#කසක_ස_ථ_නය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කසක්ස්ථානය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ස_ගතද_ස_ග_හස_ථ_ක__ර_ඩ__ගනය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සුගතදාස ගෘහස්ථ ක්‍රීඩාංගනය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#ආස_ය_න_">
@@ -2123,9 +1238,9 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආසියානු</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ය_ව_න__බ_ක_ස___ශ_රත_වල_ය">
+<owl:NamedIndividual rdf:about="#ශ_රත_වල_ය">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">යොවුන් බොක්සිං ශූරතාවලිය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශූරතාවලිය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_28__e0_b6_86_e0_b7_83_e0_b7">
@@ -2133,28 +1248,18 @@
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Other"/>
   <mentionsEntity rdf:resource="#ක_ල__ග_ක_ම_රග_"/>
-  <mentionsEntity rdf:resource="#අම_ර__ඊබ__රහ_ම_"/>
   <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#කට_ර_"/>
-  <mentionsEntity rdf:resource="#ජප_නය"/>
-  <mentionsEntity rdf:resource="#දක_ණ__ක_ර_ය_ව"/>
   <mentionsEntity rdf:resource="#ආස_ය_න__මලල_ක__ර_ඩ__උළ_ල"/>
-  <mentionsEntity rdf:resource="#ම_ටර__400_ප_ර_ම__ධ_වන_ඉසව_ව"/>
-  <mentionsEntity rdf:resource="#ආස_ය_න__මලල_ක__ර_ඩ__ශ_රත_වල_ය"/>
+  <mentionsEntity rdf:resource="#ධ_වන_ඉසව_ව"/>
   <hasPlayer rdf:resource="#ක_ල__ග_ක_ම_රග_"/>
-  <hasPlayer rdf:resource="#අම_ර__ඊබ__රහ_ම_"/>
   <hasVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasVenue rdf:resource="#කට_ර_"/>
-  <hasVenue rdf:resource="#ජප_නය"/>
-  <hasVenue rdf:resource="#දක_ණ__ක_ර_ය_ව"/>
   <hasTournament rdf:resource="#ආස_ය_න__මලල_ක__ර_ඩ__උළ_ල"/>
-  <hasTournament rdf:resource="#ම_ටර__400_ප_ර_ම__ධ_වන_ඉසව_ව"/>
-  <hasTournament rdf:resource="#ආස_ය_න__මලල_ක__ර_ඩ__ශ_රත_වල_ය"/>
+  <hasTournament rdf:resource="#ධ_වන_ඉසව_ව"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආසියානු මලල ක්‍රීඩා උළෙලේ මීටර 400 පිරිමි ධාවන ඉවසව්වෙන් ශ්‍රී ලංකාවේ කාලිංග කුමාරගේ ලෝකඩ පදක්කම දිනාගනී...</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-28T05:13:00.000</hasPublicationDate>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-28T05:13:00.000+05:30</hasPublicationDate>
   <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/28/%e0%b6%86%e0%b7%83%e0%b7%92%e0%b6%ba%e0%b7%8f%e0%b6%b1%e0%b7%94-%e0%b6%b8%e0%b6%bd%e0%b6%bd-%e0%b6%9a%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93%e0%b6%a9%e0%b7%8f</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.168</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වසර 18කට පසුව ආසියානු මලල ක්‍රීඩා උළෙලකදී මීටර් 400 පිරිමි ධාවන ඉවසව්වෙන් ශ්‍රී ලංකාව වෙනුවෙන් පදක්කමක් ජයග්‍රහණය කිරීමට කාලිංග කුමාරගේ සමත් විය.ඒ ඔහු අද (28) සහභාගී වූ මීටර් 400 පිරිමි ධාවන ඉසව්වේ අවසන් තරගයෙන් ලෝකඩ පදක්කම දිනාගැනීමත් සමගයි.තත්පර 45යි දශම 3යි 3ක කාලයකින් තරගය අවසන් කළ කටාර්හි අමාර් ඊබ්‍රහිම් එම ඉසව්වේ රන් පදක්කම දිනා ගැනීමට සමත් විය.රිදී පදක්කම හිමිවූයේ ජපානයටයි.ඒ අනුව තත්පර 45යි දශම 5යි 5ක කාලයකින් තරගය අවසන් කළ කාලිංග කුමාරගේ තරග ඉසව්වේ තෙවැනි තැන හිමිකරගත්තේ ය.මෙවර තරග සමයේදී ඔහු මෙම ඉසව්වට ප්‍රදර්ශනය කළ ඉහළම දක්ෂතාවය මෙයයි.2025 ආසියානු මලල ක්‍රීඩා ශූරතාවලිය මෙවර පැවැත්වෙන්නේ දකුණු කොරියාවේදීයි.</hasFullText>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.828</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">වසර 18කට පසුව ආසියානු මලල ක්‍රීඩා උළෙලකදී මීටර් 400 පිරිමි ධාවන ඉවසව්වෙන් ශ්‍රී ලංකාව වෙනුවෙන් පදක්කමක් ජයග්‍රහණය කිරීමට කාලිංග කුමාරගේ සමත් විය.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
@@ -2163,255 +1268,284 @@
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කාලිංග කුමාරගේ</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#අම_ර__ඊබ__රහ_ම_">
-  <rdf:type rdf:resource="#Person"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අමාර් ඊබ්‍රහිම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ජප_නය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජපානය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#දක_ණ__ක_ර_ය_ව">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දකුණු කොරියාව</canonicalName>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#ආස_ය_න__මලල_ක__ර_ඩ__උළ_ල">
   <rdf:type rdf:resource="#Event"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආසියානු මලල ක්‍රීඩා උළෙල</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ම_ටර__400_ප_ර_ම__ධ_වන_ඉසව_ව">
+<owl:NamedIndividual rdf:about="#ධ_වන_ඉසව_ව">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මීටර් 400 පිරිමි ධාවන ඉසව්ව</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ආස_ය_න__මලල_ක__ර_ඩ__ශ_රත_වල_ය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආසියානු මලල ක්‍රීඩා ශූරතාවලිය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_29_ipl__e0_b6_ad_e0_b6_bb_e">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#ම_ල_ල_න_ප_ර_"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
-  <mentionsEntity rdf:resource="#IPL"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#ස_ද_ස_කම__ල_බ_ම__තරගය"/>
-  <mentionsEntity rdf:resource="#ප_ජ_බ__ක__ග_ස_"/>
-  <mentionsEntity rdf:resource="#ර_යල__ච_ල_න_ජර_ස__බ__ග_ල_ර_"/>
-  <hasCricketTeam rdf:resource="#ප_ජ_බ__ක__ග_ස_"/>
-  <hasCricketTeam rdf:resource="#ර_යල__ච_ල_න_ජර_ස__බ__ග_ල_ර_"/>
-  <hasCricketVenue rdf:resource="#ම_ල_ල_න_ප_ර_"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ය_ව"/>
-  <hasCricketTournament rdf:resource="#IPL"/>
-  <hasCricketTournament rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <hasCricketTournament rdf:resource="#ස_ද_ස_කම__ල_බ_ම__තරගය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL තරගයේ පළමු සුදුසුකම් ලැබීමේ තරගය අද</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-29T09:01:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/29/ipl-%e0%b6%ad%e0%b6%bb%e0%b6%9c%e0%b6%ba%e0%b7%9a-%e0%b6%b4%e0%b7%85%e0%b6%b8%e0%b7%94-%e0%b7%83%e0%b7%94%e0%b6%daf%e0%b7%94%e0%b7%83</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.176</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ඉන්දීය ප්‍රිමියර් ලීග් පන්දුවාර 20යි 20 ක්‍රිකට් තරගාවලියේ පළමු සුදුසුකම් ලැබීමේ තරගය අද(29) පැවැත්වේ.ඒ පංජාබ් කිංග්ස් සහ රෝයල් චැලේන්ජර්ස් බැංග්ලෝර් කණ්ඩායම් අතරයි.අද තරගය ජය ගන්නා කණ්ඩායම තරගාවලියේ අවසන් මහා තරගයේ සිය ස්ථානය තහවුරු කර ගන්නා පළමු කණ්ඩායම බවට පත්වනු ඇති.ඉන්දියාවේ මුල්ලාන්පූර්හිදි පැවැත්වෙන අද තරගය මෙරට වෙලාවෙන් රාත්‍රී 07.30ට ආරම්භ කිරීමට සැලසුම් කර තිබේ.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ම_ල_ල_න_ප_ර_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මුල්ලාන්පූර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#IPL">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ප_ජ_බ__ක__ග_ස_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">පංජාබ් කිංග්ස්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ර_යල__ච_ල_න_ජර_ස__බ__ග_ල_ර_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රෝයල් චැලේන්ජර්ස් බැංග්ලෝර්</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ධාවන ඉසව්ව</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_29__e0_b6_9a_e0_b7_92_e0_b7">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#බර_ම_න_හ_ම_"/>
-  <mentionsEntity rdf:resource="#එක_ද_න_තරගය"/>
   <mentionsEntity rdf:resource="#එ_ගලන_තය"/>
-  <mentionsEntity rdf:resource="#බටහ_ර_ඉන_ද_ය_ක_ද_ව_"/>
-  <hasCricketTeam rdf:resource="#එ_ගලන_තය"/>
-  <hasCricketTeam rdf:resource="#බටහ_ර_ඉන_ද_ය_ක_ද_ව_"/>
-  <hasCricketVenue rdf:resource="#බර_ම_න_හ_ම_"/>
-  <hasCricketTournament rdf:resource="#එක_ද_න_තරගය"/>
+  <mentionsEntity rdf:resource="#එක_ද_න_ක__ර_කට__තරග"/>
+  <hasCricketVenue rdf:resource="#එ_ගලන_තය"/>
+  <hasCricketTournament rdf:resource="#එක_ද_න_ක__ර_කට__තරග"/>
   <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කිසිදු ශතකයක් නොමැතිව එංගලන්තයෙන් ලකුණු 400ක්</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-29T10:05:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/29/%e0%b6%9a%e0%b7%92%e0%b7%83%e0%b7%92%e0%b6%a2%e0%b7%94-%e0%b7%81%e0%b6%ad%e0%b6%9a%e0%b6%ba%e0%b6%9a%e0%b7%8a-%e0%b6%b1%e0%b7%9c%e0%b6%b8%e0%b7%90%e0%b6%ad%e0%b7%92</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.184</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින ක්‍රිකට් තරග ඉතිහාසයේ පළමු වරට කිසිදු පිතිකරුවෙක් ශතකයක් වාර්තා නොකර ඉනිමක් තුළ ලකුණු 400ක් ලබා ගත් ලොව පළමු කණ්ඩායම බවට එංගලන්තය පත්වෙයි.ඒ, බටහිර ඉන්දීය කොදෙව් කණ්ඩායමට එරෙහිව බර්මින්හැම්හිදී දැන් පැවැත්වෙන පළමු එක්දින තරග⁣යේදීය.ඒ අනුව තරගයේ පළමුවෙන් පන්දුවට පහර දුන් එංගලන්තය නියමිත පන්දුවාර 50 අවසානයේදී කඩුලු 8ක් දැවී ලකුණු 400ක් ලබා ගත්තේ ලෝක ක්‍රිකට් ප්‍රජාවගේ අවධානය යළිත් වරක් තමන් වෙත නතු කර ගනිමින් වීම විශේෂත්වයකි.තරගය ජයග්‍රහණය සඳහා කොදෙව්වන්ට පන්දුවාර 50 තුළ ලකුණු 401ක දැවැන්ත ඉලක්කයක් හිමිව ති⁣බේ.</hasFullText>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-29T10:05:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/29/%e0%b6%9a%e0%b7%92%e0%b7%83%e0%b7%92%e0%b6%af%e0%b7%94-%e0%b7%81%e0%b6%ad%e0%b6%9a%e0%b6%ba%e0%b6%9a%e0%b7%8a-%e0%b6%b1%e0%b7%9c%e0%b6%b8%e0%b7%90%e0%b6%ad%e0%b7%92</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.841</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින ක්‍රිකට් තරග ඉතිහාසයේ පළමු වරට කිසිදු පිතිකරුවෙක් ශතකයක් වාර්තා නොකර ඉනිමක් තුළ ලකුණු 400ක් ලබා ගත් ලොව පළමු කණ්ඩායම බවට එංගලන්තය පත්වෙයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#බර_ම_න_හ_ම_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බර්මින්හැම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#එක_ද_න_තරගය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින තරගය</canonicalName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#එ_ගලන_තය">
-  <rdf:type rdf:resource="#Organization"/>
+  <rdf:type rdf:resource="#Location"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එංගලන්තය</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#බටහ_ර_ඉන_ද_ය_ක_ද_ව_">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">බටහිර ඉන්දීය කොදෙව්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_02_2025__e0_b6_bd_e0_b7_9d_">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
-  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#ක_ළඹ"/>
-  <mentionsEntity rdf:resource="#ආර___ප__ර_මද_ස_ක__ර_ඩ__ගනය"/>
-  <mentionsEntity rdf:resource="#බ__ගල_ර_"/>
-  <mentionsEntity rdf:resource="#ග_වහ_ට_"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ර_"/>
-  <mentionsEntity rdf:resource="#ව_ශ_ක_පට_නම_"/>
-  <mentionsEntity rdf:resource="#ල_ක_ක_සල_න"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#අන_තර_ජ_ත_ක_ක__ර_කට__කව_න_ස_ලය"/>
-  <hasCricketTeam rdf:resource="#අන_තර_ජ_ත_ක_ක__ර_කට__කව_න_ස_ලය"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ය_ව"/>
-  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasCricketVenue rdf:resource="#ක_ළඹ"/>
-  <hasCricketVenue rdf:resource="#ආර___ප__ර_මද_ස_ක__ර_ඩ__ගනය"/>
-  <hasCricketVenue rdf:resource="#බ__ගල_ර_"/>
-  <hasCricketVenue rdf:resource="#ග_වහ_ට_"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ර_"/>
-  <hasCricketVenue rdf:resource="#ව_ශ_ක_පට_නම_"/>
-  <hasCricketTournament rdf:resource="#ල_ක_ක_සල_න"/>
-  <hasCricketTournament rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ලෝක කුසලාන කාන්තා ක්‍රිකට් තරගාවලියේ දින සහ ක්‍රීඩාංගන නිවේදනය කරයි..</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-02T11:06:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/02/2025-%e0%b6%bd%e0%b7%9d%e0%b6%9a-%e0%b6%9a%e0%b7%94%e0%b7%83%e0%b6%bd%e0%b7%8f%e0%b6%b1-%e0%b6%9a%e0%b7%8f%e0%b6%b1%e0%b7%8a</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.188</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියාවේ සහ ශ්‍රී ලංකාවේ සත්කාරකත්වයෙන් පැවැත්වෙන 2025 ලෝක කුසලාන කාන්තා ක්‍රිකට් තරගාවලියේ දින සහ ක්‍රීඩාංගන පිළිබඳව අන්තර්ජාතික ක්‍රිකට් කවුන්සිලය අද (02) නිවේදනය කළේ ය.ඒ අනුව තරග පැවැත්වෙන්නේ කොළඹ ආර්. ප්‍රේමදාස ක්‍රීඩාංගනය සහ ඉන්දියාවේ බැංගලෝර්, ගුවහාටි, ඉන්දෝර් මෙන්ම විශාකාපට්නම් ක්‍රීඩාංගනවලදීයි.කණ්ඩායම් 8ක් එක්වන තරගාවලිය ලබන සැප්තැම්බර් 30 වැනිදා සිට නොවැම්බර් 2 වැනිදා දක්වා පැවැත්වීමට කටයුතු යොදා තිබේ.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ආර___ප__ර_මද_ස_ක__ර_ඩ__ගනය">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආර්. ප්‍රේමදාස ක්‍රීඩාංගනය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ග_වහ_ට_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ගුවහාටි</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ඉන_ද_ර_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දෝර්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ව_ශ_ක_පට_නම_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">විශාකාපට්නම්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#ල_ක_ක_සල_න">
+<owl:NamedIndividual rdf:about="#එක_ද_න_ක__ර_කට__තරග">
   <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලෝක කුසලාන</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින ක්‍රිකට් තරග</canonicalName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#අන_තර_ජ_ත_ක_ක__ර_කට__කව_න_ස_ලය">
-  <rdf:type rdf:resource="#Organization"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අන්තර්ජාතික ක්‍රිකට් කවුන්සිලය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_03_ipl__e0_b7_81_e0_b7_96_e">
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_01_24_2024_icc__e0_b6_91_e0_b6">
   <rdf:type rdf:resource="#NewsArticle"/>
   <hasCategory rdf:resource="#Sports"/>
   <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#අහ_මද_බ_ද_"/>
-  <mentionsEntity rdf:resource="#IPL_අවසන__මහ__තරගය"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#ප_ජ_බ__ක__ග_ස_"/>
-  <mentionsEntity rdf:resource="#ර_යල__ච_ල_න_ජර_ස__බ__ග_ල_ර_"/>
-  <hasCricketTeam rdf:resource="#ප_ජ_බ__ක__ග_ස_"/>
-  <hasCricketTeam rdf:resource="#ර_යල__ච_ල_න_ජර_ස__බ__ග_ල_ර_"/>
-  <hasCricketVenue rdf:resource="#අහ_මද_බ_ද_"/>
-  <hasCricketTournament rdf:resource="#IPL_අවසන__මහ__තරගය"/>
-  <hasCricketTournament rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL ශූරතාවය කාටද? තීරණය අද රාත්‍රියේ...</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-03T08:05:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/03/ipl-%e0%b7%81%e0%b7%96%e0%b6%bb%e0%b6%ad%e0%b7%93%e0%b6%bb</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.201</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL පන්දුවාර 20යි 20 ක්‍රිකට් තරගාවලියේ අවසන් මහා තරගය අද(03) පැවැත්වේ.ඒ පංජාබ් කිංග්ස් සහ රෝයල් චැලේන්ජර්ස් බැංග්ලෝර් කණ්ඩායම් අතරයි.අහ්මදාබාද්හිදි පැවැත්වෙන තරගය මෙරට වෙලාවෙන් අද රාත්‍රී 07.30ට ආරම්භ කිරීමට නියමිතයි.</hasFullText>
-  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#අහ_මද_බ_ද_">
-  <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අහ්මදාබාද්</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#IPL_අවසන__මහ__තරගය">
-  <rdf:type rdf:resource="#Event"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPL අවසන් මහා තරගය</canonicalName>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_06_03__e0_b6_89_e0_b6_b1_e0_b7">
-  <rdf:type rdf:resource="#NewsArticle"/>
-  <hasCategory rdf:resource="#Sports"/>
-  <hasCategory rdf:resource="#Cricket"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ය_ව"/>
+  <mentionsEntity rdf:resource="#චර_ත__අසල_ක"/>
   <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <mentionsEntity rdf:resource="#ක_ළඹ"/>
-  <mentionsEntity rdf:resource="#ආර__ප__ර_මද_ස_ක__ර_ඩ__ගණය"/>
-  <mentionsEntity rdf:resource="#බ__ගල_ර_"/>
-  <mentionsEntity rdf:resource="#ග_වහ_ට_"/>
-  <mentionsEntity rdf:resource="#ඉන_ද_ර_"/>
-  <mentionsEntity rdf:resource="#ව_ශ_ක_පට_නම_"/>
-  <mentionsEntity rdf:resource="#ල_ක_ක_සල_න"/>
-  <mentionsEntity rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <mentionsEntity rdf:resource="#අන_තර_ජ_ත_ක_ක__ර_කට__කව_න_ස_ලය"/>
-  <hasCricketTeam rdf:resource="#අන_තර_ජ_ත_ක_ක__ර_කට__කව_න_ස_ලය"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ය_ව"/>
+  <mentionsEntity rdf:resource="#එක_ද_න_ක__ර_කට__කණ_ඩ_යම_"/>
+  <hasCricketTeam rdf:resource="#එක_ද_න_ක__ර_කට__කණ_ඩ_යම_"/>
+  <hasCricketPlayer rdf:resource="#චර_ත__අසල_ක"/>
   <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
-  <hasCricketVenue rdf:resource="#ක_ළඹ"/>
-  <hasCricketVenue rdf:resource="#ආර__ප__ර_මද_ස_ක__ර_ඩ__ගණය"/>
-  <hasCricketVenue rdf:resource="#බ__ගල_ර_"/>
-  <hasCricketVenue rdf:resource="#ග_වහ_ට_"/>
-  <hasCricketVenue rdf:resource="#ඉන_ද_ර_"/>
-  <hasCricketVenue rdf:resource="#ව_ශ_ක_පට_නම_"/>
-  <hasCricketTournament rdf:resource="#ල_ක_ක_සල_න"/>
-  <hasCricketTournament rdf:resource="#ක__ර_කට__තරග_වල_ය"/>
-  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියා - ශ්‍රී ලංකා සත්කාරකත්වයෙන් පැවැත්වෙන 2025 ලෝක කුසලාන කාන්තා ක්‍රිකට් තරගාවලියේ දින සහ ක්‍රීඩාංගණ නිවේදනය කෙරේ</hasTitle>
-  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-03T08:11:00.000</hasPublicationDate>
-  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/06/03/%e0%b6%89%e0%b6%b1%e0%b7%8a%e0%b6%af%e0%b7%92%e0%b6%ba%e0%b7%8f-%e0%b7%81%e2%80%8d%e0%b6%bb%e0%b7%93%c2%a0%e0%b6%bd%e0%b6%82%e0%b6%9a%e0%b7%8f-%e0%b7%83</hasSourceURL>
-  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-09T16:06:23.207</processedDate>
-  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඉන්දියාවේ සහ ශ්‍රී ලංකාවේ සත්කාරකත්වයෙන් පැවැත්වෙන 2025 ලෝක කුසලාන කාන්තා ක්‍රිකට් තරගාවලියේ දින සහ ක්‍රීඩාංගණ පිළිබඳව අන්තර්ජාතික ක්‍රිකට් කවුන්සිලය නිවේදනය කළේ ය.ඒ අනුව තරග පැවත්වෙන්නේ කොළඹ ආර්.ප්‍රේමදාස ක්‍රීඩාංගණය සහ ඉන්දියාවේ බැංගලෝර්, ගුවහාටි, ඉන්දෝර් මෙන්ම විශාකාපට්නම් ක්‍රීඩාංගණවලදීයි.කණ්ඩායම් 8ක් එක්වන තරගාවලිය ලබන සැප්තැම්බර් 30 වැනිදා සිට නොවැම්බර් 02 වැනිදා දක්වා පැවැත්වීමට කටයුතු යොදා තිබේ.</hasFullText>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ICC එක්දින ක්‍රිකට් කණ්ඩායමේ නායකත්වය චරිත් අසලංකට</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-24T08:49:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/01/24/2024-icc-%e0%b6%91%e0%b6%9a%e0%b7%8a%e0%b6%af%e0%b7%92%e0%b6%b1-%e0%b6%9a%e0%b7%8a%e2%80%8d%e0%b6%bb</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.851</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025 ICC එක් දින ක්‍රිකට් කණ්ඩායම් අද (24) ප්‍රකාශයට පත් කර තිබේ.එහි පිරිමි කණ්ඩායමේ නායකත්වය හිමිව ඇත්තේ, ශ්‍රී ලංකාවේ චරිත් අසලංකටයි.</hasFullText>
   <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#ආර__ප__ර_මද_ස_ක__ර_ඩ__ගණය">
+<owl:NamedIndividual rdf:about="#චර_ත__අසල_ක">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">චරිත් අසලංක</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#එක_ද_න_ක__ර_කට__කණ_ඩ_යම_">
+  <rdf:type rdf:resource="#Organization"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">එක්දින ක්‍රිකට් කණ්ඩායම්</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_02_20__e0_b6_af_e0_b7_83_e0_b7">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#Sports"/>
+  <hasCategory rdf:resource="#Cricket"/>
+  <mentionsEntity rdf:resource="#දස_න__ශ_නක"/>
+  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <mentionsEntity rdf:resource="#දඩයක__න_යම_ක_ර_ම"/>
+  <mentionsEntity rdf:resource="#ක__ර_කට__ආයතනය"/>
+  <hasCricketTeam rdf:resource="#ක__ර_කට__ආයතනය"/>
+  <hasCricketPlayer rdf:resource="#දස_න__ශ_නක"/>
+  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <hasCricketTournament rdf:resource="#දඩයක__න_යම_ක_ර_ම"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දසුන් ශානකට ශ්‍රී ලංකා ක්‍රිකට් ආයතනයෙන් ඇ.ඩො. 10,000ක දඩයක්</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-20T13:49:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/02/20/%e0%b6%af%e0%b7%83%e0%b7%94%e0%b6%b1%e0%b7%8a-%e0%b7%81%e0%b7%8f%e0%b6%b1%e0%b6%9a%e0%b6%a7-%e0%b7%81%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%93-%e0%b6%bd%e0%b6%82</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.862</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශ්‍රී ලංකා ක්‍රිකට් ආයතනය සමග එළැඹ ඇති තරග ගිවිසුම් කොන්දේසි කඩකිරීමේ චෝදනා මත දසුන් ශානකට ශ්‍රී ලංකා ක්‍රිකට් ආයතනය විසින් අමෙරිකානු ඩොලර් 10,000ක දඩයක් නියම කර තිබේ.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#දස_න__ශ_නක">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දසුන් ශානක</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#දඩයක__න_යම_ක_ර_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දඩයක් නියම කිරීම</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ක__ර_කට__ආයතනය">
+  <rdf:type rdf:resource="#Organization"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ක්‍රිකට් ආයතනය</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_12__e0_b6_bb_e0_b7_8f_e0_b6">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CultureAndEntertainment"/>
+  <hasCategory rdf:resource="#MusicAndArts"/>
+  <mentionsEntity rdf:resource="#න_වරඑළ_ය"/>
+  <mentionsEntity rdf:resource="#ර_ජ__ය_ව_සක__ස_මර_ම"/>
+  <mentionsEntity rdf:resource="#ජ_ත_ක_ව_සක__සත_ය"/>
+  <hasMusicEvent rdf:resource="#ර_ජ__ය_ව_සක__ස_මර_ම"/>
+  <hasMusicEvent rdf:resource="#ජ_ත_ක_ව_සක__සත_ය"/>
+  <hasMusicLocation rdf:resource="#න_වරඑළ_ය"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රාජ්‍ය වෙසක් සැමරුම නුවරඑළියේදී ..</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-12T10:18:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/12/%e0%b6%bb%e0%b7%8f%e0%b6%a2%e0%b7%8a%e2%80%8d%e0%b6%ba-%e0%b7%80%e0%b7%99%e0%b7%83%e0%b6%9a%e0%b7%8a-%e0%b7%83%e0%b7%90%e0%b6%b8%e0%b6%bb%e0%b7%94%e0%b6%b8</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.876</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රාජ්‍ය වෙසක් සැමරුම නුවරඑළියේදී පැවැත්වෙයි. එය ලබන 16 වැනිදා දක්වා ක්‍රියාත්මකයි. මෙවර ජාතික වෙසක් සතිය සැමරෙන්නේ, කළණ මිතුරන් ඇසුරු කරමු යන්න තේමා කර ගනිමින් ය.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#න_වරඑළ_ය">
   <rdf:type rdf:resource="#Location"/>
-  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ආර්.ප්‍රේමදාස ක්‍රීඩාංගණය</canonicalName>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නුවරඑළිය</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ර_ජ__ය_ව_සක__ස_මර_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රාජ්‍ය වෙසක් සැමරුම</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ජ_ත_ක_ව_සක__සත_ය">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ජාතික වෙසක් සතිය</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_31__e0_b6_85_e0_b6_b1_e0_b7">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CultureAndEntertainment"/>
+  <hasCategory rdf:resource="#MusicAndArts"/>
+  <mentionsEntity rdf:resource="#අන_ද__ග_ණස_කර"/>
+  <mentionsEntity rdf:resource="#ල_ක_ර__ර_ජ_ණ"/>
+  <hasMusicArtist rdf:resource="#අන_ද__ග_ණස_කර"/>
+  <hasMusicEvent rdf:resource="#ල_ක_ර__ර_ජ_ණ"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අනුදි ගුණසේකර ලෝක රූ රැජිණ අවසන් 40 වටයට සුදුසුකම් නොලබයි..</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-31T09:09:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/31/%e0%b6%85%e0%b6%b1%e0%b7%94%e0%b6%af%e0%b7%92-%e0%b6%9c%e0%b7%94%e0%b6%ab%e0%b7%83%e0%b7%9a%e0%b6%9a%e0%b6%bb-%e0%b6%bd%e0%b7%9d%e0%b6%9a-%e0%b6%bb%e0%b7%96</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.885</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලෝක රූ රැජිණ අවසන් තරගයේදී අවසන් තරගකාරියන් 40 දෙනා අතරට තේරීමේ අවස්ථාව අනුදි ගුණසේකරට අහිමි වී තිබේ.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#අන_ද__ග_ණස_කර">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අනුදි ගුණසේකර</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ල_ක_ර__ර_ජ_ණ">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ලෝක රූ රැජිණ</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_31_72__e0_b7_80_e0_b7_90_e0">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CultureAndEntertainment"/>
+  <hasCategory rdf:resource="#MusicAndArts"/>
+  <mentionsEntity rdf:resource="#ඔපල__සච__ට_ච_න_ශ__ර_"/>
+  <mentionsEntity rdf:resource="#ත_ය_ලන_තය"/>
+  <mentionsEntity rdf:resource="#ල_ක_ර__ර_ජ_ණ"/>
+  <mentionsEntity rdf:resource="#අවසන__මහ__තරගය"/>
+  <hasMusicArtist rdf:resource="#ඔපල__සච__ට_ච_න_ශ__ර_"/>
+  <hasMusicEvent rdf:resource="#ල_ක_ර__ර_ජ_ණ"/>
+  <hasMusicEvent rdf:resource="#අවසන__මහ__තරගය"/>
+  <hasMusicLocation rdf:resource="#ත_ය_ලන_තය"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">72 වැනි ලෝක රූ රැජින කිරුළ තායිලන්තයේ ඔපල් සුචාටාට</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-31T10:00:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/31/72-%e0%b7%80%e0%b7%90%e0%b6%b1%e0%b7%92-%e0%b6%bd%e0%b7%9d%e0%b6%9a-%e0%b6%bb%e0%b7%96-%e0%b6%bb%e0%b7%90%e0%b6%a2%e0%b7%92%e0%b6%b1</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.896</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තායිලන්තයේ ඔපල් සචා ටාචුන්ශ්‍රී, 72 වැනි ලෝක රූ රැජිණ ලෙස කිරුළු පැළදීය.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ඔපල__සච__ට_ච_න_ශ__ර_">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ඔපල් සචා ටාචුන්ශ්‍රී</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ත_ය_ලන_තය">
+  <rdf:type rdf:resource="#Location"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">තායිලන්තය</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#අවසන__මහ__තරගය">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">අවසන් මහා තරගය</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_20__e0_b6_b8_e0_b6_bb_e0_b7">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CrimeAndJustice"/>
+  <hasCategory rdf:resource="#CourtsAndInvestigation"/>
+  <mentionsEntity rdf:resource="#මර_ව_න__ස_ල_ව_"/>
+  <mentionsEntity rdf:resource="#ප__රසන_න_රණව_ර"/>
+  <mentionsEntity rdf:resource="#රක_ෂ_ත_බන_ධන_ග_ර"/>
+  <hasWitness rdf:resource="#මර_ව_න__ස_ල_ව_"/>
+  <hasWitness rdf:resource="#ප__රසන_න_රණව_ර"/>
+  <hasCourtLocation rdf:resource="#රක_ෂ_ත_බන_ධන_ග_ර"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මර්වින් සහ ප්‍රසන්න රණවීර යළි රිමාන්ඩ්...</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-20T04:35:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/20/%e0%b6%b8%e0%b6%bb%e0%b7%8a%e0%b7%80%e0%b7%92%e0%b6%b1%e0%b7%8a-%e0%b7%83%e0%b7%84-%e0%b6%b4%e0%b7%8a%e2%80%8d%e0%b6%bb%e0%b7%83%e0%b6%b1%e0%b7%8a%e0%b6%b1</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.904</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු අමාත්‍ය මර්වින් සිල්වා සහ හිටපු රාජ්‍ය අමාත්‍ය ප්‍රසන්න රණවීර ලබන 26 වැනිදා දක්වා යළි රක්ෂිත බන්ධනාගාරගත කිරීමට නියෝග කර තිබේ.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#මර_ව_න__ස_ල_ව_">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මර්වින් සිල්වා</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ප__රසන_න_රණව_ර">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ප්‍රසන්න රණවීර</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#රක_ෂ_ත_බන_ධන_ග_ර">
+  <rdf:type rdf:resource="#Location"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">රක්ෂිත බන්ධනාගාර</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_29__e0_b6_9a_e0_b7_90_e0_b6">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CrimeAndJustice"/>
+  <hasCategory rdf:resource="#CourtsAndInvestigation"/>
+  <mentionsEntity rdf:resource="#මහ_න_ද_නන_ද_අල_ත_ගමග_"/>
+  <mentionsEntity rdf:resource="#නල_න__ප__රන_න_ද_"/>
+  <mentionsEntity rdf:resource="#ස_ර_දඬ_වම_"/>
+  <hasWitness rdf:resource="#මහ_න_ද_නන_ද_අල_ත_ගමග_"/>
+  <hasWitness rdf:resource="#නල_න__ප__රන_න_ද_"/>
+  <hasCourtCase rdf:resource="#ස_ර_දඬ_වම_"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">කැරම් බෝඩ් ගණුදෙණුවට හිටපු අමාත්‍යවරුන් වන මහින්දානන්දට සහ නලීන් ප්‍රනාන්දුට බරපතල වැඩ සහිත සිරදඬුවම්.</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-29T12:27:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/29/%e0%b6%9a%e0%b7%90%e0%b6%bb%e0%b6%b8%e0%b7%8a-%e0%b6%b6%e0%b7%9d%e0%b6%a9%e0%b7%8a-%e0%b6%9c%e0%b6%ab%e0%b7%94%e0%b6%af%e0%b7%99%e0%b6%ab%e0%b7%94%e0%b7%80%e0%b6%a7</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.916</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ක්‍රීඩා අමාත්‍ය මහින්දානන්ද අලුත්ගමගේ මහතාට වසර 20ක බරපතල වැඩසහිත සිරදඩුවමක් සහ හිටපු වෙළද අමාත්‍ය නලීන් ප්‍රනාන්දු මහතාට වසර 25ක බරපතල වැඩසහිත සිර දඬුවම් නියම කෙරුණි.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#මහ_න_ද_නන_ද_අල_ත_ගමග_">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">මහින්දානන්ද අලුත්ගමගේ</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#නල_න__ප__රන_න_ද_">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">නලීන් ප්‍රනාන්දු</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ස_ර_දඬ_වම_">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සිර දඬුවම්</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_05_29__e0_b7_84_e0_b7_92_e0_b6">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#CrimeAndJustice"/>
+  <hasCategory rdf:resource="#CourtsAndInvestigation"/>
+  <mentionsEntity rdf:resource="#ද_ම_න_ද_ද_ස_න_යක"/>
+  <mentionsEntity rdf:resource="#රක_ෂ_ත_බන_ධන_ග_ර"/>
+  <hasWitness rdf:resource="#ද_ම_න_ද_ද_ස_න_යක"/>
+  <hasCourtLocation rdf:resource="#රක_ෂ_ත_බන_ධන_ග_ර"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු ඇමති දුමින්ද යළි රිමාන්ඩ්.</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-05-29T12:32:00.000+05:30</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/05/29/%e0%b7%84%e0%b7%92%e0%b6%a7%e0%b6%b4%e0%b7%94-%e0%b6%87%e0%b6%b8%e0%b6%ad%e0%b7%92-%e0%b6%af%e0%b7%94%e0%b6%b8%e0%b7%92%e0%b6%b1%e0%b7%8a%e0%b6%af-%e0%b6%ba</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-27T19:19:27.928</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">හිටපු අමාත්‍ය දුමින්ද දිසානායක මහතා ලබන 05 වැනිදා දක්වා යළි රක්ෂිත බන්ධනාගාර ගත කෙරුණි.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ද_ම_න_ද_ද_ස_න_යක">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දුමින්ද දිසානායක</canonicalName>
 </owl:NamedIndividual>
 
 
