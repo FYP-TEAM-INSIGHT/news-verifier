@@ -60,7 +60,7 @@ def get_trusted_contents_by_category(category):
 def get_semantic_similarity_score(
     news_text,
     trusted_texts,
-    api_url="https://neat-eagerly-tiger.ngrok-free.app/similarity",
+    api_url="https://relaxing-morally-wallaby.ngrok-free.app/similarity",
 ):
     payload = {"news_text": news_text, "trusted_texts": trusted_texts}
     try:
