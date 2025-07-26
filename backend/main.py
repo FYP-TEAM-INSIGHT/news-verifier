@@ -1,3 +1,4 @@
+from html import entities
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -216,7 +217,14 @@ async def verify_news(request: VerifyNewsRequest):
 async def simulate_verify_news(request: VerifyNewsRequest):
     """Simulate news verification for testing purposes"""
 
-    return simulate_news_verification(request.text)
+    # STEP 01: Pre-processing text (remove unnecessary characters, english stop words, etc.)
+    cleaned_text = sinhala_preprocessor.preprocess_text(request.text)
+    logger.info(f"cleaned_text: {cleaned_text}")
+
+    entities = extract_named_entities(cleaned_text)
+    logger.info(f"Extracted entities: {entities}")
+
+    return simulate_news_verification(cleaned_text)
 
 
 if __name__ == "__main__":
