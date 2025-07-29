@@ -3,6 +3,63 @@ from datetime import datetime
 from .models import FormattedNewsArticle
 
 
+# --- Triple to Ontology Mapping ---
+def add_triple_to_ontology(triple, data, manager):
+    """
+    Add a single triple (subject, verb, object) to the ontology.
+    Uses NER entity lists in data to determine the correct class for subject/object.
+    - triple: {subject, verb, object}
+    - data: the article data dict (with persons, locations, events, organizations)
+    - manager: ontology manager
+    """
+    onto = manager.ontology
+
+    # Map entity name to ontology class based on NER lists
+    def get_entity_class(name):
+        if name in data.get("persons", []):
+            return onto.Person
+        if name in data.get("locations", []):
+            return onto.Location
+        if name in data.get("events", []):
+            return onto.Event
+        if name in data.get("organizations", []):
+            return onto.Organization
+        return onto.NamedEntity
+
+    def get_or_create_entity(name):
+        cls = get_entity_class(name)
+        safe_name = manager._safe_name(name)
+        existing = onto.search_one(iri="*" + safe_name)
+        if existing:
+            return existing
+        entity = cls(safe_name)
+        entity.canonicalName = name
+        return entity
+
+    subject_name = triple.get("subject")
+    object_name = triple.get("object")
+    verb_name = triple.get("verb")
+    if not (subject_name and object_name and verb_name):
+        raise ValueError("Triple must have subject, verb, and object.")
+
+    subject_ind = get_or_create_entity(subject_name)
+    object_ind = get_or_create_entity(object_name)
+
+    # Try to get the property from the ontology, else create a new ObjectProperty
+    prop = getattr(onto, verb_name, None)
+    if prop is None:
+        # Dynamically create a new ObjectProperty for this verb
+        with onto:
+            prop = type(
+                verb_name, (onto.ObjectProperty,), {"range": [onto.NamedEntity]}
+            )
+
+    # Add the relationship
+    getattr(subject_ind, verb_name).append(object_ind)
+
+    return subject_ind, prop, object_ind
+
+
 def populate_article_from_json(data, manager):
     """
     Populate a single article from JSON data into the ontology
@@ -185,6 +242,15 @@ def populate_article_from_json(data, manager):
             print(
                 f"[DEBUG] Unhandled category/subcategory: {data['category']}/{data['subcategory']}"
             )
+
+        # Add triple if present
+        triple = data.get("triples")
+        if triple:
+            try:
+                add_triple_to_ontology(triple, data, manager)
+                print(f"[INFO] Triple added to ontology: {triple}")
+            except Exception as e:
+                print(f"[ERROR] Failed to add triple: {e}")
 
     return article_indiv
 
