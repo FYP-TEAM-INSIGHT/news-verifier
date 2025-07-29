@@ -5,7 +5,7 @@ Central place for constants so you don't repeat literals across modules.
 from pathlib import Path
 
 ONTOLOGY_IRI: str = (
-    "http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1"
+    "http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1"
 )
 
 # Updated path to point to the ontology file in the root of ontology-sinhala
