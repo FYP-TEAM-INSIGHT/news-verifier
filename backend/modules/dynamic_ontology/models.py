@@ -15,6 +15,12 @@ class FormattedNewsArticle:
     source: str
 
 
+class Triple(BaseModel):
+    subject: str
+    verb: str
+    object: str
+
+
 # Pydantic models for API validation
 class NewsArticleCreate(BaseModel):
     """Model for creating news articles via API"""
@@ -30,6 +36,7 @@ class NewsArticleCreate(BaseModel):
     locations: List[str] = []
     events: List[str] = []
     organizations: List[str] = []
+    triple: Optional[Triple] = None
 
 
 class NewsArticleResponse(BaseModel):

@@ -45,6 +45,13 @@ def add_triple_to_ontology(triple, data, manager):
     subject_ind = get_or_create_entity(subject_name)
     object_ind = get_or_create_entity(object_name)
 
+    # Create or get NewsVerb individual for the verb
+    safe_verb_name = manager._safe_name(verb_name)
+    verb_ind = onto.search_one(iri="*" + safe_verb_name)
+    if not verb_ind:
+        verb_ind = onto.NewsVerb(safe_verb_name)
+        verb_ind.canonicalName = verb_name
+
     # Try to get the property from the ontology, else create a new ObjectProperty
     prop = getattr(onto, verb_name, None)
     if prop is None:
@@ -56,6 +63,11 @@ def add_triple_to_ontology(triple, data, manager):
 
     # Add the relationship
     getattr(subject_ind, verb_name).append(object_ind)
+
+    # Optionally, link the subject to the NewsVerb individual (semantic enrichment)
+    # If you want to use hasActionVerb (from schema), you can do:
+    if hasattr(subject_ind, "hasActionVerb"):
+        subject_ind.hasActionVerb.append(verb_ind)
 
     return subject_ind, prop, object_ind
 
@@ -247,6 +259,7 @@ def populate_article_from_json(data, manager):
         triple = data.get("triples")
         if triple:
             try:
+                print("[DEBUG] Adding triple")
                 add_triple_to_ontology(triple, data, manager)
                 print(f"[INFO] Triple added to ontology: {triple}")
             except Exception as e:
