@@ -36,7 +36,7 @@ class NewsArticleCreate(BaseModel):
     locations: List[str] = []
     events: List[str] = []
     organizations: List[str] = []
-    triple: Optional[Triple] = None
+    triples: Optional[Triple] = None
 
 
 class NewsArticleResponse(BaseModel):

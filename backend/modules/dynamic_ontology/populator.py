@@ -1,75 +1,61 @@
 # ontology_populator.py
 from datetime import datetime
 from .models import FormattedNewsArticle
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
-# --- Triple to Ontology Mapping ---
-def add_triple_to_ontology(triple, data, manager):
+def add_triple_to_ontology(triple, data, manager, article_indiv):
     """
-    Add a single triple (subject, verb, object) to the ontology.
-    Uses NER entity lists in data to determine the correct class for subject/object.
-    - triple: {subject, verb, object}
-    - data: the article data dict (with persons, locations, events, organizations)
-    - manager: ontology manager
+    Create a Statement individual for (subject, verb, object),
+    link it into the article and to the NamedEntities / NewsVerb.
     """
     onto = manager.ontology
 
-    # Map entity name to ontology class based on NER lists
-    def get_entity_class(name):
-        if name in data.get("persons", []):
-            return onto.Person
-        if name in data.get("locations", []):
-            return onto.Location
-        if name in data.get("events", []):
-            return onto.Event
-        if name in data.get("organizations", []):
-            return onto.Organization
-        return onto.NamedEntity
+    # 1. Lookup or create subject & object as NamedEntity
+    def get_entity(name):
+        cls = (
+            onto.Person
+            if name in data.get("persons", [])
+            else onto.Location
+            if name in data.get("locations", [])
+            else onto.Event
+            if name in data.get("events", [])
+            else onto.Organization
+            if name in data.get("organizations", [])
+            else onto.NamedEntity
+        )
+        safe = manager._safe_name(name)
+        e = onto.search_one(iri="*" + safe) or cls(safe)
+        e.canonicalName = name
+        return e
 
-    def get_or_create_entity(name):
-        cls = get_entity_class(name)
-        safe_name = manager._safe_name(name)
-        existing = onto.search_one(iri="*" + safe_name)
-        if existing:
-            return existing
-        entity = cls(safe_name)
-        entity.canonicalName = name
-        return entity
+    subj = get_entity(triple["subject"])
+    obj = get_entity(triple["object"])
+    verb = onto.search_one(
+        iri="*" + manager._safe_name(triple["verb"])
+    ) or onto.NewsVerb(manager._safe_name(triple["verb"]))
+    verb.canonicalName = triple["verb"]
 
-    subject_name = triple.get("subject")
-    object_name = triple.get("object")
-    verb_name = triple.get("verb")
-    if not (subject_name and object_name and verb_name):
-        raise ValueError("Triple must have subject, verb, and object.")
+    # 2. Create the Statement individual
+    stmt_name = f"Stmt_{subj.name}_{verb.name}_{obj.name}"
+    stmt = onto.Statement(stmt_name)
+    # link subject, verb, object
+    stmt.hasStatementSubject = subj
+    stmt.hasActionVerb = verb
+    stmt.hasPredicateVerb = triple["verb"]
+    stmt.hasStatementObjectEntity = obj
+    # optional: capture the full sentence for provenance
+    content = data.get("content", "")
+    if content:
+        stmt.sourceSentence.append(content)
 
-    subject_ind = get_or_create_entity(subject_name)
-    object_ind = get_or_create_entity(object_name)
+    # 3. Hook into the article
+    article_indiv.containsStatement.append(stmt)
 
-    # Create or get NewsVerb individual for the verb
-    safe_verb_name = manager._safe_name(verb_name)
-    verb_ind = onto.search_one(iri="*" + safe_verb_name)
-    if not verb_ind:
-        verb_ind = onto.NewsVerb(safe_verb_name)
-        verb_ind.canonicalName = verb_name
-
-    # Try to get the property from the ontology, else create a new ObjectProperty
-    prop = getattr(onto, verb_name, None)
-    if prop is None:
-        # Dynamically create a new ObjectProperty for this verb
-        with onto:
-            prop = type(
-                verb_name, (onto.ObjectProperty,), {"range": [onto.NamedEntity]}
-            )
-
-    # Add the relationship
-    getattr(subject_ind, verb_name).append(object_ind)
-
-    # Optionally, link the subject to the NewsVerb individual (semantic enrichment)
-    # If you want to use hasActionVerb (from schema), you can do:
-    if hasattr(subject_ind, "hasActionVerb"):
-        subject_ind.hasActionVerb.append(verb_ind)
-
-    return subject_ind, prop, object_ind
+    return stmt
 
 
 def populate_article_from_json(data, manager):
@@ -255,15 +241,20 @@ def populate_article_from_json(data, manager):
                 f"[DEBUG] Unhandled category/subcategory: {data['category']}/{data['subcategory']}"
             )
 
-        # Add triple if present
-        triple = data.get("triples")
-        if triple:
-            try:
-                print("[DEBUG] Adding triple")
-                add_triple_to_ontology(triple, data, manager)
-                print(f"[INFO] Triple added to ontology: {triple}")
-            except Exception as e:
-                print(f"[ERROR] Failed to add triple: {e}")
+    # 2) optionally add one triple if present
+    triple = data.get("triples")
+    if triple:
+        try:
+            stmt = add_triple_to_ontology(
+                triple=triple, data=data, manager=manager, article_indiv=article_indiv
+            )
+            logger.info(
+                f"Created statement {stmt.name} for article {article_indiv.name}"
+            )
+        except Exception as e:
+            logger.error(f"Failed to add statement: {e}")
+            # depending on your desired behavior either raise or continue
+            raise ValueError(f"Could not add triple: {e}")
 
     return article_indiv
 

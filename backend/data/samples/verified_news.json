@@ -10,7 +10,12 @@
     "persons": [],
     "locations": ["ඊශ්‍රායලය", "ඉරානය"],
     "events": ["සටන් විරාමය", "මිසයිල ප්‍රහාරය"],
-    "organizations": ["ඉරාන රාජ්‍ය මාධ්‍ය"]
+    "organizations": ["ඉරාන රාජ්‍ය මාධ්‍ය"],
+    "triples": {
+      "subject": "ඉරානය",
+      "verb": "ප්‍රතික්ෂේප කරයි",
+      "object": "ඊශ්‍රායලයට මිසයිලයක් එල්ල කළ බවට චෝදනා"
+    }
   },
   {
     "source": "hirunews",
@@ -23,7 +28,12 @@
     "persons": [],
     "locations": ["සිරියාව", "කටාර්", "ඉරාකය"],
     "events": ["ගුවන් සීමා විවෘත කිරීම", "ගුවන් මෙහෙයුම්"],
-    "organizations": ["ඕමාන එයාර්"]
+    "organizations": ["ඕමාන එයාර්"],
+    "triples": {
+      "subject": "සිරියාව, කටාර්, ඉරාකය",
+      "verb": "විවෘත කරයි",
+      "object": "ගුවන් සීමා"
+    }
   },
   {
     "source": "hirunews",
@@ -36,7 +46,12 @@
     "persons": [],
     "locations": ["ඉරානය"],
     "events": ["න්‍යෂ්ටික වැඩසටහන"],
-    "organizations": ["පරමාණුක බලශක්ති සංවිධානය"]
+    "organizations": ["පරමාණුක බලශක්ති සංවිධානය"],
+    "triples": {
+      "subject": "ඉරානය",
+      "verb": "සැලසුම් කරමින් සිටී",
+      "object": "න්‍යෂ්ටික වැඩසටහන යථාවත් කිරීම"
+    }
   },
 
   {
@@ -56,7 +71,12 @@
       "න්‍යෂ්ටික බලාගාර"
     ],
     "events": ["ප්‍රහාර"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "රුසියාව",
+      "verb": "සහාය දක්වයි",
+      "object": "ඉරානය"
+    }
   },
 
   {
@@ -70,7 +90,12 @@
     "persons": ["ශ්‍රීකාන්ත්"],
     "locations": ["ඉන්දීයාව"],
     "events": [],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ශ්‍රීකාන්ත්",
+      "verb": "අත්අඩංගුවට ගන්නා ලදී",
+      "object": ""
+    }
   },
   {
     "source": "hirunews",
@@ -83,7 +108,12 @@
     "persons": ["ඩොනල්ඩ් ට්‍රම්ප්"],
     "locations": ["ඊශ්‍රායලය", "ඉරානය", "එක්සත් ජනපද"],
     "events": ["සටන් විරාමය"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ඊශ්‍රායලය",
+      "verb": "පහර නොදේ",
+      "object": "ඉරානය"
+    }
   },
   {
     "source": "hirunews",
@@ -96,7 +126,12 @@
     "persons": ["ග්‍රෙග් ඇබට්"],
     "locations": ["ටෙක්සාස්", "අමෙරිකාව", "චීනය"],
     "events": ["දේපල හිමිකම සීමා කිරීමේ පනත"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ග්‍රෙග් ඇබට්",
+      "verb": "අත්සන් තබා ඇත",
+      "object": "දේපල හිමිකම සීමා කිරීමේ පනත"
+    }
   },
   {
     "source": "hirunews",
@@ -109,7 +144,12 @@
     "persons": ["අජිත් දොවාල්", "වැන්ග් යී"],
     "locations": ["ඉන්දියාව", "චීනය"],
     "events": [],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "වැන්ග් යී",
+      "verb": "හමුවෙයි",
+      "object": "අජිත් දොවාල්"
+    }
   },
   {
     "source": "hirunews",
@@ -122,7 +162,12 @@
     "persons": [],
     "locations": ["ඊශ්‍රායලය", "ඉරානය"],
     "events": [],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ඉරානය",
+      "verb": "අත්අඩංගුවට ගෙන ඇත",
+      "object": "ඊශ්‍රායලය වෙනුවෙන් ඔත්තු බැලූ සැකකරුවන් 700ක්"
+    }
   },
   {
     "source": "hirunews",
@@ -135,7 +180,12 @@
     "persons": [],
     "locations": ["මෙක්සිකෝව", "ගුවානාජුවාටෝ"],
     "events": ["ආගමික උත්සවය", "වෙඩි තැබීම"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "වෙඩි තැබීම",
+      "verb": "මිය ගියහ",
+      "object": "පුද්ගලයින් 12 දෙනෙකු"
+    }
   },
   {
     "source": "hirunews",
@@ -148,7 +198,12 @@
     "persons": ["ජෝ මැරිනෙලි"],
     "locations": ["අමෙරිකාව", "සැන්ටා බාබරා"],
     "events": ["මිය යාම", "රංගනය"],
-    "organizations": ["ද මෝනිං ෂෝ"]
+    "organizations": ["ද මෝනිං ෂෝ"],
+    "triples": {
+      "subject": "ජෝ මැරිනෙලි",
+      "verb": "මිය ගියහ",
+      "object": ""
+    }
   },
   {
     "source": "News First",
@@ -161,7 +216,12 @@
     "persons": [],
     "locations": ["කොළඹ", "මධ්‍යම", "බස් නැවතුම්පොළ"],
     "events": ["ක්ලීන් ශ්‍රිලංකා වැඩසටහන"],
-    "organizations": ["රජය"]
+    "organizations": ["රජය"],
+    "triples": {
+      "subject": "රජය",
+      "verb": "සැලසුම් කර ඇත",
+      "object": "කොළඹ මධ්‍යම බස් නැවතුම්පොළ නවීකරණය"
+    }
   },
   {
     "source": "News First",
@@ -174,7 +234,12 @@
     "persons": ["නන්දික සනත් කුමානායක"],
     "locations": [],
     "events": [],
-    "organizations": ["ලංකා බැංකු සේවක සංගමය"]
+    "organizations": ["ලංකා බැංකු සේවක සංගමය"],
+    "triples": {
+      "subject": "ලංකා බැංකු සේවක සංගමය",
+      "verb": "හමුවෙයි",
+      "object": "ජනාධිපති ලේකම් නන්දික සනත් කුමානායක"
+    }
   },
   {
     "source": "News First",
@@ -187,8 +252,14 @@
     "persons": ["හරිනි අමරසූරිය"],
     "locations": ["කැනඩාව"],
     "events": [],
-    "organizations": ["පොදුරාජ්‍ය මණ්ඩලය", "ඉගෙනුම් පාලක මණ්ඩලය"]
+    "organizations": ["පොදුරාජ්‍ය මණ්ඩලය", "ඉගෙනුම් පාලක මණ්ඩලය"],
+    "triples": {
+      "subject": "හරිනි අමරසූරිය",
+      "verb": "පිටත්ව ගියේය",
+      "object": "කැනඩාව"
+    }
   },
+
   {
     "source": "News First",
     "headline": "පොහොර තොග සඟවන වෙළදුන් සම්බන්ධයෙන් දැඩි ක්‍රියාමර්ග ගන්නා බව නියෝජ්‍ය අමාත්‍ය නාමල් කරුණාරත්න මහතා පවසයි.",
@@ -200,7 +271,12 @@
     "persons": ["නාමල් කරුණාරත්න"],
     "locations": [],
     "events": ["පොහොර තොග සඟවීම"],
-    "organizations": ["කෘෂිකර්ම අමාත්‍යාංශය"]
+    "organizations": ["කෘෂිකර්ම අමාත්‍යාංශය"],
+    "triples": {
+      "subject": "නාමල් කරුණාරත්න",
+      "verb": "පවසයි",
+      "object": "පොහොර තොග සඟවන වෙළදුන්ට දැඩි ක්‍රියාමර්ග ගන්නා බව"
+    }
   },
   {
     "source": "News First",
@@ -213,7 +289,12 @@
     "persons": [],
     "locations": ["බොරැල්ල", "ඩින්කේවත්ත"],
     "events": ["වෙඩි තැබීම"],
-    "organizations": ["පොලීසිය"]
+    "organizations": ["පොලීසිය"],
+    "triples": {
+      "subject": "වෙඩි තැබීම",
+      "verb": "සිදුව ඇත",
+      "object": "බොරැල්ල ඩින්කේවත්ත ප්‍රදේශය"
+    }
   },
   {
     "source": "News First",
@@ -242,7 +323,12 @@
     "persons": [],
     "locations": [],
     "events": ["නවක වදය"],
-    "organizations": ["අග්නිදිග විශ්වවිද්‍යාලය"]
+    "organizations": ["අග්නිදිග විශ්වවිද්‍යාලය"],
+    "triples": {
+      "subject": "අග්නිදිග විශ්වවිද්‍යාලය",
+      "verb": "පන්ති තහනම් කර ඇත",
+      "object": "සිසුන් 22 කු"
+    }
   },
   {
     "source": "News First",
@@ -259,7 +345,12 @@
       "රාජ්‍ය පරිපාලන පළාත් සභා",
       "පළාත් පාලන අමාත්‍යංශය",
       "රාජ්‍ය සේවය"
-    ]
+    ],
+    "triples": {
+      "subject": "රාජ්‍ය පරිපාලන පළාත් සභා හා පළාත් පාලන අමාත්‍යංශය",
+      "verb": "පවසයි",
+      "object": "රාජ්‍ය සේවයට තිස් දහසක් බඳවා ගැනීම ආරම්භ වී ඇති බව"
+    }
   },
 
   {
@@ -291,7 +382,12 @@
     "persons": ["චමරි අතපත්තු"],
     "locations": ["ශ්‍රී ලංකාව"],
     "events": ["එක්දින ජාත්‍යන්තර ක්‍රිකට්"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "චමරි අතපත්තු",
+      "verb": "ඉදිරියට පැමිණ ඇත",
+      "object": "එක්දින ක්‍රිකට් ශ්‍රේණිගත කිරීම්හි 7 වැනි තැන"
+    }
   },
   {
     "source": "News First",
@@ -304,7 +400,12 @@
     "persons": ["කුසල් මෙන්ඩිස්"],
     "locations": ["ශ්‍රී ලංකාව", "ඉන්දියාව"],
     "events": ["තරගාවලිය"],
-    "organizations": ["ගුජරාට් ටයිටන්ස්"]
+    "organizations": ["ගුජරාට් ටයිටන්ස්"],
+    "triples": {
+      "subject": "කුසල් මෙන්ඩිස්",
+      "verb": "කැඳවා ඇත",
+      "object": "ගුජරාට් ටයිටන්ස් කණ්ඩායම"
+    }
   },
   {
     "source": "News First",
@@ -317,7 +418,12 @@
     "persons": ["ඇන්ජලෝ මැතිව්ස්"],
     "locations": ["ශ්‍රී ලංකා"],
     "events": ["ටෙස්ට් ක්‍රිකට්", "සමුදීම"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ඇන්ජලෝ මැතිව්ස්",
+      "verb": "නිවේදනය කරයි",
+      "object": "ටෙස්ට් ක්‍රිකට් පිටියට සමුදීම"
+    }
   },
 
   {
@@ -331,7 +437,12 @@
     "persons": [],
     "locations": ["ශ්‍රී ලංකාව", "ආසියානු"],
     "events": ["ශූරතාවලිය"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ශ්‍රී ලංකා ක්‍රීඩක ක්‍රීඩිකාවන්",
+      "verb": "ලැබීය",
+      "object": "රිදී පදක්කම් 4ක්"
+    }
   },
   {
     "source": "News First",
@@ -344,7 +455,12 @@
     "persons": ["කාලිංග කුමාරගේ"],
     "locations": ["ශ්‍රී ලංකාව"],
     "events": ["ආසියානු මලල ක්‍රීඩා උළෙල", "ධාවන ඉසව්ව"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "කාලිංග කුමාරගේ",
+      "verb": "ජයග්‍රහණය කළේය",
+      "object": "ලෝකඩ පදක්කම"
+    }
   },
   {
     "source": "News First",
@@ -357,7 +473,12 @@
     "persons": [],
     "locations": ["එංගලන්තය"],
     "events": ["එක්දින ක්‍රිකට් තරග"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "එංගලන්තය",
+      "verb": "ලැබීය",
+      "object": "ලකුණු 400ක් කිසිදු ශතකයක් නොමැතිව"
+    }
   },
   {
     "id": "d55b22ac56269d36d6b133bc903b6556",
@@ -371,7 +492,12 @@
     "persons": ["චරිත් අසලංක"],
     "locations": ["ශ්‍රී ලංකාව"],
     "events": [],
-    "organizations": ["එක්දින ක්‍රිකට් කණ්ඩායම්"]
+    "organizations": ["එක්දින ක්‍රිකට් කණ්ඩායම්"],
+    "triples": {
+      "subject": "චරිත් අසලංක",
+      "verb": "නායකත්වය හිමිව ඇත",
+      "object": "2025 ICC එක්දින ක්‍රිකට් කණ්ඩායම"
+    }
   },
   {
     "id": "6dbd16a84f8126bcb49db0884b92aeb7",
@@ -385,20 +511,30 @@
     "persons": ["දසුන් ශානක"],
     "locations": ["ශ්‍රී ලංකාව"],
     "events": ["දඩයක් නියම කිරීම"],
-    "organizations": ["ක්‍රිකට් ආයතනය"]
+    "organizations": ["ශ්‍රී ලංකා ක්‍රිකට් ආයතනය"],
+    "triples": {
+      "subject": "ශ්‍රී ලංකා ක්‍රිකට් ආයතනය",
+      "verb": "දඩයක් නියම කළේය",
+      "object": "දසුන් ශානක"
+    }
   },
   {
     "source": "News First",
     "headline": "හාවඩ් විශ්වවිද්‍යාලයට විදේශීය සිසුන් ඇතුළත් කර ගැනීම අත්හිටුවයි",
     "content": "හාවඩ් විශ්වවිද්‍යාලයට විදේශීය සිසුන් ඇතුළත් කර ගැනීම ට්‍රම්ප් පරිපාලනය විසින් අත්හිටුවා තිබේ.",
-    "timestamp": "2025-05-23TT08:29:00+05:30",
+    "timestamp": "2025-05-23T08:29:00+05:30",
     "url": "https://sinhala.newsfirst.lk/2025/05/23/%e0%b7%84%e0%b7%8f%e0%b7%80%e0%b6%a9%e0%b7%8a-%e0%b7%80%e0%b7%92%e0%b7%81%e0%b7%8a%e0%b7%80%e0%b7%80%e0%b7%92%e0%b6%af%e0%b7%8a%e2%80%8d%e0%b6%ba%e0%b7%8f%e0%b6%bd%e0%b6%ba",
     "category": "PoliticsAndGovernance",
     "subcategory": "InternationalPolitics",
     "persons": ["ට්‍රම්ප්"],
     "locations": ["හාවඩ් විශ්වවිද්‍යාලය", "ඇමරිකාව"],
     "events": [],
-    "organizations": ["හාවඩ් විශ්වවිද්‍යාලය", "ට්‍රම්ප් පරිපාලනය"]
+    "organizations": ["හාවඩ් විශ්වවිද්‍යාලය", "ට්‍රම්ප් පරිපාලනය"],
+    "triples": {
+      "subject": "ට්‍රම්ප් පරිපාලනය",
+      "verb": "අත්හිටුවා ඇත",
+      "object": "හාවඩ් විශ්වවිද්‍යාලයට විදේශීය සිසුන් ඇතුළත් කිරීම"
+    }
   },
   {
     "source": "News First",
@@ -411,7 +547,12 @@
     "persons": [],
     "locations": ["නුවරඑළිය"],
     "events": ["රාජ්‍ය වෙසක් සැමරුම", "ජාතික වෙසක් සතිය"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "රාජ්‍ය වෙසක් සැමරුම",
+      "verb": "පැවැත්වේ",
+      "object": "නුවරඑළිය"
+    }
   },
   {
     "source": "News First",
@@ -424,7 +565,12 @@
     "persons": ["අනුදි ගුණසේකර"],
     "locations": [],
     "events": ["ලෝක රූ රැජිණ"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "අනුදි ගුණසේකර",
+      "verb": "සුදුසුකම් නොලැබීය",
+      "object": "ලෝක රූ රැජිණ අවසන් 40 වටය"
+    }
   },
   {
     "source": "News First",
@@ -437,7 +583,12 @@
     "persons": ["ඔපල් සචා ටාචුන්ශ්‍රී"],
     "locations": ["තායිලන්තය"],
     "events": ["ලෝක රූ රැජිණ", "අවසන් මහා තරගය"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "ඔපල් සචා ටාචුන්ශ්‍රී",
+      "verb": "කිරුළ හිමිවිය",
+      "object": "ලෝක රූ රැජිණ"
+    }
   },
   {
     "source": "News First",
@@ -450,7 +601,12 @@
     "persons": ["මර්වින් සිල්වා", "ප්‍රසන්න රණවීර"],
     "locations": ["රක්ෂිත බන්ධනාගාර"],
     "events": [],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "මර්වින් සිල්වා සහ ප්‍රසන්න රණවීර",
+      "verb": "රිමාන්ඩ් කර ඇත",
+      "object": "ලබන 26 වැනිදා දක්වා"
+    }
   },
   {
     "source": "News First",
@@ -463,7 +619,12 @@
     "persons": ["මහින්දානන්ද අලුත්ගමගේ", "නලීන් ප්‍රනාන්දු"],
     "locations": [],
     "events": ["සිර දඬුවම්"],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "මහින්දානන්ද අලුත්ගමගේ සහ නලීන් ප්‍රනාන්දු",
+      "verb": "සිර දඬුවම් නියම කරන ලදී",
+      "object": "වැඩ සහිත වසර 20 සහ 25"
+    }
   },
   {
     "id": "87bd96e90ce7d03371a4b6d834498421",
@@ -477,6 +638,11 @@
     "persons": ["දුමින්ද දිසානායක"],
     "locations": ["රක්ෂිත බන්ධනාගාර"],
     "events": [],
-    "organizations": []
+    "organizations": [],
+    "triples": {
+      "subject": "දුමින්ද දිසානායක",
+      "verb": "රිමාන්ඩ් කෙරුණි",
+      "object": ""
+    }
   }
 ]

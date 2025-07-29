@@ -1,6 +1,7 @@
 import re
 import emoji
 import os  # For file path operations
+from sinlingua.preprocessor.stemmer import SinhalaStemmer
 
 
 class SinhalaPreprocessor:
@@ -215,63 +216,66 @@ if __name__ == "__main__":
     # Create an instance of the preprocessor. Resources are loaded automatically.
     preprocessor = SinhalaPreprocessor()
 
-    sample_text = "ගුවන්තොටුපළ ඉදිරිපිට ගුටිබැට https://example.com ✈️ 2024 අයවැය 5% ක වැඩිවීමක්. අද හොඳ දවසක්. එය විශිෂ්ටයි! 😊 Some English words here. #news"
+    # sample_text = "ගුවන්තොටුපළ ඉදිරිපිට ගුටිබැට https://example.com ✈️ 2024 අයවැය 5% ක වැඩිවීමක්. අද හොඳ දවසක්. එය විශිෂ්ටයි! 😊 Some English words here. #news"
 
-    print(f"\nOriginal Text:\n{sample_text}\n")
+    # print(f"\nOriginal Text:\n{sample_text}\n")
 
-    # --- Using the composite preprocess_text method (same as before) ---
-    print("--- 1. Using composite preprocess_text (default config) ---")
-    processed_composite = preprocessor.preprocess_text(sample_text)
-    print(f"Composite Processed:\n{processed_composite}\n")
+    # # --- Using the composite preprocess_text method (same as before) ---
+    # print("--- 1. Using composite preprocess_text (default config) ---")
+    # processed_composite = preprocessor.preprocess_text(sample_text)
+    # print(f"Composite Processed:\n{processed_composite}\n")
 
-    # --- Using individual methods for a custom pipeline ---
-    print("--- 2. Building a custom pipeline with individual methods ---")
-    custom_processed_text = sample_text
+    # # --- Using individual methods for a custom pipeline ---
+    # print("--- 2. Building a custom pipeline with individual methods ---")
+    # custom_processed_text = sample_text
 
-    # Step 1: Remove URLs
-    custom_processed_text = preprocessor.remove_urls(custom_processed_text)
-    print(
-        f"After URL removal: {custom_processed_text[:80]}...\n"
-    )  # Truncate for display
+    # # Step 1: Remove URLs
+    # custom_processed_text = preprocessor.remove_urls(custom_processed_text)
+    # print(
+    #     f"After URL removal: {custom_processed_text[:80]}...\n"
+    # )  # Truncate for display
 
-    # Step 2: Remove Emojis
-    custom_processed_text = preprocessor.remove_emojis(custom_processed_text)
-    print(f"After Emoji removal: {custom_processed_text[:80]}...\n")
+    # # Step 2: Remove Emojis
+    # custom_processed_text = preprocessor.remove_emojis(custom_processed_text)
+    # print(f"After Emoji removal: {custom_processed_text[:80]}...\n")
 
-    # Step 3: Remove Punctuation
-    custom_processed_text = preprocessor.remove_punctuation(custom_processed_text)
-    print(f"After Punctuation removal: {custom_processed_text[:80]}...\n")
+    # # Step 3: Remove Punctuation
+    # custom_processed_text = preprocessor.remove_punctuation(custom_processed_text)
+    # print(f"After Punctuation removal: {custom_processed_text[:80]}...\n")
 
-    # Step 4: Remove non-Sinhala characters but KEEP numbers
-    custom_processed_text = preprocessor.remove_non_sinhala_and_handle_numbers(
-        custom_processed_text, keep_numbers=True
-    )
-    print(f"After Non-Sinhala/Number handling: {custom_processed_text[:80]}...\n")
+    # # Step 4: Remove non-Sinhala characters but KEEP numbers
+    # custom_processed_text = preprocessor.remove_non_sinhala_and_handle_numbers(
+    #     custom_processed_text, keep_numbers=True
+    # )
+    # print(f"After Non-Sinhala/Number handling: {custom_processed_text[:80]}...\n")
 
-    # Step 5: Normalize whitespace (important before tokenization)
-    custom_processed_text = preprocessor.normalize_whitespace(custom_processed_text)
-    print(f"After Whitespace Normalization: '{custom_processed_text}'\n")
+    # # Step 5: Normalize whitespace (important before tokenization)
+    # custom_processed_text = preprocessor.normalize_whitespace(custom_processed_text)
+    # print(f"After Whitespace Normalization: '{custom_processed_text}'\n")
 
-    # Step 6: Remove Stop Words
-    custom_processed_text = preprocessor.remove_stopwords(custom_processed_text)
-    print(f"After Stop Words removal: '{custom_processed_text}'\n")
+    # # Step 6: Remove Stop Words
+    # custom_processed_text = preprocessor.remove_stopwords(custom_processed_text)
+    # print(f"After Stop Words removal: '{custom_processed_text}'\n")
 
-    # Step 7: Apply Stemming
-    custom_processed_text = preprocessor.apply_stemming(custom_processed_text)
-    print(f"After Stemming: '{custom_processed_text}'\n")
+    # # Step 7: Apply Stemming
+    # custom_processed_text = preprocessor.apply_stemming(custom_processed_text)
+    # print(f"After Stemming: '{custom_processed_text}'\n")
 
-    print("-" * 50)
-    print("\nNotice how you can control each step independently now!")
+    # print("-" * 50)
+    # print("\nNotice how you can control each step independently now!")
 
-    # --- Example: Just removing URLs ---
-    print("\n--- 3. Just removing URLs ---")
-    just_urls_removed = preprocessor.remove_urls(sample_text)
-    print(f"Original: '{sample_text}'")
-    print(f"Just URLs removed: '{just_urls_removed}'\n")
+    # # --- Example: Just removing URLs ---
+    # print("\n--- 3. Just removing URLs ---")
+    # just_urls_removed = preprocessor.remove_urls(sample_text)
+    # print(f"Original: '{sample_text}'")
+    # print(f"Just URLs removed: '{just_urls_removed}'\n")
 
     # --- Example: Just stemming ---
     print("\n--- 4. Just Stemming a pre-tokenized string ---")
-    text_to_stem = "ගුවන්තොටුපළ ඉදිරිපිට ගුටිබැට"
+    text_to_stem = "නියම කළේය"
+    stemmer_obj = SinhalaStemmer()
     stemmed_only = preprocessor.apply_stemming(text_to_stem)
+    library_stem = stemmer_obj.stemmer(text_to_stem)
     print(f"Original: '{text_to_stem}'")
     print(f"Just Stemmed: '{stemmed_only}'\n")
+    print(f"Library Stemmed: '{library_stem}'\n")
