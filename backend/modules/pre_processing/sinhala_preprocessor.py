@@ -153,7 +153,7 @@ class SinhalaPreprocessor:
         remove_numbers: bool = False,  # Default to False (keep numbers)
         remove_punctuation: bool = True,
         remove_stopwords: bool = True,
-        apply_stemming: bool = True,
+        apply_stemming: bool = False,
     ) -> str:
         """
         Applies a composite preprocessing pipeline to Sinhala text with configurable options.

@@ -273,19 +273,7 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#NewsArticle">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#NewsCategory">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#NamedEntity">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Statement">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -293,15 +281,67 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#NewsOccurDuration">
+<owl:Class rdf:about="#NewsCategory">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Person">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#Football">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MusicAndArts">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ResearchAndSpace">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CourtsAndInvestigation">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Other">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#InternationalPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CrimeReport">
+  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cricket">
+  <rdfs:subClassOf rdf:resource="#Sports"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ScreenAndStage">
+  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TechAndInnovation">
+  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DomesticPolitics">
+  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Statement">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Organization">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Event">
+  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Person">
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
@@ -309,8 +349,12 @@
   <rdfs:subClassOf rdf:resource="#NamedEntity"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Event">
-  <rdfs:subClassOf rdf:resource="#NamedEntity"/>
+<owl:Class rdf:about="#NewsArticle">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NewsOccurDuration">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#PoliticsAndGovernance">
@@ -331,50 +375,6 @@
 
 <owl:Class rdf:about="#CrimeAndJustice">
   <rdfs:subClassOf rdf:resource="#NewsCategory"/>
-</owl:Class>
-
-<owl:Class rdf:about="#InternationalPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#DomesticPolitics">
-  <rdfs:subClassOf rdf:resource="#PoliticsAndGovernance"/>
-</owl:Class>
-
-<owl:Class rdf:about="#TechAndInnovation">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ResearchAndSpace">
-  <rdfs:subClassOf rdf:resource="#ScienceAndTechnology"/>
-</owl:Class>
-
-<owl:Class rdf:about="#ScreenAndStage">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
-</owl:Class>
-
-<owl:Class rdf:about="#MusicAndArts">
-  <rdfs:subClassOf rdf:resource="#CultureAndEntertainment"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Cricket">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Football">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Other">
-  <rdfs:subClassOf rdf:resource="#Sports"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CrimeReport">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
-</owl:Class>
-
-<owl:Class rdf:about="#CourtsAndInvestigation">
-  <rdfs:subClassOf rdf:resource="#CrimeAndJustice"/>
 </owl:Class>
 
 <owl:NamedIndividual rdf:about="#https___hirunews_lk_408173_iran_denies_firing_missile_at_israel_">
@@ -1546,6 +1546,36 @@
 <owl:NamedIndividual rdf:about="#ද_ම_න_ද_ද_ස_න_යක">
   <rdf:type rdf:resource="#Person"/>
   <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">දුමින්ද දිසානායක</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#https___sinhala_newsfirst_lk_2025_03_31__e0_b7_81_e0_b6_b8_e0_b7">
+  <rdf:type rdf:resource="#NewsArticle"/>
+  <hasCategory rdf:resource="#Sports"/>
+  <hasCategory rdf:resource="#Cricket"/>
+  <mentionsEntity rdf:resource="#ශම_ම__ස_ල_ව_"/>
+  <mentionsEntity rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <mentionsEntity rdf:resource="#සභ_පත__ධ_රයට_ත_ර__පත_ව_ම"/>
+  <mentionsEntity rdf:resource="#ක__ර_කට__ආයතනය"/>
+  <hasCricketTeam rdf:resource="#ක__ර_කට__ආයතනය"/>
+  <hasCricketPlayer rdf:resource="#ශම_ම__ස_ල_ව_"/>
+  <hasCricketVenue rdf:resource="#ශ__ර__ල_ක_ව"/>
+  <hasCricketTournament rdf:resource="#සභ_පත__ධ_රයට_ත_ර__පත_ව_ම"/>
+  <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශම්මි සිල්වා 4 වැනි වරටත් නිතරගයෙන් ශ්‍රී ලංකා ක්‍රිකට් සභාපති ධුරයට තේරී පත්වෙයි</hasTitle>
+  <hasPublicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-03-31T11:06:00.000</hasPublicationDate>
+  <hasSourceURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://sinhala.newsfirst.lk/2025/03/31/%e0%b7%81%e0%b6%b8%e0%b7%8a%e0%b6%b8%e0%b7%92-%e0%b7%83%e0%b7%92%e0%b6%bd%e0%b7%8a%e0%b7%80%e0%b7%8f-4-%e0%b7%80%e0%b7%90%e0%b6%b1%e0%b7%92</hasSourceURL>
+  <processedDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-28T08:43:39.616</processedDate>
+  <hasFullText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශම්මි සිල්වා මහතා නිතරගයෙන් ශ්‍රී ලංකා ක්‍රිකට් ආයතනයේ සභාපතිවරයා ලෙස තේරී පත්විය.</hasFullText>
+  <publisherName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News First</publisherName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ශම_ම__ස_ල_ව_">
+  <rdf:type rdf:resource="#Person"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ශම්මි සිල්වා</canonicalName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#සභ_පත__ධ_රයට_ත_ර__පත_ව_ම">
+  <rdf:type rdf:resource="#Event"/>
+  <canonicalName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">සභාපති ධුරයට තේරී පත්වීම</canonicalName>
 </owl:NamedIndividual>
 
 
