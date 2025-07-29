@@ -1,3 +1,5 @@
+from pdb import post_mortem
+from turtle import pos
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -5,6 +7,11 @@ import uvicorn
 import logging
 
 # Import ontology modules
+from modules.dynamic_ontology.relation_extraction.ner_enhaced_triple_extractor import (
+    NEREnhancedTripleExtractor,
+)
+from modules.dynamic_ontology.relation_extraction import simple_triple_extractor
+from modules.pre_processing.sinhala_pos_tagger import SinhalaPOSTagger
 from modules.similarity_matching.similarity_engine import get_semantic_similarity_score
 from modules.similarity_matching.checker import check_news
 from modules.pre_processing.news_classification import get_category_subcategory
@@ -79,17 +86,20 @@ ontology_manager = None
 @app.on_event("startup")
 async def startup_event():
     """Initialize the ontology manager on startup"""
-    global ontology_manager, sinhala_preprocessor
+    global ontology_manager, sinhala_preprocessor, pos_tagger
     try:
         logger.info("Initializing ontology manager...")
         ontology_manager = OntologyManager()
-
         logger.info("Ontology manager initialized successfully")
 
         logger.info("Initializing Sinhala preprocessor...")
         sinhala_preprocessor = sinhala_preprocessor.SinhalaPreprocessor()
-
         logger.info("Sinhala preprocessor initialized successfully")
+
+        logger.info("Initializing Sinhala POS tagger...")
+        pos_tagger = SinhalaPOSTagger()
+        logger.info("Sinhala POS tagger initialized successfully")
+
     except Exception as e:
         logger.error(f"Failed to initialize ontology manager: {e}")
         raise
@@ -273,6 +283,55 @@ async def preprocess_and_populate(request: NewsArticleFromSource):
         raise HTTPException(
             status_code=500,
             detail=f"Error preprocessing and populating article: {str(e)}",
+        )
+
+
+# RELATION EXTRACTION ENDPOINT
+@app.post("/relation-extraction/simple", tags=["Relation Extraction"])
+async def simple_relation_extraction(request: VerifyNewsRequest):
+    """Endpoint for simple relation extraction using POS tagging and chunking"""
+    if not ontology_manager:
+        raise HTTPException(status_code=503, detail="Ontology manager not initialized")
+
+    cleaned = sinhala_preprocessor.preprocess_text(request.text, apply_stemming=True)
+
+    return simple_triple_extractor.extract_triple_extraction(
+        text=cleaned, pos_tagger_instance=pos_tagger
+    )
+
+
+@app.post("/relation-extraction/ner-enhanced", tags=["Relation Extraction"])
+async def ner_enhanced_relation_extraction(request: VerifyNewsRequest):
+    """Endpoint for NER enhanced relation extraction"""
+    if not ontology_manager:
+        raise HTTPException(status_code=503, detail="Ontology manager not initialized")
+
+    cleaned = sinhala_preprocessor.preprocess_text(request.text, apply_stemming=True)
+
+    try:
+        # Initialize the NER enhanced extractor
+        ner_extractor = NEREnhancedTripleExtractor()
+
+        persons, locations, events, organizations = extract_named_entities(request.text)
+
+        # Perform NER enhanced triple extraction
+        result = ner_extractor.extract_triple_enhanced(
+            text=cleaned,
+            ner_results={
+                "persons": persons,
+                "locations": locations,
+                "events": events,
+                "organizations": organizations,
+            },
+            pos_tagger=pos_tagger,
+        )
+        return result
+
+    except Exception as e:
+        logger.error(f"Error in NER enhanced relation extraction: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error in NER enhanced relation extraction: {str(e)}",
         )
 
 
