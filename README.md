@@ -539,7 +539,7 @@ entity_scores = calculate_fuzzy_similarity(input_entities, verified_entities)
 
 ```sparql
 # Example: Verify cricket players mentioned in sports news
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 SELECT ?personName WHERE {
   ?article ns:hasCategory ?category
   FILTER (?category = ns:Cricket)
@@ -548,7 +548,7 @@ SELECT ?personName WHERE {
 }
 
 # Example: Verify political figures in domestic politics
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 SELECT ?personName WHERE {
   ?article ns:hasCategory ?category
   FILTER (?category = ns:DomesticPolitics)

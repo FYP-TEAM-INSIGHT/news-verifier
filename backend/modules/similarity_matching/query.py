@@ -2,7 +2,7 @@
 # -----------------------------------------cricket queries-----------------------------------------
 # Query to get cricket teams
 query1 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -15,7 +15,7 @@ WHERE {
 
 # Query to get cricket players
 query2 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -27,7 +27,7 @@ WHERE {
 """
 # Query to get cricket venues
 query3 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -40,7 +40,7 @@ WHERE {
 
 # Query to get cricket tournaments
 query4 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -53,7 +53,7 @@ WHERE {
 # -----------------------------------------football queries-----------------------------------------
 # Query to get football teams
 query5 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -65,7 +65,7 @@ WHERE {
 """
 # Query to get football players
 query6 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -77,7 +77,7 @@ WHERE {
 """
 # Query to get football venues
 query7 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -90,7 +90,7 @@ WHERE {
 
 # query to get football tournaments
 query8 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -104,7 +104,7 @@ WHERE {
 # ------------------------------------------OTHER SPORT  queries-----------------------------------------
 
 query9 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -117,7 +117,7 @@ WHERE {
 
 
 query10 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -129,7 +129,7 @@ WHERE {
 """
 
 query11 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -141,7 +141,7 @@ WHERE {
 """
 
 query12 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -154,7 +154,7 @@ WHERE {
 
 # ------------------------------------------International Politics queries-----------------------------------------
 query13 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -166,7 +166,7 @@ WHERE {
 """
 
 query14 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -178,7 +178,7 @@ WHERE {
 """
 
 query15 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -190,7 +190,7 @@ WHERE {
 """
 
 query16 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -204,7 +204,7 @@ WHERE {
 # ------------------------------------------Domestic Politics queries-----------------------------------------
 
 query17 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -216,7 +216,7 @@ WHERE {
 """
 
 query18 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -228,7 +228,7 @@ WHERE {
 """
 
 query19 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -240,7 +240,7 @@ WHERE {
 """
 
 query20 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -253,7 +253,7 @@ WHERE {
 # ------------------------------------------Tech And Innovation queries-----------------------------------------
 
 query21 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -265,7 +265,7 @@ WHERE {
 """
 
 query22 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -277,7 +277,7 @@ WHERE {
 """
 
 query23 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -289,7 +289,7 @@ WHERE {
 """
 
 query24 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -303,7 +303,7 @@ WHERE {
 # ------------------------------------------Research & Space queries-----------------------------------------
 
 query25 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -315,7 +315,7 @@ WHERE {
 """
 
 query26 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -327,7 +327,7 @@ WHERE {
 """
 
 query27 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -339,7 +339,7 @@ WHERE {
 """
 
 query28 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -352,7 +352,7 @@ WHERE {
 # ------------------------------------------ screen & stage queries-----------------------------------------
 
 query29 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -364,7 +364,7 @@ WHERE {
 """
 
 query30 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -376,7 +376,7 @@ WHERE {
 """
 
 query31 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -388,7 +388,7 @@ WHERE {
 """
 
 query32 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -402,7 +402,7 @@ WHERE {
 # ------------------------------------------ music & arts queries-----------------------------------------
 
 query33 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -414,7 +414,7 @@ WHERE {
 """
 
 query34 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -426,7 +426,7 @@ WHERE {
 """
 
 query35 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -438,7 +438,7 @@ WHERE {
 """
 
 query36 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -452,7 +452,7 @@ WHERE {
 # -------------------------------------------Crime & Justice queries(common for both sub category)-----------------------------------------
 
 query37 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?organizationName
 WHERE {
@@ -464,7 +464,7 @@ WHERE {
 """
 
 query38 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?personName
 WHERE {
@@ -478,7 +478,7 @@ WHERE {
 # -------------------------------------------crime report queries-----------------------------------------
 
 query39 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -490,7 +490,7 @@ WHERE {
 """
 
 query40 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -505,7 +505,7 @@ WHERE {
 # -------------------------------------------courts & investigation queries-----------------------------------------
 
 query41 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?eventName
 WHERE {
@@ -517,7 +517,7 @@ WHERE {
 """
 
 query42 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?locationName
 WHERE {
@@ -529,7 +529,7 @@ WHERE {
 """
 
 query43 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT ?publisher
 WHERE {
@@ -539,7 +539,7 @@ WHERE {
 """
 
 query44 = """
-PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
 
 SELECT DISTINCT ?trustSementics
 WHERE {

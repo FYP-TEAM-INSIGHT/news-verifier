@@ -23,7 +23,7 @@ def get_verified_values(sparql_query):
 
 def get_trusted_publishers():
     sparql = """
-    PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+    PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
     SELECT DISTINCT ?publisher
     WHERE {
       ?article ns:publisherName ?publisher .
@@ -41,7 +41,7 @@ def get_source_credibility(news_publisher, trusted_publishers):
 def get_trusted_contents_by_category(category):
     category_uri = f"ns:{category}"
     sparql = f"""
-    PREFIX ns: <http://www.semanticweb.org/kameshfdo/ontologies/2025/5/new-ontology-v1#>
+    PREFIX ns: <http://www.semanticweb.org/kingmalitha/ontologies/2025/5/new-ontology-v1#>
     SELECT DISTINCT ?trustSementics ?title ?url
     WHERE {{
       ?article ns:hasCategory ?cat .
